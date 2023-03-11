@@ -16,7 +16,7 @@ namespace JH.Portfolio.Character
         /// <summary>
         /// Open skill management tool window
         /// </summary>
-        [MenuItem("Window/Skill Management Tool")]
+        [MenuItem("Skill Manager/Skill Management Tool")]
         public static void ShowWindow()
         {
             GetWindow<SkillManagementTool>("Skill Management Tool");
@@ -33,8 +33,8 @@ namespace JH.Portfolio.Character
             {
                 Debug.Log("Create SkillManager.asset");
                 _skillManager = CreateInstance<SkillManager>();
-                _skillManager.Initailization();
-                AssetDatabase.CreateAsset(_skillManager, "Assets/Resources/Skill/SkillManager.asset");
+                _skillManager.skillList = FindAssets.FindAssetsByType<SkillData>();
+                AssetDatabase.CreateAsset(_skillManager, "Assets/Portfolio/Resources/Skill/SkillManager.asset");
                 AssetDatabase.SaveAssets();
             }
         }

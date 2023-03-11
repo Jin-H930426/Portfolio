@@ -6,14 +6,5 @@ namespace JH.Portfolio.Character
     public class SkillManager : ScriptableObject
     {
         public List<SkillData> skillList;
-
-        public void Initailization()
-        {
-            #if UNITY_EDITOR
-            skillList = FindAssets.FindAssetsByType<SkillData>();
-            
-            #endif
-        }
     }
-    
 }

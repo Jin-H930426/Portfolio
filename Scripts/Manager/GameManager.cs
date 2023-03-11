@@ -11,8 +11,7 @@ namespace JH.Portfolio.Manager
         public static GameManager instance;
         
         // Reference to other managers
-        public TimeManager timeManager;
-        
+        private TimeManager _timeManager;
         
         private void Awake()
         {
@@ -30,25 +29,18 @@ namespace JH.Portfolio.Manager
                 return;
             }
             
-            timeManager = new TimeManager();
+            _timeManager = new TimeManager();
         }
-
-        private void Start()
-        {
-           timeManager.AddTimeEvent("Loop test", 1f, true, () => { Debug.Log("Loop test"); }); 
-           timeManager.AddTimeEvent("test", 1f, false, () => { Debug.Log("test"); }); 
-        }
-
         private void Update()
         {
-            if(timeManager == null) return;
-            timeManager.Update(Time.deltaTime);
+            if(_timeManager == null) return;
+            _timeManager.Update(Time.deltaTime);
         }
         
         private void OnDestroy()
         {
-            timeManager.ClearTimeEvent();
-            timeManager = null;
+            _timeManager.ClearTimeEvent();
+            _timeManager = null;
         }
     }
 }

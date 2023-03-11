@@ -6,55 +6,14 @@ namespace JH.Portfolio.Manager
 {
     public class TimeManager
     {
+        private readonly float MAX_TIME = 1000000f;
         // World time
         private float worldTime = 0;
         // Time scale
         public float TimeScale { get; set; } = 1f;
 
-        // IntervalTrigger class
-        public class IntervalTrigger
-        {
-            public bool IsLoop;
-            public float Interval;
-            public float Timer;
-            public float remainTime => Interval - Timer;
-            public Action Action;
-
-            /// <summary>
-            /// IntervalTrigger constructor
-            /// </summary>
-            /// <param name="interval">delay Time</param>
-            /// <param name="isLoop">loop check</param>
-            /// <param name="action">action event</param>
-            public IntervalTrigger(float interval, bool isLoop, Action action)
-            {
-                this.IsLoop = isLoop;
-                this.Interval = interval;
-                this.Timer = 0f;
-                this.Action = action;
-            }
-
-            /// <summary>
-            /// Set timer and return true if timer is over interval
-            /// </summary>
-            /// <param name="deltaTime"></param>
-            /// <returns></returns>
-            public bool Update(float deltaTime)
-            {
-                Timer += deltaTime;
-                if (Timer >= Interval)
-                {
-                    Action?.Invoke();
-                    Timer -= Interval;
-                    return true;
-                }
-
-                return false;
-            }
-        }
-
         // Dictionary for time event
-        Dictionary<string, IntervalTrigger> _timeEvent = new Dictionary<string, IntervalTrigger>();
+        Dictionary<string, float> _intervalTriggers = new Dictionary<string, float>();
         // Remove queue
         Queue<string> removeQueue = new Queue<string>();
         
@@ -66,17 +25,20 @@ namespace JH.Portfolio.Manager
         {
             // Set world time
             worldTime += deltaTime * TimeScale;
+            bool overflow = worldTime > MAX_TIME;
             // Update time event
-            foreach (var intervalTrigger in _timeEvent)
+            foreach (var intervalTrigger in _intervalTriggers)
             {
-                if (intervalTrigger.Value.Update(deltaTime * TimeScale) && !intervalTrigger.Value.IsLoop)
+                if (intervalTrigger.Value < worldTime)
                     removeQueue.Enqueue(intervalTrigger.Key);
+                if (overflow) _intervalTriggers[intervalTrigger.Key] = intervalTrigger.Value - MAX_TIME;
             }
             // Remove time event
             while (removeQueue.Count > 0)
             {
-                _timeEvent.Remove(removeQueue.Dequeue());
+                _intervalTriggers.Remove(removeQueue.Dequeue());
             }
+            if (overflow) worldTime -= MAX_TIME;
         }
 
         /// <summary>
@@ -86,13 +48,13 @@ namespace JH.Portfolio.Manager
         /// <param name="interval">action delay</param>
         /// <param name="isLoop"></param>
         /// <param name="action">action</param>
-        public void AddTimeEvent(string key, float interval, bool isLoop, Action action)
+        public void AddTimeEvent(string key, float interval)
         {
             // If key is already exist, return
-            if (_timeEvent.ContainsKey(key))
+            if (_intervalTriggers.ContainsKey(key))
                 return;
             // Add time event
-            _timeEvent.Add(key, new IntervalTrigger(interval, isLoop, action));
+            _intervalTriggers.Add(key, interval+ worldTime);
         }
 
         /// <summary>
@@ -102,8 +64,8 @@ namespace JH.Portfolio.Manager
         public void RemoveTimeEvent(string key)
         {
             // If key is exist, remove event
-            if (_timeEvent.ContainsKey(key))
-                _timeEvent.Remove(key);
+            if (_intervalTriggers.ContainsKey(key))
+                _intervalTriggers.Remove(key);
         }
 
         /// <summary>
@@ -113,8 +75,8 @@ namespace JH.Portfolio.Manager
         /// <returns></returns>
         public float GetRemainTime(string key)
         {
-            if (_timeEvent.ContainsKey(key))
-                return _timeEvent[key].remainTime;
+            if (_intervalTriggers.ContainsKey(key))
+                return _intervalTriggers[key] - worldTime;
             return -1.0f;
         }
         
@@ -123,7 +85,8 @@ namespace JH.Portfolio.Manager
         /// </summary>
         public void ClearTimeEvent()
         {
-            _timeEvent.Clear();
+            _intervalTriggers.Clear();
+            _intervalTriggers = null;
         }
     }
 }
