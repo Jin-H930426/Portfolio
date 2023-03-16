@@ -5,21 +5,27 @@ using UnityEngine;
 
 namespace JH.Portfolio.Manager
 {
+    [DefaultExecutionOrder(10)]
     public class GameManager : MonoBehaviour
     {
         // Reference GameManager component for Singleton
-        public static GameManager instance;
-        
+        public static GameManager Instance { get; private set; }
         // Reference to other managers
-        private TimeManager _timeManager;
+        [ReadOnly, SerializeField] private TimeManager _timeManager;
+        public static TimeManager TimeManager => Instance._timeManager;
+        [ReadOnly, SerializeField] private InputManager _inputManager;
+        // public static InputManager InputManager => instance._inputManager;
+        public static InputManager InputManager => Instance?._inputManager;
+        public InputManager.InputType InputType = InputManager.InputType.Keyboard;
         
+        // Initialize game manager
         private void Awake()
         {
             // Initialize Singleton
             // If there is yet an instance of GameManager in the scene, set it to this one
-            if (instance == null)
+            if (Instance == null)
             {
-                instance = this;
+                Instance = this;
                 DontDestroyOnLoad(gameObject);
             }
             // If there is already an instance of GameManager, destroy this one
@@ -28,20 +34,38 @@ namespace JH.Portfolio.Manager
                 Destroy(gameObject);
                 return;
             }
-            
+            // Platform Check
+            #region Platform Check
+#if PLATFORM_ANDROID || PLATFORM_IOS
+            if (InputType == InputManager.InputType.Keyboard)
+                InputType = InputManager.InputType.Mobile;
+#elif PLATFORM_STANDALONE
+            if (InputType == InputManager.InputType.Mobile)
+                InputType = InputManager.InputType.Keyboard;
+#endif
+            #endregion 
             _timeManager = new TimeManager();
+            _inputManager = new InputManager(InputType);
         }
+        // game manager update
         private void Update()
         {
-            if(_timeManager == null) return;
-            _timeManager.Update(Time.deltaTime);
+            UnityEngine.Profiling.Profiler.BeginSample("GameManager.Update");
+            var deltaTime = Time.deltaTime;
+            _timeManager.Update(deltaTime);
+            _inputManager.Update(deltaTime);
+            UnityEngine.Profiling.Profiler.EndSample();
         }
-        
+        // On destroy game manager component  
         private void OnDestroy()
         {
-            _timeManager.ClearTimeEvent();
+            _timeManager.Destroy();
+            _inputManager.Destroy();
             _timeManager = null;
+            _inputManager = null;
         }
+
+
     }
 }
 

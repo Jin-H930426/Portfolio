@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEngine;
 
 namespace JH.Portfolio.Manager
 {
+    [System.Serializable]
     public class TimeManager
     {
         private readonly float MAX_TIME = 1000000f;
+        public static float DeltaTime { get; private set; } = 0f;
         // World time
-        private float worldTime = 0;
+        [field: SerializeField] public float worldTime { get; private set; } = 0;
+
         // Time scale
         public float TimeScale { get; set; } = 1f;
 
@@ -24,7 +28,8 @@ namespace JH.Portfolio.Manager
         public void Update(float deltaTime)
         {
             // Set world time
-            worldTime += deltaTime * TimeScale;
+            DeltaTime = deltaTime * TimeScale;
+            worldTime += DeltaTime;
             bool overflow = worldTime > MAX_TIME;
             // Update time event
             foreach (var intervalTrigger in _intervalTriggers)
@@ -48,24 +53,29 @@ namespace JH.Portfolio.Manager
         /// <param name="interval">action delay</param>
         /// <param name="isLoop"></param>
         /// <param name="action">action</param>
-        public void AddTimeEvent(string key, float interval)
+        public bool AddTimeEvent(string key, float interval)
         {
             // If key is already exist, return
             if (_intervalTriggers.ContainsKey(key))
-                return;
+                return false;
             // Add time event
             _intervalTriggers.Add(key, interval+ worldTime);
+            return true;
         }
 
         /// <summary>
         /// Remove time event
         /// </summary>
         /// <param name="key">event key for remove event</param>
-        public void RemoveTimeEvent(string key)
+        public bool RemoveTimeEvent(string key)
         {
             // If key is exist, remove event
             if (_intervalTriggers.ContainsKey(key))
+            {
                 _intervalTriggers.Remove(key);
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -73,7 +83,7 @@ namespace JH.Portfolio.Manager
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public float GetRemainTime(string key)
+        public float GetRemainingTime(string key)
         {
             if (_intervalTriggers.ContainsKey(key))
                 return _intervalTriggers[key] - worldTime;
@@ -86,6 +96,13 @@ namespace JH.Portfolio.Manager
         public void ClearTimeEvent()
         {
             _intervalTriggers.Clear();
+        }
+        /// <summary>
+        /// Destroy time manager
+        /// </summary>
+        public void Destroy()
+        {
+            ClearTimeEvent();
             _intervalTriggers = null;
         }
     }
