@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using JH.Portfolio.Manager;
 using UnityEngine;
 
 namespace JH.Portfolio.Character
 {
+    using Manager;
+    
     public class PlayerController : MonoBehaviour
     {
         // Reference to Animator

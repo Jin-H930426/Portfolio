@@ -4,6 +4,7 @@ using UnityEngine;
 namespace JH.Portfolio.Manager
 {
     using InputSystem;
+    
     public class InputManager
     {
         #region define

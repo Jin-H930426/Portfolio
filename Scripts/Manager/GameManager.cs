@@ -13,10 +13,14 @@ namespace JH.Portfolio.Manager
         // Reference to other managers
         [ReadOnly, SerializeField] private TimeManager _timeManager;
         public static TimeManager TimeManager => Instance._timeManager;
+        // Reference to InputManager        
         [ReadOnly, SerializeField] private InputManager _inputManager;
-        // public static InputManager InputManager => instance._inputManager;
         public static InputManager InputManager => Instance?._inputManager;
         public InputManager.InputType InputType = InputManager.InputType.Keyboard;
+        // Reference to ResourceManager
+        [ReadOnly, SerializeField] private ResourceManager _resourceManager;
+        public static ResourceManager ResourceManager => Instance._resourceManager;
+        
         
         // Initialize game manager
         private void Awake()
@@ -46,6 +50,7 @@ namespace JH.Portfolio.Manager
             #endregion 
             _timeManager = new TimeManager();
             _inputManager = new InputManager(InputType);
+            _resourceManager = new ResourceManager();
         }
         // game manager update
         private void Update()

@@ -14,13 +14,14 @@ namespace JH.Portfolio.Manager
         [field: SerializeField] public float worldTime { get; private set; } = 0;
 
         // Time scale
-        public float TimeScale { get; set; } = 1f;
+        [field: SerializeField] public float TimeScale { get; set; } = 1f;
 
         // Dictionary for time event
-        Dictionary<string, float> _intervalTriggers = new Dictionary<string, float>();
+        private Dictionary<string, float> _intervalTriggers { get; set; } = new Dictionary<string, float>();
+
         // Remove queue
-        Queue<string> removeQueue = new Queue<string>();
-        
+        private Queue<string> removeQueue { get; set; } = new Queue<string>();
+
         /// <summary>
         /// Update time by deltaTime
         /// </summary>
@@ -45,7 +46,6 @@ namespace JH.Portfolio.Manager
             }
             if (overflow) worldTime -= MAX_TIME;
         }
-
         /// <summary>
         /// Add time event
         /// </summary>
@@ -62,7 +62,6 @@ namespace JH.Portfolio.Manager
             _intervalTriggers.Add(key, interval+ worldTime);
             return true;
         }
-
         /// <summary>
         /// Remove time event
         /// </summary>
@@ -77,7 +76,6 @@ namespace JH.Portfolio.Manager
             }
             return false;
         }
-
         /// <summary>
         /// Get time event remain time
         /// </summary>
@@ -89,7 +87,6 @@ namespace JH.Portfolio.Manager
                 return _intervalTriggers[key] - worldTime;
             return -1.0f;
         }
-        
         /// <summary>
         /// Clear all time event
         /// </summary>
