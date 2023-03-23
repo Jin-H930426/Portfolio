@@ -20,6 +20,9 @@ namespace JH.Portfolio.Manager
         // Reference to ResourceManager
         [ReadOnly, SerializeField] private ResourceManager _resourceManager;
         public static ResourceManager ResourceManager => Instance._resourceManager;
+        // Reference to FirebaseManager
+        [ReadOnly, SerializeField] private FirebaseManager _firebaseManager;
+        public static FirebaseManager FirebaseManager => Instance._firebaseManager;
         
         
         // Initialize game manager
@@ -51,12 +54,13 @@ namespace JH.Portfolio.Manager
             _timeManager = new TimeManager();
             _inputManager = new InputManager(InputType);
             _resourceManager = new ResourceManager();
+            _firebaseManager = new FirebaseManager();
         }
         // game manager update
         private void Update()
         {
             UnityEngine.Profiling.Profiler.BeginSample("GameManager.Update");
-            var deltaTime = Time.deltaTime;
+            var deltaTime = Time.unscaledDeltaTime;
             _timeManager.Update(deltaTime);
             _inputManager.Update(deltaTime);
             UnityEngine.Profiling.Profiler.EndSample();
@@ -65,9 +69,15 @@ namespace JH.Portfolio.Manager
         private void OnDestroy()
         {
             _timeManager.Destroy();
-            _inputManager.Destroy();
             _timeManager = null;
+            
+            _inputManager.Destroy();
             _inputManager = null;
+
+            _resourceManager = null;
+            
+            _firebaseManager.Destroy();
+            _firebaseManager = null;
         }
 
 

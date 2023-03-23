@@ -6,26 +6,34 @@ using UnityEngine;
 namespace JH.Portfolio.Character
 {
     using Manager;
-    
+    [RequireComponent(typeof(Animator), typeof(Rigidbody))]
     public class PlayerController : MonoBehaviour
     {
         // Reference to Animator
-        [SerializeField] private Animator _animator;
+        private Animator _animator;
+        // Reference to Rigidbody
+        private Rigidbody _rigidbody;
 
         [field: SerializeField] public float moveSpeed { get; private set; } = 5f;
         [field: SerializeField] public float rotateSpeed { get; private set; } = 360f;
         [field: SerializeField] public float jumpForce { get; private set; } = 5f;
         [field: SerializeField] public float gravity { get; private set; } = 9.8f;
-
+        
+        // State of player's run
+        private bool _isMove = false;
         // State of player's defense
         private bool _isDefense = false;
-
         // State of player's sprint
         private bool _isSprint = false;
-
+        // State of player's jump
+        private bool _isJump = false;
+        
+        // Valuable of player's Idle state
+        private float _idleVal = 0f;
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+            _rigidbody = GetComponent<Rigidbody>();
         }
 
         /// <summary>
@@ -84,38 +92,57 @@ namespace JH.Portfolio.Character
         {
             _animator.SetFloat("Speed_f", 0f);
             _animator.SetBool("Defense_b", false);
-            _animator.SetBool("Sprint_b", false);
             _isSprint = false;
             _isDefense = false;
         }
 
-        void RotateNMovement(Vector3 move, Vector3 rot)
+        void RotateNMovement(Vector3 inputMove, Vector3 inputRotate)
         {
-            // Calculate speed
-            var speed_f = move.normalized.magnitude;
-            // Check spring and defense
-            if (move.z > .9f && _isSprint && !_isDefense)
-                speed_f = 1f;
-            else if (speed_f > .5f)
-                speed_f = .5f;
-            // Calculate rotation and movement vector
-            var rotVector = new Vector3(0, -rot.x, 0) * (rotateSpeed * TimeManager.DeltaTime);
-            var moveVector = transform.TransformDirection(move) * (moveSpeed * TimeManager.DeltaTime * speed_f);
-            // Rotate
-            Quaternion rotation = Quaternion.Euler(rotVector) * transform.rotation;
-            // Move
-            Vector3 movement = transform.position + moveVector;
-            // Apply
-            transform.SetPositionAndRotation(movement, rotation);
-
-            // Set animation
-            _animator.SetFloat("Speed_f", speed_f);
+            CharacterMovement(inputMove);
         }
 
+        void CharacterMovement(Vector3 inputVector)
+        {
+            if (_isJump) return;
+            // Get horizontal and vertical input
+            float vertical = inputVector.z * .5f;
+            float horizontal = inputVector.x * .5f;
+            
+            // Check sprint
+            if (_isSprint)
+            {
+                horizontal *= 2f;
+                vertical *= 2f;
+            }
+            
+            // Calculate rotation and movement vector
+            var rotVector = new Vector3(0, horizontal, 0) * (rotateSpeed * TimeManager.DeltaTime);
+            var moveVector = transform.TransformDirection(new Vector3(0, 0, vertical)) * (moveSpeed * TimeManager.DeltaTime);
+            // Rotate
+            Quaternion rotation = Quaternion.Euler(rotVector) * transform.rotation;
+            Vector3 position = transform.position + moveVector;
+            
+            // Apply
+            transform.SetPositionAndRotation(position, rotation);
+            // Set animation
+            // move Statue Check
+            if (inputVector.magnitude > 0.2f && !_isMove)
+            {
+                _isMove = true;
+                _animator.SetBool("Move_b", true);
+            }
+
+            
+            _animator.SetFloat("Horizontal_f", horizontal);
+            _animator.SetFloat("Vertical_f", vertical);
+        }
+        
+        
         void Stop(Vector3 movem, Vector3 rot)
         {
             // Set animation
-            _animator.SetFloat("Speed_f", 0f);
+            _isMove = false;
+            _animator.SetBool("Move_b", false);
         }
 
         void Attact()
@@ -126,6 +153,7 @@ namespace JH.Portfolio.Character
         void Defense()
         {
             _isDefense = true;
+            _animator.ResetTrigger("Attack_t");
             _animator.SetBool("Defense_b", true);
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Firebase;
 using Firebase.Auth;
+using Unity.VisualScripting;
 
 namespace JH.Portfolio.Firebase
 {
@@ -16,27 +17,34 @@ namespace JH.Portfolio.Firebase
 
         // string for debug to check firebase user data
         string _data = "";
-
+        
+        public FirebaseAuthorization()
+        {
+            Debug.Log("Create FirebaseAuthorization");
+            Initialize();
+        }
+        
         /// <summary>
         /// Initialization firebase authorization
         /// </summary>
         public void Initialize()
         {
+            Debug.Log("Initialize Check and fix dependencies");
             // Check that Firebase is ready to use
             FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
             {
                 // Get dependency status
                 var dependencyStatus = task.Result;
+                Debug.Log($"dependencyStatus: {dependencyStatus}");
                 // If ready, initialize Firebase
                 if (dependencyStatus == DependencyStatus.Available)
                 {
+                    Debug.Log($"Initialize firebaseAuth");
                     // Initialize Firebase
                     // Set the authentication instance object
                     firebaseAuth = FirebaseAuth.DefaultInstance;
                     // Set state changed listener
                     firebaseAuth.StateChanged += AuthStateChanged;
-                    // Call the AuthStateChanged function to handle the state changed event
-                    AuthStateChanged(this, null);
                 }
                 else
                 {
@@ -47,7 +55,7 @@ namespace JH.Portfolio.Firebase
         /// <summary>
         /// Clear firebase authorization
         /// </summary>
-        void OnDestroy()
+        public void Destroy()
         {
             SignOut();
             firebaseAuth.StateChanged -= AuthStateChanged;
@@ -61,6 +69,7 @@ namespace JH.Portfolio.Firebase
         /// <param name="eventArgs"></param>
         void AuthStateChanged(object sender, System.EventArgs eventArgs)
         {
+            Debug.Log("Call AuthStateChanged");
             if (firebaseAuth.CurrentUser != loginUser)
             {
                 bool signedIn = firebaseAuth.CurrentUser != null;
@@ -74,6 +83,10 @@ namespace JH.Portfolio.Firebase
                 {
                     Debug.Log($"Signed in {loginUser.UserId}");
                 }
+            }
+            else
+            {
+                Debug.Log("NonUser");
             }
         }
         /// <summary>
