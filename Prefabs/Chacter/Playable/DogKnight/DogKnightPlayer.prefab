@@ -55,7 +55,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477207753}
-  m_LocalRotation: {x: 0.0000000019288378, y: 0.979048, z: -0.20362951, w: 0.000000009273827}
+  m_LocalRotation: {x: -0.000000008582343, y: 0.979048, z: -0.20362951, w: -0.000000041263792}
   m_LocalPosition: {x: -0.000000059604645, y: 2, z: 4.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 798494330}
   - component: {fileID: 798494333}
   - component: {fileID: 798494332}
-  - component: {fileID: 5524199433153894703}
+  - component: {fileID: 798494334}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
---- !u!114 &5524199433153894703
+--- !u!114 &798494334
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -352,19 +352,51 @@ MonoBehaviour:
   m_GameObject: {fileID: 798494329}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 9384ab8608cdc3d479fe89cd51eed48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 4, z: 8}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
-  m_AngularDampingMode: 1
+  m_BindingMode: 5
+  m_FollowOffset: {x: 0, y: 4, z: -5}
+  m_XDamping: 0
+  m_YDamping: 0
+  m_ZDamping: 0
+  m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
+  m_Heading:
+    m_Definition: 2
+    m_VelocityFilterStrength: 4
+    m_Bias: 0
+  m_RecenterToTargetHeading:
+    m_enabled: 1
+    m_WaitTime: 1
+    m_RecenteringTime: 2
+    m_LegacyHeadingDefinition: -1
+    m_LegacyVelocityFilterStrength: -1
+  m_XAxis:
+    Value: 0
+    m_SpeedMode: 0
+    m_MaxSpeed: 300
+    m_AccelTime: 0.1
+    m_DecelTime: 0.1
+    m_InputAxisName: Mouse X
+    m_InputAxisValue: 0
+    m_InvertInput: 1
+    m_MinValue: -180
+    m_MaxValue: 180
+    m_Wrap: 1
+    m_Recentering:
+      m_enabled: 0
+      m_WaitTime: 1
+      m_RecenteringTime: 2
+      m_LegacyHeadingDefinition: -1
+      m_LegacyVelocityFilterStrength: -1
+  m_LegacyRadius: 3.4028235e+38
+  m_LegacyHeightOffset: 3.4028235e+38
+  m_LegacyHeadingBias: 3.4028235e+38
+  m_HeadingIsSlave: 0
 --- !u!1 &1433927592
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,8 +453,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613527518}
-  m_LocalRotation: {x: 0.0000000031404526, y: 0.9733253, z: -0.2294295, w: 0.00000001332297}
-  m_LocalPosition: {x: -0.000000059604645, y: 3.9933562, z: 8}
+  m_LocalRotation: {x: 0.33100694, y: 0.000000040008203, z: -0.000000014034119, w: 0.9436283}
+  m_LocalPosition: {x: -0.00000065565104, y: 4, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -570,7 +602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1825341148
 Transform:
   m_ObjectHideFlags: 0
@@ -3136,15 +3168,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5526506266073111231}
-  m_LocalRotation: {x: 0.70580983, y: -0.0022091705, z: 0.00031847254, w: 0.7083978}
-  m_LocalPosition: {x: -0.10485296, y: 0.009752304, z: -0.00410721}
+  m_LocalRotation: {x: 0.4608485, y: 0.2611298, z: 0.36887646, w: 0.7637801}
+  m_LocalPosition: {x: -0.10820585, y: 0.035122238, z: -0.0015180856}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4094076805371307180}
   m_Father: {fileID: 4905021683721359149}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30.752, y: 59.292, z: 69.348}
 --- !u!1 &8459273113898847202
 GameObject:
   m_ObjectHideFlags: 0
@@ -3241,6 +3273,7 @@ GameObject:
   - component: {fileID: 2514767394498628567}
   - component: {fileID: 2514767394489345084}
   - component: {fileID: 2514767394489345083}
+  - component: {fileID: 6070707768061186438}
   m_Layer: 0
   m_Name: DogKnightPlayer
   m_TagString: Player
@@ -3283,13 +3316,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'Dog01_l'\n\tTransform 'Nose01'\n\tTransform
-    'Dog02_l'\n\tTransform 'Dog01_r'\n\tTransform 'Dog02_r'\n\tTransform 'Nose01'\n\tTransform
-    'Nose02'\n\tTransform 'Nose02'\n\tTransform 'Dog01_l'\n\tTransform 'Nose01'\n\tand
-    more ...\n\tFrom animation clip 'Attack01'\n\tFrom animation clip 'Attack02'\n\tFrom
-    animation clip 'Defend'"
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -3306,10 +3333,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fbf59045d84e46409df1a4d308e32eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <moveSpeed>k__BackingField: 5
-  <rotateSpeed>k__BackingField: 360
-  <jumpForce>k__BackingField: 5
-  <gravity>k__BackingField: 9.8
+  <MoveSpeed>k__BackingField: 5
+  <RotateSpeed>k__BackingField: 360
+  <JumpForce>k__BackingField: 5
+  maxJumpCount: 2
 --- !u!54 &2514767394489345084
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3340,6 +3367,23 @@ CapsuleCollider:
   m_Height: 1.52
   m_Direction: 1
   m_Center: {x: 0, y: 0.76, z: 0}
+--- !u!114 &6070707768061186438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8563949911198919064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d508d347f299d479a1aaeb08eba084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cameraMode: 1
+  <Target>k__BackingField: {fileID: 1433927593}
+  cameraOffset: {x: 0, y: 4, z: -4}
+  cameraRotation: {x: 0, y: 0, z: 0, w: 1}
+  <CameraPriority>k__BackingField: 1
 --- !u!1 &8956725173781588269
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace JH.Portfolio.Character
+namespace JH.Portfolio.Controller
 {
     using Manager;
     [RequireComponent(typeof(Animator), typeof(Rigidbody))]
@@ -14,10 +14,9 @@ namespace JH.Portfolio.Character
         // Reference to Rigidbody
         private Rigidbody _rigidbody;
 
-        [field: SerializeField] public float moveSpeed { get; private set; } = 5f;
-        [field: SerializeField] public float rotateSpeed { get; private set; } = 360f;
-        [field: SerializeField] public float jumpForce { get; private set; } = 5f;
-        [field: SerializeField] public float gravity { get; private set; } = 9.8f;
+        [field: SerializeField] public float MoveSpeed { get; private set; } = 5f;
+        [field: SerializeField] public float RotateSpeed { get; private set; } = 360f;
+        [field: SerializeField] public float JumpForce { get; private set; } = 5f;
         
         // State of player's run
         private bool _isMove = false;
@@ -26,16 +25,14 @@ namespace JH.Portfolio.Character
         // State of player's sprint
         private bool _isSprint = false;
         // State of player's jump
-        private bool _isJump = false;
+        private int _jumpCount = 0;
+        [SerializeField] public int maxJumpCount = 2;
         
-        // Valuable of player's Idle state
-        private float _idleVal = 0f;
         private void Awake()
         {
             _animator = GetComponent<Animator>();
             _rigidbody = GetComponent<Rigidbody>();
         }
-
         /// <summary>
         /// Initialize on second enable
         /// Because GameManager is initialized after PlayerController
@@ -57,7 +54,6 @@ namespace JH.Portfolio.Character
             // Initialize
             Initialize();
         }
-
         /// <summary>
         /// Initialize
         /// </summary>
@@ -83,8 +79,9 @@ namespace JH.Portfolio.Character
 
             GameManager.InputManager.OnSprintInputEvent.OnPressedEvent += Sprint;
             GameManager.InputManager.OnSprintInputEvent.OnReleasedEvent += ReleaseSprint;
+            
+            GameManager.InputManager.OnJumpInputEvent.OnReleasedEvent += Jump;
         }
-
         /// <summary>
         /// Initialize animator
         /// </summary>
@@ -95,84 +92,6 @@ namespace JH.Portfolio.Character
             _isSprint = false;
             _isDefense = false;
         }
-
-        void RotateNMovement(Vector3 inputMove, Vector3 inputRotate)
-        {
-            CharacterMovement(inputMove);
-        }
-
-        void CharacterMovement(Vector3 inputVector)
-        {
-            if (_isJump) return;
-            // Get horizontal and vertical input
-            float vertical = inputVector.z * .5f;
-            float horizontal = inputVector.x * .5f;
-            
-            // Check sprint
-            if (_isSprint)
-            {
-                horizontal *= 2f;
-                vertical *= 2f;
-            }
-            
-            // Calculate rotation and movement vector
-            var rotVector = new Vector3(0, horizontal, 0) * (rotateSpeed * TimeManager.DeltaTime);
-            var moveVector = transform.TransformDirection(new Vector3(0, 0, vertical)) * (moveSpeed * TimeManager.DeltaTime);
-            // Rotate
-            Quaternion rotation = Quaternion.Euler(rotVector) * transform.rotation;
-            Vector3 position = transform.position + moveVector;
-            
-            // Apply
-            transform.SetPositionAndRotation(position, rotation);
-            // Set animation
-            // move Statue Check
-            if (inputVector.magnitude > 0.2f && !_isMove)
-            {
-                _isMove = true;
-                _animator.SetBool("Move_b", true);
-            }
-
-            
-            _animator.SetFloat("Horizontal_f", horizontal);
-            _animator.SetFloat("Vertical_f", vertical);
-        }
-        
-        
-        void Stop(Vector3 movem, Vector3 rot)
-        {
-            // Set animation
-            _isMove = false;
-            _animator.SetBool("Move_b", false);
-        }
-
-        void Attact()
-        {
-            _animator.SetTrigger("Attack_t");
-        }
-
-        void Defense()
-        {
-            _isDefense = true;
-            _animator.ResetTrigger("Attack_t");
-            _animator.SetBool("Defense_b", true);
-        }
-
-        void ReleaseDefense()
-        {
-            _isDefense = false;
-            _animator.SetBool("Defense_b", false);
-        }
-
-        void Sprint()
-        {
-            _isSprint = true;
-        }
-
-        void ReleaseSprint()
-        {
-            _isSprint = false;
-        }
-
         /// <summary>
         /// Clear input event when disable
         /// </summary>
@@ -180,7 +99,6 @@ namespace JH.Portfolio.Character
         {
             ClearInputEvent();
         }
-
         /// <summary>
         /// Clear input event
         /// </summary>
@@ -198,6 +116,137 @@ namespace JH.Portfolio.Character
 
             GameManager.InputManager.OnSprintInputEvent.OnPressedEvent -= Sprint;
             GameManager.InputManager.OnSprintInputEvent.OnReleasedEvent -= ReleaseSprint;
+            
+            GameManager.InputManager.OnJumpInputEvent.OnPressedEvent -= Jump;
+        }
+        /// <summary>
+        /// Event for character movement by input manager
+        /// </summary>
+        /// <param name="inputMove"></param>
+        /// <param name="inputRotate"></param>
+        void RotateNMovement(Vector3 inputMove, Vector3 inputRotate)
+        {
+            CharacterMovement(inputMove);
+        }
+        
+        /// <summary>
+        /// Function for character movement
+        /// </summary>
+        /// <param name="inputVector"></param>
+        void CharacterMovement(Vector3 inputVector)
+        {
+            // Get horizontal and vertical input
+            float vertical = inputVector.z * .5f;
+            float horizontal = inputVector.x * .5f;
+            
+            // Check sprint
+            if (_isSprint)
+            {
+                horizontal *= 2f;
+                vertical *= 2f;
+            }
+            
+            // Calculate rotation and movement vector
+            var rotVector = new Vector3(0, horizontal, 0) * (RotateSpeed * TimeManager.DeltaTime);
+            var moveVector = transform.TransformDirection(new Vector3(0, 0, vertical)) * (MoveSpeed * TimeManager.DeltaTime);
+            
+            // Calculate rotation
+            // If jumpCount over 0, set Player's rotation to zero
+            if (_jumpCount > 0) rotVector = Vector3.zero;
+            Quaternion rotation = Quaternion.Euler(rotVector) * transform.rotation;
+            // Calculate position
+            Vector3 position = transform.position + moveVector;
+            // Apply rotation and position
+            transform.SetPositionAndRotation(position, rotation);
+            
+            // Set animation
+            // move Statue Check for move animation
+            if (inputVector.magnitude > 0.2f && !_isMove)
+            {
+                // Set movement parameter as true for move animation
+                _isMove = true;
+                _animator.SetBool("Move_b", true);
+            }
+            // Set movement parameter as vertical and horizontal input for blend tree
+            _animator.SetFloat("Horizontal_f", horizontal);
+            _animator.SetFloat("Vertical_f", vertical);
+        }
+        /// <summary>
+        /// Stop character movement
+        /// </summary>
+        /// <param name="movem"></param>
+        /// <param name="rot"></param>
+        void Stop(Vector3 movem, Vector3 rot)
+        {
+            // Set animation
+            _isMove = false;
+            _animator.SetBool("Move_b", false);
+        }
+
+        /// <summary>
+        /// Play attack animation
+        /// </summary>
+        void Attact()
+        {
+            _animator.SetTrigger("Attack_t");
+        }
+        /// <summary>
+        /// Set defense state
+        /// </summary>
+        void Defense()
+        {
+            _isDefense = true;
+            _animator.ResetTrigger("Attack_t");
+            _animator.SetBool("Defense_b", true);
+        }
+        /// <summary>
+        /// Reset defense state
+        /// </summary>
+        void ReleaseDefense()
+        {
+            _isDefense = false;
+            _animator.SetBool("Defense_b", false);
+        }
+        /// <summary>
+        /// Set sprint state
+        /// </summary>
+        void Sprint()
+        {
+            if (_jumpCount > 0)
+            {
+                return;
+            }
+            _isSprint = true;
+        }
+        /// <summary>
+        /// Reset sprint state
+        /// </summary>
+        void ReleaseSprint()
+        {
+            _isSprint = false;
+        }
+        /// <summary>
+        /// Jump character
+        /// </summary>
+        void Jump()
+        {
+            if (_jumpCount >= maxJumpCount) return;
+            _jumpCount++;
+            _rigidbody.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+            _animator.SetTrigger("Jump_t");
+        }
+
+        
+        /// <summary>
+        /// Check collision
+        /// </summary>
+        /// <param name="collision"></param>
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("Ground"))
+            {
+                _jumpCount = 0;
+            }
         }
     }
 }
