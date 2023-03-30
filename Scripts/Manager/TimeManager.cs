@@ -28,6 +28,7 @@ namespace JH.Portfolio.Manager
         /// <param name="deltaTime"></param>
         public void Update(float deltaTime)
         {
+            UnityEngine.Profiling.Profiler.BeginSample("TimeManager.Update");
             // Set world time
             DeltaTime = deltaTime * TimeScale;
             worldTime += DeltaTime;
@@ -45,6 +46,7 @@ namespace JH.Portfolio.Manager
                 _intervalTriggers.Remove(removeQueue.Dequeue());
             }
             if (overflow) worldTime -= MAX_TIME;
+            UnityEngine.Profiling.Profiler.EndSample();
         }
         /// <summary>
         /// Add time event

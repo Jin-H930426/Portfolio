@@ -545,7 +545,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 300
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -571,8 +571,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 638582443}
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 4.96426, z: -3.9983983}
+  m_LocalRotation: {x: 0.38268346, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0.000000059604645, y: 4.96426, z: -3.9983983}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1115,25 +1115,49 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6070707768061186438, guid: 3a5bb02590dec254cb8b149ce3f53beb, type: 3}
+    - target: {fileID: 825186584888073136, guid: 3a5bb02590dec254cb8b149ce3f53beb, type: 3}
+      propertyPath: cameraLens.fieldOfView
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 825186584888073136, guid: 3a5bb02590dec254cb8b149ce3f53beb, type: 3}
+      propertyPath: <CameraPriority>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5907281119913592310, guid: 3a5bb02590dec254cb8b149ce3f53beb, type: 3}
+      propertyPath: mixWeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: _cameraMode
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6070707768061186438, guid: 3a5bb02590dec254cb8b149ce3f53beb, type: 3}
+    - target: {fileID: 0}
+      propertyPath: cameraOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: cameraOffset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: directionRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: directionRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: verticalAngleLimit.x
       value: -20
       objectReference: {fileID: 0}
-    - target: {fileID: 6070707768061186438, guid: 3a5bb02590dec254cb8b149ce3f53beb, type: 3}
+    - target: {fileID: 0}
       propertyPath: verticalAngleLimit.y
       value: 80
       objectReference: {fileID: 0}
-    - target: {fileID: 6070707768061186438, guid: 3a5bb02590dec254cb8b149ce3f53beb, type: 3}
-      propertyPath: horizontalAngleLimit.x
-      value: -180
-      objectReference: {fileID: 0}
-    - target: {fileID: 6070707768061186438, guid: 3a5bb02590dec254cb8b149ce3f53beb, type: 3}
-      propertyPath: horizontalAngleLimit.y
-      value: 180
+    - target: {fileID: 0}
+      propertyPath: <lookAtTarget>k__BackingField
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8563949911198430648, guid: 3a5bb02590dec254cb8b149ce3f53beb, type: 3}
       propertyPath: m_RootOrder
