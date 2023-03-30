@@ -59,11 +59,9 @@ namespace JH.Portfolio.Manager
         // game manager update
         private void Update()
         {
-            UnityEngine.Profiling.Profiler.BeginSample("GameManager.Update");
             var deltaTime = Time.unscaledDeltaTime;
             _timeManager.Update(deltaTime);
             _inputManager.Update(deltaTime);
-            UnityEngine.Profiling.Profiler.EndSample();
         }
         // On destroy game manager component  
         private void OnDestroy()

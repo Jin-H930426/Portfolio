@@ -238,6 +238,7 @@ namespace JH.Portfolio.Manager
         /// <param name="deltaTime"></param>
         public void Update(float deltaTime)
         {
+            UnityEngine.Profiling.Profiler.BeginSample("InputManager.Update");
             // 회전 및 이동 이벤트 처리
             var move = _input.GetMovementInput();
             var rot = _input.GetRotationInput();
@@ -257,6 +258,7 @@ namespace JH.Portfolio.Manager
             {
                 OnHotKeyInputEvents[i]?.InvokeInputEvent((hotkeyinput & ((ulong)1 << i)) != 0);
             }
+            UnityEngine.Profiling.Profiler.EndSample();
         }
         
         /// <summary>
