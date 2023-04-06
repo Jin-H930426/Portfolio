@@ -10,11 +10,12 @@ namespace JH.Portfolio.Camera
     {
         [ContextMenuItem("Set list by children","SetListByChildren" )]
         [SerializeField, ReadOnly] private List<CameraStateMachine> cameraStateMachines = new List<CameraStateMachine>();
-        
+
         /// <summary>
         /// Property value of mix weight
         /// </summary>
         [Range(0, 1), SerializeField] private float mixWeight = 0f;
+
         /// <summary>
         /// get or set mix weight, for calculate camera priority 
         /// </summary>

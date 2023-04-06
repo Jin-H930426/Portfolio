@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9728f9b199e44219878de028b09ee5da, type: 3}
+  m_Name: DesktopKeymap
+  m_EditorClassIdentifier: 
+  useMouse: 1
+  MoveKey:
+    forward: 119
+    backward: 115
+    left: 97
+    right: 100
+  KeyRotation:
+    forward: 273
+    backward: 274
+    left: 276
+    right: 275
+  AxisMouseKey:
+    axisX: Mouse X
+    axisY: Mouse Y
+  attackKey: 323
+  reloadKey: 324
+  jumpKey: 32
+  crouchKey: 306
+  sprintKey: 304
+  hotKeys: 310000003200000033000000340000003500000036000000370000003800000039000000

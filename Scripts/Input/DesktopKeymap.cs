@@ -1,39 +1,63 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace JH.Portfolio.InputSystem
 {
-    public class DesktopGetInput : GetInput
+    [CreateAssetMenu(fileName = "DesktopKeymap", menuName = "Manager/Input/DesktopKeymap", order = 0)]
+    public class DesktopKeymap : Keymap
     {
+        public bool useMouse = true;
         /// <summary>
-        /// 이동처리하는 키맵
+        /// movement input key maps
         /// </summary>
-        public KeyCode[] moveKeys = new[] { KeyCode.W, KeyCode.S, KeyCode.A, KeyCode.D };
+        public MovementInput MoveKey = new()
+        {
+            forward = KeyCode.W, 
+            backward = KeyCode.S, 
+            left = KeyCode.A, 
+            right = KeyCode.D
+        };
         /// <summary>
-        /// 카메라 회전을 사용하는지 여부
+        /// movement input key maps 2
         /// </summary>
-        public bool UseMouse = true;
+        public MovementInput KeyRotation = new()
+        {
+            forward = KeyCode.UpArrow, 
+            backward = KeyCode.DownArrow, 
+            left = KeyCode.LeftArrow, 
+            right = KeyCode.RightArrow
+        };
         /// <summary>
-        /// 공격을 처리하는 키맵
+        /// Mouse axis input names
+        /// </summary>
+        public AxisInput AxisMouseKey = new()
+        {
+            axisX = "Mouse X", 
+            axisY = "Mouse Y"
+        };
+        
+        /// <summary>
+        /// attack input key map
         /// </summary>
         public KeyCode attackKey = KeyCode.Mouse0;
         /// <summary>
-        /// reload를 처리하는 키맵
+        /// reload input key map
         /// </summary>
         public KeyCode reloadKey = KeyCode.Mouse1;
         /// <summary>
-        /// 점프를 처리하는 키맵
+        /// jump input key map
         /// </summary>
         public KeyCode jumpKey = KeyCode.Space;
         /// <summary>
-        /// 앉기를 처리하는 키맵
+        /// crouch input key map
         /// </summary>
         public KeyCode crouchKey = KeyCode.LeftControl;
         /// <summary>
-        /// 달리기를 처리하는 키맵
+        /// sprint input key map
         /// </summary>
         public KeyCode sprintKey = KeyCode.LeftShift;   
         /// <summary>
-        /// 단축키 키맵 ulong은 64비트로 최대 64개의 키를 처리할 수 있다.
+        /// hot keys input key maps
         /// </summary>
         public KeyCode[] hotKeys = new[] 
             { 
@@ -48,24 +72,30 @@ namespace JH.Portfolio.InputSystem
                 KeyCode.Alpha9 
             };
         
-        // 이동 및 회전 입력 처리
         public override Vector3 GetMovementInput()
         {
-            var horizontal = (Input.GetKey(moveKeys[2]) ? -1 : 0) + (Input.GetKey(moveKeys[3]) ? 1 : 0);
-            var vertical = (Input.GetKey(moveKeys[0]) ? 1 : 0) + (Input.GetKey(moveKeys[1]) ? -1 : 0);
+            var horizontal = (Input.GetKey(MoveKey.left) ? -1 : 0) + (Input.GetKey(MoveKey.right) ? 1 : 0);
+            var vertical = (Input.GetKey(MoveKey.forward) ? 1 : 0) + (Input.GetKey(MoveKey.backward) ? -1 : 0);
             
             return new Vector3(horizontal, 0, vertical);
         }
         public override Vector3 GetRotationInput()
         {
-            if(!UseMouse) return  Vector3.zero;
+            if (!useMouse)
+            {
+                var h = (Input.GetKey(KeyRotation.left) ? -1 : 0) + (Input.GetKey(KeyRotation.right) ? 1 : 0);
+                var v = (Input.GetKey(KeyRotation.forward) ? 1 : 0) + (Input.GetKey(KeyRotation.backward) ? -1 : 0);
             
-            var horizontal = Input.GetAxis("Mouse X");
-            var vertical = Input.GetAxis("Mouse Y");
-            
-            return new Vector3(horizontal, vertical, 0);
+                return new Vector3(h,v, 0); 
+            }
+            else
+            {
+                var h = Input.GetAxis(AxisMouseKey.axisX);
+                var v = Input.GetAxis(AxisMouseKey.axisY);
+                
+                return new Vector3(h, v, 0);
+            }
         }
-        // 공격 및 재장전 입력 처리
         public override bool GetAttackInput()
         {
             return Input.GetKey(attackKey);
@@ -74,7 +104,6 @@ namespace JH.Portfolio.InputSystem
         {
             return Input.GetKey(reloadKey);
         }
-        // 점프, 앉기, 달리기 입력 처리
         public override bool GetJumpInput()
         {
             return Input.GetKey(jumpKey);
@@ -88,7 +117,6 @@ namespace JH.Portfolio.InputSystem
             return Input.GetKey(sprintKey);
         }
         
-        // 단축키 입력 처리
         public override ulong GetHotKeyInput()
         {
             ulong inputValue = 0;
@@ -100,7 +128,6 @@ namespace JH.Portfolio.InputSystem
             }
             return inputValue;
         }
-        // 단축키 수 반환
         public override int GetHotKeyCount()
         {
             return hotKeys.Length;

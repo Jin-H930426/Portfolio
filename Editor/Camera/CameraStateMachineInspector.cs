@@ -31,7 +31,6 @@ namespace JH.Portfolio.Camera
             if (Application.isPlaying || !_isInScene) return;
             SetCamera();
         }
-        
         void SetCamera()
         {
             // Get target as camera state machine

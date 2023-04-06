@@ -136,14 +136,14 @@ namespace JH.Portfolio.Controller
         void CharacterMovement(Vector3 inputVector)
         {
             // Get horizontal and vertical input
-            float vertical = inputVector.z * .5f;
-            float horizontal = inputVector.x * .5f;
+            float vertical = inputVector.z;
+            float horizontal = inputVector.x;
             
             // Check sprint
-            if (_isSprint)
+            if (!_isSprint)
             {
-                horizontal *= 2f;
-                vertical *= 2f;
+                horizontal *= .5f;
+                vertical *= .5f;
             }
             
             // Calculate rotation and movement vector
@@ -235,7 +235,6 @@ namespace JH.Portfolio.Controller
             _rigidbody.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
             _animator.SetTrigger("Jump_t");
         }
-
         
         /// <summary>
         /// Check collision
