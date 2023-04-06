@@ -13,7 +13,7 @@ namespace JH.Portfolio.Camera
         UnityEngine.Camera _camera;
         public delegate void ChangeCameraHandler(float horizontal, float vertical,ref Vector3 position, ref Quaternion rotation, ref float priority, ref CameraLens lens); 
         public event ChangeCameraHandler OnChangeCameraEvent;
-        
+        // Input values
         private float _horizontal = 0;
         private float _vertical = 0;
         
@@ -49,10 +49,12 @@ namespace JH.Portfolio.Camera
         {
             OnChangeCameraEvent = null;
         }
+        // Add input event
         private void InitializeInput()
         {
             GameManager.InputManager.OnRotNMoveInputEvent.OnHeldEvent += OnCameraMovement;
         }
+        // Remove input event
         private void ClearInput()
         {
             // Null check
@@ -60,11 +62,12 @@ namespace JH.Portfolio.Camera
             
             GameManager.InputManager.OnRotNMoveInputEvent.OnHeldEvent -= OnCameraMovement;
         }
+        // Camera Update
         private void LateUpdate()
         {
             SetPositionAndRotation();
         }
-
+        // Set camera position and rotation
         public void SetPositionAndRotation()
         {
             UnityEngine.Profiling.Profiler.BeginSample("MainCameraObject.SetPositionAndRotation");
@@ -84,6 +87,7 @@ namespace JH.Portfolio.Camera
             _vertical = 0;
             UnityEngine.Profiling.Profiler.EndSample();
         }
+        // set imediatly camera position.
         public void SetCameraImediately(Vector3 position, Quaternion rotation, CameraLens lens)
         {
             _camera.fieldOfView = lens.fieldOfView;
@@ -92,6 +96,7 @@ namespace JH.Portfolio.Camera
             
             transform.SetPositionAndRotation(position, rotation);
         }
+        // add input value
         private void OnCameraMovement(Vector3 positionInput, Vector3 rotationInput)
         {
             UnityEngine.Profiling.Profiler.BeginSample("MainCameraObject.OnCameraMovement");

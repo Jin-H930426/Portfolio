@@ -17,5 +17,16 @@ namespace JH
 
             return IsInScene(obj);
         }
+        public static string GetSceneName(GameObject obj)
+        {
+            return obj.scene.name;
+        }
+        public static string GetSceneName(MonoBehaviour mono)
+        {
+            GameObject obj = mono.gameObject;
+
+            return GetSceneName(obj);
+        }
     }
+    
 }

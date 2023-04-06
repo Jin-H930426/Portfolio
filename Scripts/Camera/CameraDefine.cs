@@ -17,6 +17,14 @@ namespace JH.Portfolio.Camera
         public float fieldOfView;
         [MinMaxSlider(0.001f, 1000)] public Vector2 ClippingPlane;
         
+        public static CameraLens Lerp(CameraLens from, CameraLens to, float t)
+        {
+            return new CameraLens
+            {
+                fieldOfView = Mathf.Lerp(from.fieldOfView, to.fieldOfView, t),
+                ClippingPlane = Vector2.Lerp(from.ClippingPlane, to.ClippingPlane, t)
+            };
+        }
     }
     
     [System.Serializable]

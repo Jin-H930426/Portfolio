@@ -1,10 +1,11 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace JH.Portfolio.Manager
 {
     using InputSystem;
-    
+    [Serializable]
     public class InputManager
     {
         #region define
@@ -175,9 +176,9 @@ namespace JH.Portfolio.Manager
         }
         #endregion
         // GetInput instance
-        private GetInput _input;
+        [SerializeField] private Keymap _input;
         // Input type by platform
-        [ReadOnly, SerializeField] private string _inputType;
+        [ReadOnly, SerializeField] private string inputType;
          
         // Event
         // movement key event
@@ -215,11 +216,11 @@ namespace JH.Portfolio.Manager
             switch (inputType)
             {
                 case InputType.Keyboard:
-                    _input = new DesktopGetInput();
-                    _inputType = "Desktop";
+                    _input = GameManager.ResourceManager.LoadOnResource<DesktopKeymap>("Keymap/DesktopKeymap");
+                    this.inputType = "Desktop";
                     break;
                 case InputType.Mobile:
-                    _inputType = "Mobile";
+                    this.inputType = "Mobile";
                     Debug.Log("Mobile input is not supported yet");
                     return;
                 default: return;
@@ -240,10 +241,10 @@ namespace JH.Portfolio.Manager
         {
             UnityEngine.Profiling.Profiler.BeginSample("InputManager.Update");
             // 회전 및 이동 이벤트 처리
-            var move = _input.GetMovementInput();
-            var rot = _input.GetRotationInput();
-            bool isMove = move.magnitude + rot.magnitude != 0;
-            OnRotNMoveInputEvent?.InvokeInputEvent(isMove, move, rot);
+            var moveInput = _input.GetMovementInput();
+            var rotationInput = _input.GetRotationInput();
+            bool isMove = moveInput.magnitude + rotationInput.magnitude != 0;
+            OnRotNMoveInputEvent?.InvokeInputEvent(isMove, moveInput, rotationInput);
             // 공격 및 재장전 이벤트 처리
             OnAttackInputEvent?.InvokeInputEvent(_input.GetAttackInput());
             OnReloadInputEvent?.InvokeInputEvent(_input.GetReloadInput());

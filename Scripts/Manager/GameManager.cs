@@ -14,7 +14,7 @@ namespace JH.Portfolio.Manager
         [ReadOnly, SerializeField] private TimeManager _timeManager;
         public static TimeManager TimeManager => Instance._timeManager;
         // Reference to InputManager        
-        [ReadOnly, SerializeField] private InputManager _inputManager;
+        [SerializeField] private InputManager _inputManager;
         public static InputManager InputManager => Instance?._inputManager;
         public InputManager.InputType InputType = InputManager.InputType.Keyboard;
         // Reference to ResourceManager
@@ -51,10 +51,10 @@ namespace JH.Portfolio.Manager
                 InputType = InputManager.InputType.Keyboard;
 #endif
             #endregion 
+            _firebaseManager = new FirebaseManager();
+            _resourceManager = new ResourceManager();
             _timeManager = new TimeManager();
             _inputManager = new InputManager(InputType);
-            _resourceManager = new ResourceManager();
-            _firebaseManager = new FirebaseManager();
         }
         // game manager update
         private void Update()
@@ -62,6 +62,12 @@ namespace JH.Portfolio.Manager
             var deltaTime = Time.unscaledDeltaTime;
             _timeManager.Update(deltaTime);
             _inputManager.Update(deltaTime);
+        }
+        // game manager fixed update
+        private void FixedUpdate()
+        {
+            var deltaTime = Time.fixedUnscaledDeltaTime;
+            
         }
         // On destroy game manager component  
         private void OnDestroy()

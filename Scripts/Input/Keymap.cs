@@ -2,7 +2,7 @@
 
 namespace JH.Portfolio.InputSystem
 {
-    public abstract class GetInput
+    public abstract class Keymap : ScriptableObject
     {
         // 이동 및 회전 입력 처리
         /// <summary>

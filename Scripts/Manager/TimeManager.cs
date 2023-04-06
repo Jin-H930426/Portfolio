@@ -9,6 +9,7 @@ namespace JH.Portfolio.Manager
     public class TimeManager
     {
         private readonly float MAX_TIME = 1000000f;
+        
         public static float DeltaTime { get; private set; } = 0f;
         // World time
         [field: SerializeField] public float worldTime { get; private set; } = 0;
