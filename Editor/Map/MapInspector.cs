@@ -20,7 +20,6 @@ namespace JH.Portfolio.Map
                 normal = new GUIStyleState() { textColor = Color.white }
             };
         }
-
         public override void OnInspectorGUI()
         {
             var sc = serializedObject.FindProperty("m_Script");
@@ -33,25 +32,34 @@ namespace JH.Portfolio.Map
             var mapDataX = mapData.FindPropertyRelative("sizeX");
             var mapDataY = mapData.FindPropertyRelative("sizeY");
             var tiles = mapData.FindPropertyRelative("tiles");
-            var onVisible = serializedObject.FindProperty("onVisible");
+            
+            var visible = serializedObject.FindProperty("onVisible");
 
             
             serializedObject.Update();
-            // 자기 자신을 출력한다
-            DrawReadOnlyProperty(in sc, ref mapName);
             
+            // Runtime property Draw
+            DrawReadOnlyProperty(in sc, ref mapName);
+            EditorGUILayout.Space(EditorGUIUtility.singleLineHeight);
+            EditorGUILayout.LabelField("Runtime Property", boolText);
             DrawXYField(ref sizeX, ref sizeY, map);
             DrawDistanceField(ref distance);
-            DrawMap(ref tiles, ref onVisible, map, mapDataX.intValue, mapDataY.intValue);
+            DrawMap(ref tiles, ref visible, map, mapDataX.intValue, mapDataY.intValue);
             
+            // Editor property Draw
+            EditorGUILayout.Space(EditorGUIUtility.singleLineHeight);
+            EditorGUILayout.LabelField("On Editor Property", boolText);
+            EditorGUILayout.Space(EditorGUIUtility.singleLineHeight);
+            EditorPropertDraw();
             serializedObject.ApplyModifiedProperties();
+            // Check change property validation
             if (GUI.changed)
             {
-                
                 EditorUtility.SetDirty(serializedObject.targetObject);
             }
         }
 
+        #region Runtime Property Draw 
         void DrawReadOnlyProperty(in SerializedProperty sc, ref SerializedProperty mapName)
         {
             bool enable = GUI.enabled;
@@ -67,9 +75,8 @@ namespace JH.Portfolio.Map
         }
         void DrawXYField(ref SerializedProperty sizeX, ref SerializedProperty sizeY, Map map)
         {
-            EditorGUILayout.Space(EditorGUIUtility.singleLineHeight);
             // header
-            EditorGUILayout.LabelField("Map setting property", boolText);
+            EditorGUILayout.LabelField("Map Setting Property", boolText);
             // Map의 크기를 설정하는 변수 입력 부분
             EditorGUILayout.BeginHorizontal();
             {
@@ -101,7 +108,7 @@ namespace JH.Portfolio.Map
             // Map의 타일간 거리를 설정하는 변수 입력 부분
             EditorGUILayout.PropertyField(distance);
         }
-        void DrawMap(ref SerializedProperty tiles, ref SerializedProperty onVisible ,Map map ,int sizeX, int sizeY)
+        void DrawMap(ref SerializedProperty tiles, ref SerializedProperty visible ,Map map ,int sizeX, int sizeY)
         {
             var width = EditorGUIUtility.currentViewWidth - 30.0f;
             var height = 210.0f;
@@ -115,8 +122,8 @@ namespace JH.Portfolio.Map
             
             // tiles의 배열 크기를 받아온다
             var arraySize = tiles.arraySize;
-            onVisible.boolValue = EditorGUILayout.ToggleLeft("visiable map status", onVisible.boolValue, boolText);
-            if (arraySize == 0 || sizeX * sizeY != arraySize || !onVisible.boolValue) return;
+            visible.boolValue = EditorGUILayout.ToggleLeft("visiable map status", visible.boolValue, boolText);
+            if (arraySize == 0 || sizeX * sizeY != arraySize || !visible.boolValue) return;
             
             // 현재 스크롤 위치를 받아와 출력할 tiles의 시작 position을 계산한다
             var scrollX = Mathf.FloorToInt(currentScrollPos.x / contentWidth);
@@ -155,5 +162,16 @@ namespace JH.Portfolio.Map
             }
             EditorGUILayout.EndScrollView();
         }
+        #endregion
+
+        #region Editor Property Draw
+
+        void EditorPropertDraw()
+        {
+            var gridColor = serializedObject.FindProperty("gridColor");
+            
+            EditorGUILayout.PropertyField(gridColor);
+        }
+        #endregion
     }
 }

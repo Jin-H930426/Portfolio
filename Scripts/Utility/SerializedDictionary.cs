@@ -5,16 +5,16 @@ using System.Collections.Generic;
 namespace JH
 {
     [System.Serializable]
-    public class SerializedDictionary<TValue> : Dictionary<string, TValue>,ISerializationCallbackReceiver
+    public class SerializedDictionary<TKey, TValue> : Dictionary<TKey, TValue>,ISerializationCallbackReceiver
     {
         [System.Serializable]
         public struct KeyValuePair
         {
-            public string key;
+            public TKey key;
             public TValue value;
         }
         [SerializeField] private List<KeyValuePair> keyValuePairs = new();
-        [SerializeField] private string additionKey;
+        [SerializeField] private TKey additionKey;
 
         public void OnBeforeSerialize()
         {

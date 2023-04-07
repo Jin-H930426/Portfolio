@@ -92,20 +92,7 @@ namespace JH.Portfolio.Map
             _maps[mapName] = this;
         }
         
-        [ContextMenu("Initailized Map")]
-        public void Init()
-        {
-            if(mapData == null)
-                mapData = new MapData();
-        }
-        [ContextMenu("Clear Map")]
-        public void Clear()
-        {
-            // tiles를 초기화한다.
-            mapData.Clear();
-            mapData = null;
-        }
-
+        
         public Vector3 GetWorldPosition(int x, int y)
         {
             var halfX = mapData.sizeX / 2;
@@ -126,11 +113,15 @@ namespace JH.Portfolio.Map
         
         public bool OnMap(Vector3 worldPosition)
         {
+            if (mapData == null) return false;
+            
             var (x, y) = GetMapPosition(worldPosition);
             return OnMap(x, y);
         }
         public bool OnMap(int x, int y)
         {
+            if (mapData == null) return false;
+            
             return x >= 0 && x < mapData.sizeX && y >= 0 && y < mapData.sizeY;
         }
         
@@ -145,14 +136,30 @@ namespace JH.Portfolio.Map
         }
         
         #region EDITOR
-        [HideInInspector, SerializeField] private bool onVisible = false;
+        [SerializeField] private bool onVisible = false;
+        [SerializeField] private SerializedDictionary<Tile, Color> gridColor = new SerializedDictionary<Tile, Color>();
+        [ContextMenu("Initialized Map")]
+        public void Init()
+        {
+            if(mapData == null)
+                mapData = new MapData();
+            
+            mapData.Update(sizeX, sizeY);
+        }
+        [ContextMenu("Clear Map")]
+        public void Clear()
+        {
+            // tiles를 초기화한다.
+            mapData.Clear();
+            mapData = null;
+        }
+
         private void OnDrawGizmosSelected()
         {
             if (mapData == null || (onVisible && !Application.isPlaying)) return;
             
             DrawGrid();
         }
-
         private void OnDrawGizmos()
         {
             if (mapData == null || !onVisible || Application.isPlaying) return;
@@ -164,34 +171,26 @@ namespace JH.Portfolio.Map
         {
             Vector3 center = Vector3.one * .1f;
             // draw grid
+            Color currentColor = Gizmos.color;
+            foreach (var pos in EvaluateGridPosition())
+            {
+                var mapPosition = pos.mapPosition;
+                Gizmos.color = gridColor[this[mapPosition.x, mapPosition.y]];
+                Gizmos.DrawCube(pos.worldPosition, distance * .9f);
+            }
+            Gizmos.color = currentColor;
+        }
+
+        IEnumerable<(Vector2Int mapPosition, Vector3 worldPosition)> EvaluateGridPosition()
+        {
             for (int x = 0; x < mapData.sizeX; x++)
             {
                 for (int y = 0; y < mapData.sizeY; y++)
                 {
-                    var pos = GetWorldPosition(x, y);
-                    var currentColor = Gizmos.color;
-                    switch (this[x, y])
-                    {
-                        case Tile.Ground:
-                            Gizmos.color = Color.green;
-                            break;
-                        case Tile.Water:
-                            Gizmos.color = Color.blue;
-                            break;
-                        case Tile.Build:
-                            Gizmos.color = Color.red;
-                            break;
-                        case Tile.DeepWater:
-                            Gizmos.color = Color.cyan;
-                            break;
-                    }
-                    Gizmos.DrawCube(pos, center);
-                    Gizmos.DrawWireCube(pos, distance);
-                    Gizmos.color = currentColor;
+                    yield return new(new Vector2Int(x, y),GetWorldPosition(x, y));
                 }
-            } 
+            }  
         }
-        
         #endregion
     }
 }

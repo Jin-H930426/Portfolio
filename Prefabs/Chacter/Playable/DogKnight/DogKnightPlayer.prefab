@@ -2850,6 +2850,7 @@ GameObject:
   - component: {fileID: 6345316867816436483}
   - component: {fileID: 2514767394489345084}
   - component: {fileID: 2514767394489345083}
+  - component: {fileID: 1367124622}
   m_Layer: 0
   m_Name: DogKnightPlayer
   m_TagString: Player
@@ -3000,6 +3001,18 @@ CapsuleCollider:
   m_Height: 1.52
   m_Direction: 1
   m_Center: {x: 0, y: 0.76, z: 0}
+--- !u!114 &1367124622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8563949911198919064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2a51ea5293b2b843a3e485e385a19dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8956725173781588269
 GameObject:
   m_ObjectHideFlags: 0

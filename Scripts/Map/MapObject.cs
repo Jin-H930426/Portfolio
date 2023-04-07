@@ -19,6 +19,7 @@ namespace JH.Portfolio.Map
         #if UNITY_EDITOR
         private void OnDrawGizmos()
         {
+            if (!JHUtility.IsInScene(gameObject)) return;
             var map = _map;
             if (map == null)
             {
@@ -28,6 +29,7 @@ namespace JH.Portfolio.Map
                         map = m;
                 }
             }
+            if (map == null) return;
             var (x, y) = map.GetMapPosition(transform.position);
             var worldPos = map.GetWorldPosition(x, y);
 
