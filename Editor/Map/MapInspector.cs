@@ -1,7 +1,9 @@
 ﻿using System;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.SceneManagement;
+using Matrix4x4 = System.Numerics.Matrix4x4;
 
 namespace JH.Portfolio.Map
 {
@@ -11,6 +13,12 @@ namespace JH.Portfolio.Map
         private GUIStyle boolText;
         public Vector2 currentScrollPos = Vector2.zero;
 
+        private Texture2D _texture2D = null;
+        private Mesh _mesh = null;
+        private Material _material = null;
+        float4x4 _matrix = new float4x4();
+        private bool isVisible = true;
+
         public void OnEnable()
         {
             boolText = new GUIStyle()
@@ -19,6 +27,10 @@ namespace JH.Portfolio.Map
                 fontStyle = FontStyle.Bold,
                 normal = new GUIStyleState() { textColor = Color.white }
             };
+            if (_texture2D == null)
+            {
+                SetDrawGrid();
+            }
         }
         public override void OnInspectorGUI()
         {
@@ -99,7 +111,7 @@ namespace JH.Portfolio.Map
 
                 if (GUILayout.Button("clear"))
                 {
-                    map.Clear();
+                    map.ClearMap();
                 }
             } EditorGUILayout.EndHorizontal();
         }
@@ -172,7 +184,51 @@ namespace JH.Portfolio.Map
             var gridColor = serializedObject.FindProperty("gridColor");
             EditorGUILayout.PropertyField(mesh);
             EditorGUILayout.PropertyField(gridColor);
+            
+            var texture2D = serializedObject.FindProperty("_texture2D");
+            var textureMaterial = serializedObject.FindProperty("_textureMaterial");
+
+            GUI.enabled = false;
+            EditorGUILayout.PropertyField(texture2D);
+            EditorGUILayout.PropertyField(textureMaterial);
+            GUI.enabled = true;
         }
+
+        void SetDrawGrid()
+        {
+            var mesh = serializedObject.FindProperty("mesh");
+            var texture2D = serializedObject.FindProperty("_texture2D");
+            var textureMaterial = serializedObject.FindProperty("_textureMaterial");
+            var textureMatrix = serializedObject.FindProperty("_textureMatrix");
+            
+            _mesh = mesh.objectReferenceValue as Mesh;
+            _texture2D = texture2D.objectReferenceValue as Texture2D;
+            _material = textureMaterial.objectReferenceValue as Material;
+            
+            var copyM = textureMatrix.Copy();
+            int index = 0;
+            while (copyM.NextVisible(true))
+            {
+                if (copyM.propertyType == SerializedPropertyType.Float)
+                {
+                    var x = index % 4;
+                    var y = index / 4;
+                    _matrix[x][y] = copyM.floatValue;
+                    index++;
+                }
+            } 
+        }
+
+        private void OnSceneGUI()
+        {
+            if (_mesh == null || _material == null || _texture2D == null)
+            {
+                SetDrawGrid();
+                return;
+            }
+            Graphics.DrawMesh(_mesh, _matrix, _material, 0 );
+        }
+
         #endregion
     }
 }

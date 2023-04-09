@@ -9,10 +9,11 @@ namespace JH.Portfolio.Map
     public class MapObject : MonoBehaviour
     {
         private Map _map;
-        public List<int2> _path;
-        [ContextMenuItem("Calculate Path", "EditorCalculatePath")]
-        public int2 endPos;
         
+        [ContextMenuItem("Calculate Path", "EditorCalculatePath")]
+        [SerializeField] Transform _target;
+        
+        public List<int2> _path;
         private void Start()
         {
             _map = Map.GetOnMap(transform.position);
@@ -20,7 +21,7 @@ namespace JH.Portfolio.Map
         
         public void CalculatePath()
         {
-            _map.PathFindingWithAstar(_map.GetMapPosition(transform.position), endPos, out _path);
+            _map.PathFindingWithAstar(_map.GetMapPosition(transform.position), _map.GetMapPosition(_target.position), out _path);
         }
         
         
@@ -47,6 +48,12 @@ namespace JH.Portfolio.Map
             Gizmos.color = c;
             Gizmos.DrawCube(worldPos, map.Distance);
             Gizmos.color = currentColor;
+            if (_target != null)
+            {
+                var targetMapPos = map.GetMapPosition(_target.position);
+                var targetWorldPos = map.GetWorldPosition(targetMapPos);
+                Gizmos.DrawCube(targetWorldPos, map.Distance);
+            }
         }
 
         private void OnDrawGizmosSelected()
@@ -66,7 +73,7 @@ namespace JH.Portfolio.Map
             }
 
             if (map == null) return;
-            map.PathFindingWithAstar(map.GetMapPosition(transform.position), endPos, out _path);
+            map.PathFindingWithAstar(map.GetMapPosition(transform.position), map.GetMapPosition(_target.position), out _path);
         }
         private void DrawPath()
         {
