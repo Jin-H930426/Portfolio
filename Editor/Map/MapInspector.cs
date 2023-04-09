@@ -81,8 +81,8 @@ namespace JH.Portfolio.Map
             EditorGUILayout.BeginHorizontal();
             {
                 EditorGUILayout.LabelField("Size X / Y");
-                sizeX.intValue = Mathf.Clamp(sizeX.intValue, 1, 100);
-                sizeY.intValue = Mathf.Clamp(sizeY.intValue, 1, 100);
+                sizeX.intValue = Mathf.Clamp(sizeX.intValue, 1, 1000);
+                sizeY.intValue = Mathf.Clamp(sizeY.intValue, 1, 1000);
                 EditorGUILayout.PropertyField(sizeX, GUIContent.none);
                 EditorGUILayout.LabelField("/", GUILayout.Width(10));
                 EditorGUILayout.PropertyField(sizeY, GUIContent.none);
@@ -168,8 +168,9 @@ namespace JH.Portfolio.Map
 
         void EditorPropertDraw()
         {
+            var mesh = serializedObject.FindProperty("mesh");
             var gridColor = serializedObject.FindProperty("gridColor");
-            
+            EditorGUILayout.PropertyField(mesh);
             EditorGUILayout.PropertyField(gridColor);
         }
         #endregion

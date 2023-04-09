@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
+using Unity.Burst;
 using UnityEngine;
-using UnityEngine.Serialization;
+using Unity.Jobs;
+using Unity.Mathematics;
+using Unity.Collections;
 
 namespace JH.Portfolio.Map
 {
@@ -12,6 +13,17 @@ namespace JH.Portfolio.Map
     {
         #region define 
         const int CAN_VISIT_TILE = (int)(Tile.Ground | Tile.Water);
+        readonly int2[] DIRECTION = new int2[]
+        {
+            new int2(0, 1),
+            new int2(1,1),
+            new int2(1, 0),
+            new int2(1,-1),
+            new int2(0, -1),
+            new int2(-1,-1),
+            new int2(-1, 0),
+            new int2(-1,1),
+        };
         
         [System.Serializable] 
         public enum Tile
@@ -93,13 +105,20 @@ namespace JH.Portfolio.Map
         }
         
         
-        public Vector3 GetWorldPosition(int x, int y)
+        public float3 GetWorldPosition(int x, int y)
         {
+            UnityEngine.Profiling.Profiler.BeginSample("GetWorldPosition");
+            float3 position = transform.position;
             var halfX = mapData.sizeX / 2;
             var halfY = mapData.sizeX / 2;
-            return transform.position + new Vector3((x - halfX) * distance.x, 0, (y - halfY) * distance.z);
+            UnityEngine.Profiling.Profiler.EndSample();
+            return position + new float3((x - halfX) * distance.x, 0, (y - halfY) * distance.z);
         }
-        public (int, int) GetMapPosition(Vector3 worldPosition)
+        public float3 GetWorldPosition(int2 mapPosition)
+        {
+            return GetWorldPosition(mapPosition.x, mapPosition.y);
+        }
+        public int2 GetMapPosition(float3 worldPosition)
         {
             var halfX = mapData.sizeX / 2;
             var halfY = mapData.sizeX / 2;
@@ -111,12 +130,15 @@ namespace JH.Portfolio.Map
                 );
         }
         
-        public bool OnMap(Vector3 worldPosition)
+        public bool OnMap(float3 worldPosition)
         {
             if (mapData == null) return false;
             
-            var (x, y) = GetMapPosition(worldPosition);
-            return OnMap(x, y);
+            return OnMap(GetMapPosition(worldPosition));
+        }
+        public bool OnMap(int2 mapPosition)
+        {
+            return OnMap(mapPosition.x, mapPosition.y);
         }
         public bool OnMap(int x, int y)
         {
@@ -125,6 +147,15 @@ namespace JH.Portfolio.Map
             return x >= 0 && x < mapData.sizeX && y >= 0 && y < mapData.sizeY;
         }
         
+        public bool CanVisit(int2 mapPosition)
+        {
+            return CanVisit(mapPosition.x, mapPosition.y);
+        }
+        public bool CanVisit(int x, int y)
+        {
+            if (!OnMap(x, y)) return false;
+            return ((int)this[x, y] & CAN_VISIT_TILE) != 0;
+        }
         public static Map GetOnMap(Vector3 worldPosition)
         {
             foreach (var map in _maps.Values)
@@ -136,8 +167,21 @@ namespace JH.Portfolio.Map
         }
         
         #region EDITOR
+        // 초기 메쉬를 큐브로 설정
+        [SerializeField] private Mesh mesh;
         [SerializeField] private bool onVisible = false;
-        [SerializeField] private SerializedDictionary<Tile, Color> gridColor = new SerializedDictionary<Tile, Color>();
+        [SerializeField] private SerializedDictionary<Tile, Material> gridColor = new SerializedDictionary<Tile, Material>();
+
+        private Tile[] _tiles = new[]
+        {
+            Tile.None,
+            Tile.Ground,
+            Tile.Water,
+            Tile.Build,
+            Tile.DeepWater
+        };
+        private Dictionary<Tile, List<Matrix4x4>> matrix4X4s = null;
+        
         [ContextMenu("Initialized Map")]
         public void Init()
         {
@@ -145,15 +189,43 @@ namespace JH.Portfolio.Map
                 mapData = new MapData();
             
             mapData.Update(sizeX, sizeY);
+            // matrix4X4s를 초기화한다.
+            matrix4X4s = null;
+            SetMapData();
         }
         [ContextMenu("Clear Map")]
         public void Clear()
         {
+            // matrix4X4s를 초기화한다.
+            matrix4X4s = null;
             // tiles를 초기화한다.
             mapData.Clear();
             mapData = null;
         }
-
+        private void SetMapData()
+        {
+            var colliders = GetComponentsInChildren<Collider>();
+            for (var x = 0; x < mapData.sizeX; x++)
+            {
+                for (var y = 0; y < mapData.sizeY; y++)
+                {
+                    var worldPos = GetWorldPosition(x, y);
+                    foreach (var c in colliders)
+                    {
+                        if (c.gameObject.layer != LayerMask.NameToLayer("Element")) continue;
+                        if (c.bounds.Contains(worldPos))
+                        {
+                            if (Enum.TryParse(c.tag, out Tile tile) && (tile == Tile.Build || tile == Tile.DeepWater))
+                            {
+                                mapData.tiles[y * mapData.sizeX + x] = tile;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
         private void OnDrawGizmosSelected()
         {
             if (mapData == null || (onVisible && !Application.isPlaying)) return;
@@ -166,31 +238,180 @@ namespace JH.Portfolio.Map
             
             DrawGrid();
         }
-
         void DrawGrid()
         {
-            Vector3 center = Vector3.one * .1f;
             // draw grid
-            Color currentColor = Gizmos.color;
-            foreach (var pos in EvaluateGridPosition())
+            Color currentColor = Gizmos.color; 
+            var length = mapData.sizeX * mapData.sizeY;
+            var enumCount = _tiles.Length;
+            if (matrix4X4s == null)
             {
-                var mapPosition = pos.mapPosition;
-                Gizmos.color = gridColor[this[mapPosition.x, mapPosition.y]];
-                Gizmos.DrawCube(pos.worldPosition, distance * .9f);
+                // init native arrays
+                var positionArray = new NativeArray<float3>(length, Allocator.TempJob);
+                var matrixArray = new NativeArray<Matrix4x4>(length, Allocator.TempJob);
+                // Calculate position array
+                var positionJob = new GetPositionJob()
+                {
+                    SizeX = mapData.sizeX,
+                    SizeY = mapData.sizeY,
+                    Distance = distance,
+                    Position = transform.position,
+                    Result = positionArray,
+                };
+                var positionHandle = positionJob.Schedule(length, 100);
+                // wait calculate position array
+                positionHandle.Complete();
+                
+                // Calculate matrix array
+                var matrixJob = new CalculateMatrixJob()
+                {
+                    distance = distance,
+                    Positions = positionArray,
+                    Result = matrixArray,
+                };
+                var matrixHandle = matrixJob.Schedule(length, 100);
+                // wait calculate matrix array
+                matrixHandle.Complete();
+
+                matrix4X4s = new Dictionary<Tile, List<Matrix4x4>>();
+
+                for (int i = 0; i < enumCount; i++)
+                {
+                    matrix4X4s[ _tiles[i]] = new List<Matrix4x4>();
+                }
+                for (int i = 0; i < length; i++)
+                {
+                    var x = i % mapData.sizeX;
+                    var y = i / mapData.sizeX;
+                    
+                    matrix4X4s[this[x, y]].Add(matrixArray[i]);
+                }
+                
+                // clear native arrays
+                matrixArray.Dispose();
+                positionArray.Dispose();
             }
+            
+            // scene view camera position
+            var cameraPosition = UnityEditor.SceneView.lastActiveSceneView.camera.transform.position;
+            for (int e = 0; e < enumCount; e++)
+            {
+                var tile = _tiles[e];
+                
+                var m = matrix4X4s[tile].ToArray();
+                var matrixLenght = m.Length;
+                int instanceCount = matrixLenght / 1023 + 1;
+                for (int i = 0; i < instanceCount; i++)
+                {
+                    int count = Mathf.Min(1023, matrixLenght - i * 1023);
+                    var start = i * 1023;
+                    var end = start + count;
+                    Graphics.DrawMeshInstanced(mesh, 0, gridColor[tile], m[start .. end]);
+                } 
+            }
+            
+            
             Gizmos.color = currentColor;
         }
 
-        IEnumerable<(Vector2Int mapPosition, Vector3 worldPosition)> EvaluateGridPosition()
+        public void PathFindingWithAstar(int2 startPos, int2 EndPos, out List<int2> movePoints)
         {
-            for (int x = 0; x < mapData.sizeX; x++)
+            if (!CanVisit(startPos) || !CanVisit(EndPos) || startPos.Equals(EndPos))
             {
-                for (int y = 0; y < mapData.sizeY; y++)
+                movePoints = null;
+                return;
+            }
+            
+            AstarNode startNode = AstarNode.Create(startPos, true);
+            AstarNode endNode = AstarNode.Create(EndPos, true);
+            
+            List<AstarNode> openList = new List<AstarNode>();
+            HashSet<int2> closeList = new HashSet<int2>();
+            openList.Add(startNode);
+            
+            while (openList.Count > 0)
+            {
+                var currentNode = openList[0];
+                for (int i = 0; i < openList.Count; i++)
                 {
-                    yield return new(new Vector2Int(x, y),GetWorldPosition(x, y));
+                    if(openList[i].fCost < currentNode.fCost || openList[i].fCost == currentNode.fCost && openList[i].hCost < currentNode.hCost)
+                        currentNode = openList[i];
                 }
-            }  
+
+                openList.Remove(currentNode);
+                closeList.Add(currentNode.pos);
+                
+                if (currentNode == endNode)
+                {
+                    movePoints = new List<int2>();
+                    while (currentNode != startNode)
+                    {
+                        movePoints.Add(currentNode.pos);
+                        currentNode = currentNode.parent;
+                    }
+                    return;
+                }
+
+                foreach (var dir in DIRECTION)
+                {
+                    var nextPos = currentNode.pos + dir;
+                    
+                    if (OnMap(nextPos) == false)
+                        continue;
+                    if (((int)this[nextPos.x,nextPos.y] & CAN_VISIT_TILE) == 0)
+                        continue;
+                    if (closeList.Contains(nextPos))
+                        continue;
+                    
+                    
+                    var nextNode = AstarNode.Create(nextPos, true);
+                    var newMovementCostToNextNode = currentNode.gCost + AstarNode.GetDistance(currentNode, nextNode);
+                    if (newMovementCostToNextNode < nextNode.gCost || !openList.Contains(nextNode))
+                    {
+                        nextNode.gCost = newMovementCostToNextNode;
+                        nextNode.hCost = AstarNode.GetDistance(nextNode, endNode);
+                        nextNode.parent = currentNode;
+                        
+                        if(!openList.Contains(nextNode))
+                            openList.Add(nextNode);
+                    }
+                }
+            }
+            
+            movePoints = null;
         }
+        
+        #endregion
+        #region Job
+        [BurstCompile]
+        struct GetPositionJob : IJobParallelFor
+        {
+            public int SizeX;
+            public int SizeY;
+            public float3 Distance;
+            public float3 Position;
+            public NativeArray<float3> Result;
+            public void Execute(int index)
+            {
+                var x = index % SizeX;
+                var y = index / SizeX;
+                var halfX = SizeX / 2;
+                var halfY = SizeY / 2;
+                var pos = Position + new float3((x - halfX) * Distance.x, 0, (y - halfY) * Distance.z);
+                Result[index] = pos;
+            }
+        }
+        [BurstCompile]
+        struct CalculateMatrixJob : IJobParallelFor
+        {
+            public Vector3 distance;
+            public NativeArray<float3> Positions;
+            public NativeArray<Matrix4x4> Result;
+            public void Execute(int index)
+            {
+                Result[index] = Matrix4x4.TRS(Positions[index], Quaternion.identity, distance);
+            }
+        } 
         #endregion
     }
 }
