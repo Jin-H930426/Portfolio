@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Unity.Mathematics;
 
@@ -9,23 +10,85 @@ namespace JH.Portfolio.Map
     public class MapObject : MonoBehaviour
     {
         private Map _map;
+        [SerializeField, ReadOnly] Path _path;
         
         [ContextMenuItem("Calculate Path", "EditorCalculatePath")]
         [SerializeField] Transform _target;
+
+        [SerializeField] private float _turnDst = 5;
+        [SerializeField] private float _stoppingDst = 10;
         
-        public List<int2> _path;
+        public Transform target { get => _target; }
+        public float turnDst { get => _turnDst; set => _turnDst = value; }
+        public float stoppingDst { get => _stoppingDst; set => _stoppingDst = value; }
+        
         private void Start()
         {
             _map = Map.GetOnMap(transform.position);
         }
-        
-        public void CalculatePath()
+
+        public void CalculatePath(Vector3 endPos)
         {
-            _map.PathFindingWithAstar(_map.GetMapPosition(transform.position), _map.GetMapPosition(_target.position), out _path);
+            CalculatePath(transform.position, endPos);
+        }
+        public void CalculatePath(Vector3 startPos, Vector3 endPos)
+        {
+            _map.PathFindingWithAstar(startPos, endPos, out var wayPoint);
+            if (wayPoint == null) return;
+            var w = wayPoint.ToArray();
+            _path = new Path(w, transform.position, _turnDst, _stoppingDst);
+            wayPoint = null;
         }
         
-        
-        #if UNITY_EDITOR
+        public IEnumerator<(float3 pos, quaternion rot)> CalculationMovement(float3 currentPos, 
+            quaternion currentRot, float deltaTime, float movementSpeed ,float turnSpeed)
+        {
+            bool followingPath = true;
+            int pathIndex = 0;
+            
+            float speedPercent = 1;
+            
+            while (followingPath)
+            {
+                float2 pos2D = new float2(currentPos.x, currentPos.z);
+                
+                while (_path.turnBoundaries[pathIndex].HasCrossedLine(pos2D))
+                {
+                    if (pathIndex == _path.finishLineIndex)
+                    {
+                        followingPath = false;
+                        break;
+                    }
+                    else
+                    {
+                        pathIndex++;
+                    }
+                }
+
+                if (followingPath)
+                {
+
+                    if (pathIndex >= _path.slowDownIndex && _stoppingDst > 0)
+                    {
+                        speedPercent =
+                            Mathf.Clamp01(_path.turnBoundaries[pathIndex].DistanceFromPoint(pos2D) / _stoppingDst);
+                        if (speedPercent < 0.01f)
+                        {
+                            break;
+                        }
+                    }
+
+                    var direction = _path.lookPoints[pathIndex] - currentPos;
+                    var targetRotation = quaternion.LookRotation(direction, new float3(0,1,0));
+                    currentRot = math.nlerp(currentRot, targetRotation, deltaTime * turnSpeed);
+                    currentPos += math.mul(currentRot, new float3(0, 0, 1)) * (movementSpeed * deltaTime * speedPercent);
+                    yield return (currentPos, currentRot);
+                }
+            }
+        }
+
+        # region Debug for unity editor
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             if (!JHUtility.IsInScene(gameObject)) return;
@@ -73,7 +136,13 @@ namespace JH.Portfolio.Map
             }
 
             if (map == null) return;
-            map.PathFindingWithAstar(map.GetMapPosition(transform.position), map.GetMapPosition(_target.position), out _path);
+            Vector3 startPos = transform.position;
+            Vector3 endPos = _target.position;
+            map.PathFindingWithAstar(startPos, endPos, out var wayPoint);
+            if (wayPoint == null) return;
+            
+            _path = new Path( wayPoint.ToArray(), transform.position, _turnDst, _stoppingDst);
+            wayPoint = null;
         }
         private void DrawPath()
         {
@@ -88,18 +157,13 @@ namespace JH.Portfolio.Map
                 }
             }
 
-            if (map == null) return;
-            var currentColor = Gizmos.color;
-            var c = Color.red;
-            c.a = .3f;
-            Gizmos.color = c;
-            foreach (var pos in _path)
+            if (map == null ) return;
+            if (_path != null)
             {
-                var worldPos = map.GetWorldPosition(pos);
-                Gizmos.DrawCube(worldPos, map.Distance);
+                _path.DrawWithGizmos();
             }
-            Gizmos.color = currentColor;
         }
-        #endif
+#endif
+        #endregion
     }
 }

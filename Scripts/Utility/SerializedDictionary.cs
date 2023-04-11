@@ -16,6 +16,18 @@ namespace JH
         [SerializeField] private List<KeyValuePair> keyValuePairs = new();
         [SerializeField] private TKey additionKey;
 
+        public SerializedDictionary() : base()
+        {
+            
+        }
+        public SerializedDictionary(TKey[] keys) : base() 
+        {
+            foreach (var key in keys)
+            {
+                this.Add(key, default(TValue));
+            }
+        }
+
         public void OnBeforeSerialize()
         {
             keyValuePairs.Clear();

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Burst;
 using UnityEngine;
 using Unity.Jobs;
@@ -8,6 +9,8 @@ using Unity.Collections;
 
 namespace JH.Portfolio.Map
 {
+    using Astar;
+    
     public class Map : MonoBehaviour
     {
         #region define
@@ -26,70 +29,20 @@ namespace JH.Portfolio.Map
             new int2(-1, 0),
             new int2(-1, 1),
         };
-
-        [System.Serializable]
-        public enum Tile
-        {
-            None = 0,
-            Ground = 1,
-            Water = 2,
-            Build = 4,
-            DeepWater = 8,
-        }
-
-        [System.Serializable]
-        public class MapData
-        {
-            public int sizeX;
-            public int sizeY;
-            public Tile[] tiles;
-
-            public void Update(int sizeX, int sizeY)
-            {
-                var currentX = this.sizeX;
-                var currentY = this.sizeY;
-                var currentTiles = this.tiles;
-
-                this.sizeX = sizeX;
-                this.sizeY = sizeY;
-                tiles = new Tile[sizeX * sizeY];
-
-                for (int x = 0; x < sizeX; x++)
-                {
-                    for (int y = 0; y < sizeY; y++)
-                    {
-                        if (currentTiles != null && x < currentX && y < currentY)
-                        {
-                            tiles[y * sizeX + x] = currentTiles[y * currentX + x];
-                            continue;
-                        }
-
-                        tiles[y * sizeX + x] = Tile.Ground;
-                    }
-                }
-            }
-
-            public void Clear()
-            {
-                sizeX = 0;
-                sizeY = 0;
-                tiles = null;
-            }
-        }
-
         #endregion
         #region variable
-
         [SerializeField] private string mapName;
         [SerializeField] private int sizeX;
         [SerializeField] private int sizeY;
+        [SerializeField] private int filterLenght = 3;
+        [SerializeField] private SerializedDictionary<Tile, int> tileCosts
+            = new SerializedDictionary<Tile, int>(Enum.GetValues(typeof(Tile)).Cast<Tile>().ToArray());
         [SerializeField] private Vector3 distance = Vector3.one;
         [SerializeField] private MapData mapData;
-
         #endregion
         #region property
-        public int SizeX => Mathf.Min(sizeX, 100);
-        public int SizeY => Mathf.Min(sizeY, 100);
+        public int SizeX => sizeX;
+        public int SizeY => sizeY;
         public Vector3 Distance => distance;
         // operator for tiles
         public Tile this[int x, int y]
@@ -99,6 +52,10 @@ namespace JH.Portfolio.Map
             {
                 if (mapData != null) mapData.tiles[y * mapData.sizeX + x] = value;
             }
+        }
+        public int GetTileCost(int x, int y)
+        {
+            return mapData != null ? mapData.tileCosts[y * mapData.sizeX + x] : 0;
         }
         #endregion
 
@@ -180,87 +137,91 @@ namespace JH.Portfolio.Map
                 return;
             }
 
-            AstarNode startNode = AstarNode.Create(startPos, true);
-            AstarNode endNode = AstarNode.Create(endPos, true);
-            Debug.Log("startNode : " + startNode.pos + " endNode : " + endNode.pos + "");
-            List<AstarNode> openList = new List<AstarNode>();
-            HashSet<int2> closeList = new HashSet<int2>();
-            openList.Add(startNode);
+            AstarNode startNode = AstarNode.Create(startPos, tileCosts[this[startPos.x, startPos.y]]);
+            AstarNode endNode = AstarNode.Create(endPos, tileCosts[this[endPos.x, endPos.y]]);
+            Heap<AstarNode> openList = new Heap<AstarNode>(100);
+            Dictionary<int2, AstarNode> openSet = new Dictionary<int2, AstarNode>();
+            HashSet<int2> closeSet = new HashSet<int2>();
             
-            while (openList.Count > 0 && openList.Count < 30000)
+            openList.Push(startNode);
+            openSet.Add(startNode.Pos, startNode);
+            
+            while (openList.Count > 0 &&   // if open list is empty, stop path finding
+                   openList.Count < 30000) // if path finding is too long, stop path finding
             {
-                var currentNode = openList[0];
-                for (int i = 0; i < openList.Count; i++)
-                {
-                    if (openList[i].fCost < currentNode.fCost || openList[i].fCost == currentNode.fCost &&
-                        openList[i].hCost < currentNode.hCost)
-                        currentNode = openList[i];
-                }
-
-                openList.Remove(currentNode);
-                closeList.Add(currentNode.pos);
-
+                var currentNode = openList.Pop();
+                openSet.Remove(currentNode.Pos);
+            
+                closeSet.Add(currentNode.Pos);
+            
                 if (currentNode == endNode)
                 {
                     movePoints = new List<int2>();
                     while (currentNode != startNode)
                     {
-                        movePoints.Add(currentNode.pos);
+                        movePoints.Add(currentNode.Pos);
                         currentNode = currentNode.parent;
                     }
-                    Debug.Log(openList.Count);
+
+                    movePoints.Reverse();
                     return;
                 }
-
+            
                 foreach (var dir in DIRECTION)
                 {
-                    var nextPos = currentNode.pos + dir;
-
-                    if (CanVisit(nextPos) == false)
+                    // get next position
+                    var nextPos = currentNode.Pos + dir;
+                    // if next position can't visit or Already visited, Check next direction 
+                    if (CanVisit(nextPos) == false || closeSet.Contains(nextPos))
                         continue;
-                    if (closeList.Contains(nextPos))
-                        continue;
-
-
-                    var nextNode = AstarNode.Create(nextPos, true);
-                    var newMovementCostToNextNode = currentNode.gCost + AstarNode.GetDistance(currentNode, nextNode);
-                    if (newMovementCostToNextNode < nextNode.gCost || !openList.Contains(nextNode))
+            
+                    // Crate next node
+                    var nextNode = AstarNode.Create(nextPos, tileCosts[this[nextPos.x, nextPos.y]]);
+                    // Calculate G cost
+                    var newGCost = currentNode.gCost + AstarNode.GetDistance(currentNode, nextNode) 
+                        + nextNode.tileCost;
+                    
+                    // if new G cost is lower than next node's G cost or next node is not in open list
+                    if (newGCost < nextNode.gCost || !openSet.ContainsKey(nextNode.Pos))
                     {
-                        nextNode.gCost = newMovementCostToNextNode;
+                        nextNode.gCost = newGCost;
                         nextNode.hCost = AstarNode.GetDistance(nextNode, endNode);
                         nextNode.parent = currentNode;
-
-                        if (!openList.Contains(nextNode))
-                            openList.Add(nextNode);
+            
+                        if (!openSet.ContainsKey(nextNode.Pos))
+                        {
+                            openList.Push(nextNode);
+                            openSet.Add(nextNode.Pos, nextNode);
+                        }
+                        else
+                        {
+                            openList.UpdateItem(openSet[nextNode.Pos]);
+                        }
                     }
                 }
             }
 
             movePoints = null;
         }
-        
-
+        public void PathFindingWithAstar(Vector3 startPos, Vector3 endPos, out List<float3> movePoints)
+        {
+            movePoints = null;
+            PathFindingWithAstar(GetMapPosition(startPos), GetMapPosition(endPos), out var path);
+            if (path == null) return;
+            movePoints = path.Select((mapPos) => GetWorldPosition(mapPos)).ToList();
+            movePoints[movePoints.Count - 1] = endPos;
+        }
         #endregion
 
         #region EDITOR
         // 초기 메쉬를 큐브로 설정
         [SerializeField] private Mesh mesh;
         [SerializeField] private bool onVisible = false;
-        [SerializeField] private SerializedDictionary<Tile, Color> gridColor = new SerializedDictionary<Tile, Color>();
+        [SerializeField] private SerializedDictionary<Tile, Color> gridColor
+            = new SerializedDictionary<Tile, Color>(Enum.GetValues(typeof(Tile)).Cast<Tile>().ToArray());
         [SerializeField] private Texture2D _texture2D;
         [SerializeField] private Material _textureMaterial;
         [SerializeField] private Matrix4x4 _textureMatrix;
-        private readonly Tile[] _tiles = new[]
-        {
-            Tile.None,
-            Tile.Ground,
-            Tile.Water,
-            Tile.Build,
-            Tile.DeepWater
-        };
-
-        private float fps = 1f / 20f;
-        private float time = 0f;
 
         [ContextMenu("Initialized Map")]
         public void Init()
@@ -272,13 +233,14 @@ namespace JH.Portfolio.Map
             mapData.Update(sizeX, sizeY);
             SetMapData();
             DrawGrid();
+            mapData.UpdateTileCost(tileCosts, filterLenght);
         }
 
         [ContextMenu("Clear Map")]
         public void ClearMap()
         {
-            if (_texture2D != null) DestroyImmediate(_texture2D);
-            if (_textureMaterial != null) DestroyImmediate(_textureMaterial);
+            if (!_texture2D) DestroyImmediate(_texture2D);
+            if (!_textureMaterial) DestroyImmediate(_textureMaterial);
             
             _texture2D = null;
             _textureMaterial = null; 
@@ -287,8 +249,6 @@ namespace JH.Portfolio.Map
         }
         private void SetMapData()
         {
-            var colliders = GetComponentsInChildren<Collider>();
-            
             for (var x = 0; x < mapData.sizeX; x++)
             {
                 for (var y = 0; y < mapData.sizeY; y++)
@@ -308,10 +268,10 @@ namespace JH.Portfolio.Map
                                     this[x, y] = t;
                                     break;
                                 }
-                                else if (t != Tile.Ground)
+                                
+                                if (t != Tile.Ground)
                                 {
                                     this[x, y] = t;
-                                    continue;
                                 }
                             }
                         }
@@ -319,31 +279,16 @@ namespace JH.Portfolio.Map
                 }
             }
         }
-
-
-        private void OnCollisionEnter(Collision collision)
-        {
-            Debug.Log("enter");
-        }
         void DrawGrid()
         {
-            if (_texture2D == null)
+            if (!_texture2D)
             {
                 _texture2D = new Texture2D(mapData.sizeX, mapData.sizeY, TextureFormat.RGBAFloat, true);              
                 for (var x = 0; x < mapData.sizeX; x++)
                 {
                     for (var y = 0; y < mapData.sizeY; y++)
                     {
-                        try
-                        {
                             _texture2D.SetPixel(x, y, gridColor[mapData.tiles[y * mapData.sizeX + x]]);
-                        }
-                        catch (Exception e)
-                        {
-                            Debug.LogError(e);
-                            Debug.Log($"pos : {x}, {y}");
-                        }
-
                     }
                 }
                 _texture2D.Apply();
@@ -358,39 +303,6 @@ namespace JH.Portfolio.Map
             }
         }
         #endregion
-
-        #region Job
-        [BurstCompile]
-        struct GetPositionJob : IJobParallelFor
-        {
-            public int SizeX;
-            public int SizeY;
-            public float3 Distance;
-            public float3 Position;
-            public NativeArray<float3> Result;
-
-            public void Execute(int index)
-            {
-                var x = index % SizeX;
-                var y = index / SizeX;
-                var halfX = SizeX / 2;
-                var halfY = SizeY / 2;
-                var pos = Position + new float3((x - halfX) * Distance.x, 0, (y - halfY) * Distance.z);
-                Result[index] = pos;
-            }
-        }
-        [BurstCompile]
-        struct CalculateMatrixJob : IJobParallelFor
-        {
-            public Vector3 Distance;
-            public NativeArray<float3> Positions;
-            public NativeArray<Matrix4x4> Result;
-
-            public void Execute(int index)
-            {
-                Result[index] = Matrix4x4.TRS(Positions[index], Quaternion.identity, Distance);
-            }
-        }
-        #endregion
+        
     }
 }

@@ -37,6 +37,8 @@ namespace JH.Portfolio.Map
             var sc = serializedObject.FindProperty("m_Script");
             var map = target as Map;
             var mapName = serializedObject.FindProperty("mapName");
+            var tileCosts = serializedObject.FindProperty("tileCosts");
+            var filterLenght = serializedObject.FindProperty("filterLenght");
             var sizeX = serializedObject.FindProperty("sizeX");
             var sizeY = serializedObject.FindProperty("sizeY");
             var distance = serializedObject.FindProperty("distance");
@@ -54,7 +56,7 @@ namespace JH.Portfolio.Map
             DrawReadOnlyProperty(in sc, ref mapName);
             EditorGUILayout.Space(EditorGUIUtility.singleLineHeight);
             EditorGUILayout.LabelField("Runtime Property", boolText);
-            DrawXYField(ref sizeX, ref sizeY, map);
+            DrawXYField(ref sizeX, ref sizeY, ref filterLenght, ref tileCosts, map);
             DrawDistanceField(ref distance);
             DrawMap(ref tiles, ref visible, map, mapDataX.intValue, mapDataY.intValue);
             
@@ -85,7 +87,8 @@ namespace JH.Portfolio.Map
             EditorGUILayout.PropertyField(mapName);
             GUI.enabled = enable; 
         }
-        void DrawXYField(ref SerializedProperty sizeX, ref SerializedProperty sizeY, Map map)
+        void DrawXYField(ref SerializedProperty sizeX, ref SerializedProperty sizeY, 
+            ref SerializedProperty filterLenght, ref SerializedProperty tileCosts, Map map)
         {
             // header
             EditorGUILayout.LabelField("Map Setting Property", boolText);
@@ -100,7 +103,10 @@ namespace JH.Portfolio.Map
                 EditorGUILayout.PropertyField(sizeY, GUIContent.none);
 
             } EditorGUILayout.EndHorizontal();
-            
+            // Map의 필터링 길이를 설정하는 변수 입력 부분
+            EditorGUILayout.PropertyField(filterLenght);
+            // Map의 타일 비용을 설정하는 변수 입력 부분
+            EditorGUILayout.PropertyField(tileCosts);
             // Map의 초기화 및 클리어 함수 동작 부분
             EditorGUILayout.BeginHorizontal();
             {
@@ -120,12 +126,12 @@ namespace JH.Portfolio.Map
             // Map의 타일간 거리를 설정하는 변수 입력 부분
             EditorGUILayout.PropertyField(distance);
         }
-        void DrawMap(ref SerializedProperty tiles, ref SerializedProperty visible ,Map map ,int sizeX, int sizeY)
+        void DrawMap(ref SerializedProperty tiles, ref SerializedProperty visible, Map map ,int sizeX, int sizeY)
         {
             var width = EditorGUIUtility.currentViewWidth - 30.0f;
             var height = 210.0f;
-            var contentWidth = 50.0f;
-            var contentHeight = 50.0f;
+            var contentWidth = 70.0f;
+            var contentHeight = 70.0f;
             var contentSize = new GUILayoutOption[2]
             {
                 GUILayout.Height(contentHeight),
@@ -157,10 +163,12 @@ namespace JH.Portfolio.Map
                     {
                             for (int j = scrollX; j < maxScrollX; j++)
                             {
+                                var cost = map.GetTileCost(j, i);
+                                
                                 // 버튼형태의 tile 값을 출력한다
                                 // 버튼 인덱스와 tile 값을 이용해 출력이 가능하다.
                                 if (GUI.Button(new Rect((j) * contentWidth, i * contentHeight, contentWidth, contentHeight),
-                                        $"{j},{i}\n{map[j, i]}"))
+                                        $"{j},{i}\ncost: {cost}\n{map[j, i]}"))
                                 {
                                     var tile = tiles.GetArrayElementAtIndex(i * sizeX + j);
                                     // 버튼을 누르면 다음 타일로 변경한다.
