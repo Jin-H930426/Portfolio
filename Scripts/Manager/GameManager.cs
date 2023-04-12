@@ -10,20 +10,25 @@ namespace JH.Portfolio.Manager
     {
         // Reference GameManager component for Singleton
         public static GameManager Instance { get; private set; }
+        #region variable
         // Reference to other managers
         [ReadOnly, SerializeField] private TimeManager _timeManager;
-        public static TimeManager TimeManager => Instance._timeManager;
         // Reference to InputManager        
         [SerializeField] private InputManager _inputManager;
-        public static InputManager InputManager => Instance?._inputManager;
         public InputManager.InputType InputType = InputManager.InputType.Keyboard;
         // Reference to ResourceManager
         [ReadOnly, SerializeField] private ResourceManager _resourceManager;
-        public static ResourceManager ResourceManager => Instance._resourceManager;
         // Reference to FirebaseManager
         [ReadOnly, SerializeField] private FirebaseManager _firebaseManager;
+        #endregion
+        #region Property
+        public static TimeManager TimeManager => Instance._timeManager;
+        public static InputManager InputManager => Instance?._inputManager;
+        public static ResourceManager ResourceManager => Instance._resourceManager;
         public static FirebaseManager FirebaseManager => Instance._firebaseManager;
         
+        [field: SerializeField] public int TargetFrameRate { get; private set; } = 60;
+        #endregion
         
         // Initialize game manager
         private void Awake()
@@ -41,6 +46,8 @@ namespace JH.Portfolio.Manager
                 Destroy(gameObject);
                 return;
             }
+
+            Application.targetFrameRate = TargetFrameRate * 4;
             // Platform Check
             #region Platform Check
 #if PLATFORM_ANDROID || PLATFORM_IOS

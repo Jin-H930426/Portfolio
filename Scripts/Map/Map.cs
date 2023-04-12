@@ -43,6 +43,7 @@ namespace JH.Portfolio.Map
         #region property
         public int SizeX => sizeX;
         public int SizeY => sizeY;
+        public float GroundHeight => transform.position.y;
         public Vector3 Distance => distance;
         // operator for tiles
         public Tile this[int x, int y]
@@ -72,7 +73,7 @@ namespace JH.Portfolio.Map
             var halfX = mapData.sizeX / 2;
             var halfY = mapData.sizeX / 2;
             UnityEngine.Profiling.Profiler.EndSample();
-            return position + new float3((x - halfX) * distance.x, 0, (y - halfY) * distance.z);
+            return position + new float3((x - halfX) * distance.x, GroundHeight, (y - halfY) * distance.z);
         }
         public float3 GetWorldPosition(int2 mapPosition)
         {
@@ -117,7 +118,7 @@ namespace JH.Portfolio.Map
             return ((int)this[x, y] & CAN_VISIT_TILE) != 0;
         }
         
-        public static Map GetOnMap(Vector3 worldPosition)
+        public static Map GetOnMap(float3 worldPosition)
         {
             foreach (var map in _maps.Values)
             {
@@ -203,12 +204,13 @@ namespace JH.Portfolio.Map
 
             movePoints = null;
         }
-        public void PathFindingWithAstar(Vector3 startPos, Vector3 endPos, out List<float3> movePoints)
+        public void PathFindingWithAstar(float3 startPos, float3 endPos, out List<float3> movePoints)
         {
             movePoints = null;
             PathFindingWithAstar(GetMapPosition(startPos), GetMapPosition(endPos), out var path);
             if (path == null) return;
             movePoints = path.Select((mapPos) => GetWorldPosition(mapPos)).ToList();
+            endPos.y = GroundHeight;
             movePoints[movePoints.Count - 1] = endPos;
         }
         #endregion

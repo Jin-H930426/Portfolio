@@ -42,7 +42,7 @@ namespace JH.Portfolio.Map
         
         public IEnumerator<(float3 pos, quaternion rot)> CalculationMovement(float3 currentPos, 
             quaternion currentRot, float deltaTime, float movementSpeed ,float turnSpeed)
-        {
+        {  
             bool followingPath = true;
             int pathIndex = 0;
             
@@ -51,7 +51,12 @@ namespace JH.Portfolio.Map
             while (followingPath)
             {
                 float2 pos2D = new float2(currentPos.x, currentPos.z);
-                
+                if (_path.turnBoundaries == null) break;
+                if(_path.turnBoundaries.Length <= pathIndex)
+                {
+                    Debug.Log($"Path Index Out of Range: {pathIndex} / {_path.turnBoundaries.Length}");
+                    break;
+                }
                 while (_path.turnBoundaries[pathIndex].HasCrossedLine(pos2D))
                 {
                     if (pathIndex == _path.finishLineIndex)
