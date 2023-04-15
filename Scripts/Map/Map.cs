@@ -1,78 +1,46 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
+using Unity.Mathematics;
 
 namespace JH.Portfolio.Map
 {
+    using Astar;
+    
     public class Map : MonoBehaviour
     {
-        #region define 
-        const int CAN_VISIT_TILE = (int)(Tile.Ground | Tile.Water);
-        
-        [System.Serializable] 
-        public enum Tile
-        {
-            None = 0,
-            Ground = 1,
-            Water = 2,
-            Build = 4,
-            DeepWater = 8,
-        }
-        [System.Serializable]
-        public class MapData
-        {
-            public int sizeX;
-            public int sizeY;
-            public Tile[] tiles;
-            
-            public void Update(int sizeX, int sizeY)
-            {
-                var currentX = this.sizeX;
-                var currentY = this.sizeY;
-                var currentTiles = this.tiles;
-                
-                this.sizeX = sizeX;
-                this.sizeY = sizeY;
-                tiles = new Tile[sizeX * sizeY];
-                
-                for (int x = 0; x < sizeX; x++)
-                {
-                    for (int y = 0; y < sizeY; y++)
-                    {
-                        if (currentTiles != null && x < currentX && y < currentY)
-                        {
-                            tiles[y * sizeX + x] = currentTiles[y * currentX + x];
-                            continue;
-                        }
-                        tiles[y * sizeX + x] = Tile.Ground;
-                    }
-                }
-            }
-            public void Clear()
-            {
-                sizeX = 0;
-                sizeY = 0;
-                tiles = null;
-            }
-        }
-        #endregion
-
+        #region define
         private static Dictionary<string, Map> _maps;
+
+        const int CAN_VISIT_TILE = (int)(Tile.Ground | Tile.Water);
+
+        readonly int2[] DIRECTION = new int2[]
+        {
+            new int2(0, 1), // 상
+            new int2(1, 1),
+            new int2(1, 0), // 우
+            new int2(1, -1),
+            new int2(0, -1), // 하
+            new int2(-1, -1),
+            new int2(-1, 0), // 좌
+            new int2(-1, 1),
+        };
+        #endregion
         #region variable
         [SerializeField] private string mapName;
         [SerializeField] private int sizeX;
         [SerializeField] private int sizeY;
+        [SerializeField] private int filterLenght = 3;
+        [SerializeField] private SerializedDictionary<Tile, int> tileCosts
+            = new SerializedDictionary<Tile, int>(Enum.GetValues(typeof(Tile)).Cast<Tile>().ToArray());
         [SerializeField] private Vector3 distance = Vector3.one;
         [SerializeField] private MapData mapData;
         #endregion
-        
-        
-        public int SizeX => Mathf.Min(sizeX, 100);
-        public int SizeY => Mathf.Min(sizeY, 100);
+        #region property
+        public int SizeX => sizeX;
+        public int SizeY => sizeY;
+        public float GroundHeight => transform.position.y;
         public Vector3 Distance => distance;
         // operator for tiles
         public Tile this[int x, int y]
@@ -83,115 +51,506 @@ namespace JH.Portfolio.Map
                 if (mapData != null) mapData.tiles[y * mapData.sizeX + x] = value;
             }
         }
+        public int GetTileCost(int x, int y)
+        {
+            return mapData != null ? mapData.tileCosts[y * mapData.sizeX + x] : 0;
+        }
+        #endregion
 
-        
         void Awake()
         {
             if (_maps == null)
                 _maps = new Dictionary<string, Map>();
             _maps[mapName] = this;
         }
-        
-        [ContextMenu("Initailized Map")]
-        public void Init()
+        /// <summary>
+        /// Get world position from x, y map vector
+        /// </summary>
+        /// <param name="x">map position x</param>
+        /// <param name="y">map position y</param>
+        /// <returns>world position</returns>
+        public float3 GetWorldPosition(int x, int y)
         {
-            if(mapData == null)
-                mapData = new MapData();
-        }
-        [ContextMenu("Clear Map")]
-        public void Clear()
-        {
-            // tiles를 초기화한다.
-            mapData.Clear();
-            mapData = null;
-        }
-
-        public Vector3 GetWorldPosition(int x, int y)
-        {
+            UnityEngine.Profiling.Profiler.BeginSample("GetWorldPosition");
+            float3 position = transform.position;
             var halfX = mapData.sizeX / 2;
             var halfY = mapData.sizeX / 2;
-            return transform.position + new Vector3((x - halfX) * distance.x, 0, (y - halfY) * distance.z);
+            UnityEngine.Profiling.Profiler.EndSample();
+            return position + new float3((x - halfX) * distance.x, GroundHeight, (y - halfY) * distance.z);
         }
-        public (int, int) GetMapPosition(Vector3 worldPosition)
+        /// <summary>
+        /// Get world position from map position
+        /// </summary>
+        /// <param name="mapPosition">map position</param>
+        /// <returns></returns>
+        public float3 GetWorldPosition(int2 mapPosition)
+        {
+            return GetWorldPosition(mapPosition.x, mapPosition.y);
+        }
+        /// <summary>
+        /// Get map position from world position
+        /// </summary>
+        /// <param name="worldPosition">world position</param>
+        /// <returns>map position</returns>
+        public int2 GetMapPosition(float3 worldPosition)
+        {
+            return GetMapPosition(worldPosition.x, worldPosition.y, worldPosition.z);
+        }
+        /// <summary>
+        /// Get map position from world position
+        /// </summary>
+        /// <param name="x">world position x</param>
+        /// <param name="y">world position y</param>
+        /// <param name="z">world position z</param>
+        /// <returns>map position</returns>
+        public int2 GetMapPosition(float x, float y, float z)
         {
             var halfX = mapData.sizeX / 2;
             var halfY = mapData.sizeX / 2;
             var position = transform.position;
-            
+
             return new(
-                Mathf.RoundToInt((worldPosition.x - position.x) / distance.x + halfX), 
-                Mathf.RoundToInt((worldPosition.z - position.z) / distance.z + halfY)
-                );
+                Mathf.RoundToInt((x - position.x) / distance.x + halfX),
+                Mathf.RoundToInt((z - position.z) / distance.z + halfY)
+            );
         }
         
-        public bool OnMap(Vector3 worldPosition)
+        /// <summary>
+        /// Check if world position is on map
+        /// </summary>
+        /// <param name="worldPosition">world position</param>
+        /// <returns>state on the map</returns>
+        public bool OnMap(float3 worldPosition)
         {
-            var (x, y) = GetMapPosition(worldPosition);
-            return OnMap(x, y);
+            if (mapData == null) return false;
+
+            return OnMap(GetMapPosition(worldPosition));
         }
+        /// <summary>
+        /// Check if world position is on map
+        /// </summary>
+        /// <param name="x">world position x</param>
+        /// <param name="y">world position y</param>
+        /// <param name="z">world position z</param>
+        /// <returns>state on the map</returns>
+        public bool OnMap(float x, float y, float z)
+        {
+            if (mapData == null) return false;
+            
+            return OnMap(GetMapPosition(x, y, z));
+        }
+        /// <summary>
+        /// Check if map position is on map
+        /// </summary>
+        /// <param name="mapPosition">map position</param>
+        /// <returns>state on the map</returns>
+        public bool OnMap(int2 mapPosition)
+        {
+            return OnMap(mapPosition.x, mapPosition.y);
+        }
+        /// <summary>
+        /// Check if map position is on map
+        /// </summary>
+        /// <param name="x">map position x</param>
+        /// <param name="y">map position y</param>
+        /// <returns>state on the map</returns>
         public bool OnMap(int x, int y)
         {
+            if (mapData == null) return false;
+
             return x >= 0 && x < mapData.sizeX && y >= 0 && y < mapData.sizeY;
         }
-        
-        public static Map GetOnMap(Vector3 worldPosition)
+        /// <summary>
+        /// Check possibility to visit tile
+        /// </summary>
+        /// <param name="mapPosition">map position</param>
+        /// <returns>value of possibility</returns>
+        public bool CanVisit(int2 mapPosition)
+        {
+            return CanVisit(mapPosition.x, mapPosition.y);
+        }
+        /// <summary>
+        /// Check possibility to visit tile
+        /// </summary>
+        /// <param name="x">map position x</param>
+        /// <param name="y">map position y</param>
+        /// <returns></returns>
+        public bool CanVisit(int x, int y)
+        {
+            if (!OnMap(x, y)) return false;
+            return ((int)this[x, y] & CAN_VISIT_TILE) != 0;
+        }
+        /// <summary>
+        /// Find map containing world position
+        /// </summary>
+        /// <param name="worldPosition">world position</param>
+        /// <returns></returns>
+        public static Map FindMapWith(float3 worldPosition)
+        {
+            return FindMapWith(worldPosition.x, worldPosition.y, worldPosition.z);
+        }
+        /// <summary>
+        /// Find map containing world position
+        /// </summary>
+        /// <param name="x">world position x</param>
+        /// <param name="y">world position y</param>
+        /// <param name="z">world position z</param>
+        /// <returns>map with world position</returns>
+        public static Map FindMapWith(float x, float y, float z)
         {
             foreach (var map in _maps.Values)
             {
-                if (map.OnMap(worldPosition))
+                if (map.OnMap(x, y, z))
                     return map;
             }
-            return null;
+
+            return null; 
         }
-        
+        #region Path finding
+        AstarNode PathFindingWithAstar(int2 startPos, int2 endPos)
+        {
+           if (!CanVisit(startPos) || !CanVisit(endPos) || startPos.Equals(endPos))
+           {
+               return null;
+           }
+           // create start and end nodes
+           AstarNode startNode = AstarNode.Create(startPos, tileCosts[this[startPos.x, startPos.y]]);
+           AstarNode endNode = AstarNode.Create(endPos, tileCosts[this[endPos.x, endPos.y]]);
+           // create open list and close list
+           Heap<AstarNode> openList = new Heap<AstarNode>(100);
+           HashSet<int2> closeSet = new HashSet<int2>();
+           Dictionary<int2, AstarNode> openSet = new Dictionary<int2, AstarNode>(); // for fast search
+            
+           openList.Push(startNode);
+           openSet.Add(startNode.Pos, startNode);
+            
+           while (openList.Count > 0 &&   // if open list is empty, stop path finding
+                  openList.Count < 30000) // if path finding is too long, stop path finding
+           {
+               var currentNode = openList.Pop();
+               openSet.Remove(currentNode.Pos);
+            
+               closeSet.Add(currentNode.Pos);
+            
+               if (currentNode == endNode)
+               {
+                   return currentNode;
+               }
+            
+               foreach (var dir in DIRECTION)
+               {
+                   // get next position
+                   var nextPos = currentNode.Pos + dir;
+                   // if next position can't visit or Already visited, Check next direction 
+                   if (CanVisit(nextPos) == false || closeSet.Contains(nextPos))
+                       continue;
+            
+                   // Crate next node
+                   var nextNode = AstarNode.Create(nextPos, tileCosts[this[nextPos.x, nextPos.y]]);
+                   // Calculate G cost
+                   var newGCost = currentNode.gCost + AstarNode.GetDistance(currentNode, nextNode) 
+                                                    + nextNode.tileCost;
+                    
+                   // if new G cost is lower than next node's G cost or next node is not in open list
+                   if (newGCost < nextNode.gCost || !openSet.ContainsKey(nextNode.Pos))
+                   {
+                       nextNode.gCost = newGCost;
+                       nextNode.hCost = AstarNode.GetDistance(nextNode, endNode);
+                       nextNode.parent = currentNode;
+            
+                       if (!openSet.ContainsKey(nextNode.Pos))
+                       {
+                           openList.Push(nextNode);
+                           openSet.Add(nextNode.Pos, nextNode);
+                       }
+                       else
+                       {
+                           openList.UpdateItem(openSet[nextNode.Pos]);
+                       }
+                   }
+               }
+           }
+
+           return null;
+        }
+        AstarNode PathFindingWithAstar4Dir(int2 startPos, int2 endPos)
+        {
+           if (!CanVisit(startPos) || !CanVisit(endPos) || startPos.Equals(endPos))
+           {
+               return null;
+           }
+           // create start and end nodes
+           AstarNode startNode = AstarNode.Create(startPos, tileCosts[this[startPos.x, startPos.y]]);
+           AstarNode endNode = AstarNode.Create(endPos, tileCosts[this[endPos.x, endPos.y]]);
+           // create open list and close list
+           Heap<AstarNode> openList = new Heap<AstarNode>(100);
+           HashSet<int2> closeSet = new HashSet<int2>();
+           Dictionary<int2, AstarNode> openSet = new Dictionary<int2, AstarNode>(); // for fast search
+            
+           openList.Push(startNode);
+           openSet.Add(startNode.Pos, startNode);
+            
+           while (openList.Count > 0 &&   // if open list is empty, stop path finding
+                  openList.Count < 30000) // if path finding is too long, stop path finding
+           {
+               var currentNode = openList.Pop();
+               openSet.Remove(currentNode.Pos);
+            
+               closeSet.Add(currentNode.Pos);
+            
+               if (currentNode == endNode)
+               {
+                   return currentNode;
+               }
+            
+               for (int i = 0; i < 8; i += 2)
+               {
+                   var dir = DIRECTION[i];
+                   // get next position
+                   var nextPos = currentNode.Pos + dir;
+                   // if next position can't visit or Already visited, Check next direction 
+                   if (CanVisit(nextPos) == false || closeSet.Contains(nextPos))
+                       continue;
+            
+                   // Crate next node
+                   var nextNode = AstarNode.Create(nextPos, tileCosts[this[nextPos.x, nextPos.y]]);
+                   // Calculate G cost
+                   var newGCost = currentNode.gCost + AstarNode.GetDistance(currentNode, nextNode) 
+                                                    + nextNode.tileCost;
+                    
+                   // if new G cost is lower than next node's G cost or next node is not in open list
+                   if (newGCost < nextNode.gCost || !openSet.ContainsKey(nextNode.Pos))
+                   {
+                       nextNode.gCost = newGCost;
+                       nextNode.hCost = AstarNode.GetDistance(nextNode, endNode);
+                       nextNode.parent = currentNode;
+            
+                       if (!openSet.ContainsKey(nextNode.Pos))
+                       {
+                           openList.Push(nextNode);
+                           openSet.Add(nextNode.Pos, nextNode);
+                       }
+                       else
+                       {
+                           openList.UpdateItem(openSet[nextNode.Pos]);
+                       }
+                   }
+               }
+           }
+
+           return null;
+        }
+        /// <summary>
+        /// Get path from start map position to end map position
+        /// </summary>
+        /// <param name="startPos">start map position</param>
+        /// <param name="endPos">end map position</param>
+        /// <param name="movePoints">out map point path</param>
+        public void PathFindingWithAstar(int2 startPos, int2 endPos, out List<int2> movePoints)
+        {
+            if (PathFindingWithAstar(startPos, endPos) is not AstarNode currentNode)
+            {
+                movePoints = null;
+                return;
+            }
+            movePoints = new List<int2>();
+            while (true)
+            {
+                movePoints.Add(currentNode.Pos);
+                if (currentNode.parent.Pos.Equals(startPos))
+                    break;
+                currentNode = currentNode.parent;
+            }
+
+            movePoints.Reverse();
+        }
+        /// <summary>
+        /// Get path from start world position to end world position
+        /// </summary>
+        /// <param name="startPos">start world position</param>
+        /// <param name="endPos">end world position</param>
+        /// <param name="movePoints">out world point path</param>
+        public void PathFindingWithAstar(float3 startPos, float3 endPos, out List<float3> movePoints)
+        {
+            var sp = GetMapPosition(startPos);
+            var ep = GetMapPosition(endPos);
+            
+            if (PathFindingWithAstar(sp, ep) is not AstarNode currentNode)
+            {
+                movePoints = null;
+                return;
+            }
+
+            movePoints = new List<float3>();
+            endPos.y = GroundHeight;
+            movePoints.Add(endPos);
+            while (true)
+            {
+                movePoints.Add(GetWorldPosition(currentNode.Pos));
+                if (currentNode.parent.Pos.Equals(sp))
+                    break;
+                currentNode = currentNode.parent;
+            }
+
+            movePoints.Reverse();
+        }
+        /// <summary>
+        /// Get path from start map position to end map position
+        /// just can move 4 direction
+        /// up, down, left, right
+        /// </summary>
+        /// <param name="startPos">start map position</param>
+        /// <param name="endPos">end map position</param>
+        /// <param name="movePoints">out map point path</param>
+        public void PathFindingWithAstar4Dir(int2 startPos, int2 endPos, out List<int2> movePoints)
+        {
+            if (PathFindingWithAstar4Dir(startPos, endPos) is not AstarNode currentNode)
+            {
+                movePoints = null;
+                return;
+            }
+            movePoints = new List<int2>();
+            while (true)
+            {
+                movePoints.Add(currentNode.Pos);
+                if (currentNode.parent.Pos.Equals(startPos))
+                    break;
+                currentNode = currentNode.parent;
+            }
+
+            movePoints.Reverse();
+        }
+        /// <summary>
+        /// Get path from start world position to end world position
+        /// just can move 4 direction
+        /// up, down, left, right
+        /// </summary>
+        /// <param name="startPos">start world position</param>
+        /// <param name="endPos">end world position</param>
+        /// <param name="movePoints">out world point path</param>
+        public void PathFindingWithAstar4Dir(float3 startPos, float3 endPos, out List<float3> movePoints)
+        {
+            var sp = GetMapPosition(startPos);
+            var ep = GetMapPosition(endPos);
+            
+            if (PathFindingWithAstar4Dir(sp, ep) is not AstarNode currentNode)
+            {
+                movePoints = null;
+                return;
+            }
+
+            movePoints = new List<float3>();
+            endPos.y = GroundHeight;
+            movePoints.Add(endPos);
+            while (true)
+            {
+                movePoints.Add(GetWorldPosition(currentNode.Pos));
+                if (currentNode.parent.Pos.Equals(sp))
+                    break;
+                currentNode = currentNode.parent;
+            }
+
+            movePoints.Reverse();
+        }
+        #endregion
+
         #region EDITOR
-        [HideInInspector, SerializeField] private bool onVisible = false;
-        private void OnDrawGizmosSelected()
+        #if UNITY_EDITOR
+        // 초기 메쉬를 큐브로 설정
+        [SerializeField] private Mesh mesh;
+        [SerializeField] private bool onVisible = false;
+        [SerializeField] private SerializedDictionary<Tile, Color> gridColor
+            = new SerializedDictionary<Tile, Color>(Enum.GetValues(typeof(Tile)).Cast<Tile>().ToArray());
+        [SerializeField] private Texture2D _texture2D;
+        [SerializeField] private Material _textureMaterial;
+        [SerializeField] private Matrix4x4 _textureMatrix;
+
+        [ContextMenu("Bake Map")]
+        public void BakeMap()
         {
-            if (mapData == null || (onVisible && !Application.isPlaying)) return;
+            ClearMap();
+            if (mapData == null)
+                mapData = new MapData();
             
+            mapData.Update(sizeX, sizeY);
+            SetMapData();
             DrawGrid();
+            mapData.UpdateTileCost(tileCosts, filterLenght);
         }
 
-        private void OnDrawGizmos()
+        [ContextMenu("Clear Map")]
+        public void ClearMap()
         {
-            if (mapData == null || !onVisible || Application.isPlaying) return;
+            if (!_texture2D) DestroyImmediate(_texture2D);
+            _texture2D = null;
             
-            DrawGrid();
+            mapData.Clear();
+            mapData = null;
         }
-
+        private void SetMapData()
+        {
+            for (var x = 0; x < mapData.sizeX; x++)
+            {
+                for (var y = 0; y < mapData.sizeY; y++)
+                {
+                    var worldPos = GetWorldPosition(x, y);
+                    
+                    if(Physics.CheckBox(worldPos, Distance, Quaternion.identity,
+                           LayerMask.GetMask("Element"), QueryTriggerInteraction.Collide))
+                    {
+                        foreach (var col in Physics.OverlapBox(worldPos, Distance, Quaternion.identity,
+                            LayerMask.GetMask("Element"), QueryTriggerInteraction.Collide))
+                        {
+                            if (Enum.TryParse(col.transform.tag, out Tile t))
+                            {
+                                if (((int)t & CAN_VISIT_TILE) == 0)
+                                { 
+                                    this[x, y] = t;
+                                    break;
+                                }
+                                
+                                if (t != Tile.Ground)
+                                {
+                                    this[x, y] = t;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         void DrawGrid()
         {
-            Vector3 center = Vector3.one * .1f;
-            // draw grid
-            for (int x = 0; x < mapData.sizeX; x++)
+            if (!_texture2D)
             {
-                for (int y = 0; y < mapData.sizeY; y++)
+                _texture2D = new Texture2D(mapData.sizeX, mapData.sizeY, TextureFormat.RGBAFloat, true);              
+                for (var x = 0; x < mapData.sizeX; x++)
                 {
-                    var pos = GetWorldPosition(x, y);
-                    var currentColor = Gizmos.color;
-                    switch (this[x, y])
+                    for (var y = 0; y < mapData.sizeY; y++)
                     {
-                        case Tile.Ground:
-                            Gizmos.color = Color.green;
-                            break;
-                        case Tile.Water:
-                            Gizmos.color = Color.blue;
-                            break;
-                        case Tile.Build:
-                            Gizmos.color = Color.red;
-                            break;
-                        case Tile.DeepWater:
-                            Gizmos.color = Color.cyan;
-                            break;
+                            _texture2D.SetPixel(x, y, gridColor[mapData.tiles[y * mapData.sizeX + x]]);
                     }
-                    Gizmos.DrawCube(pos, center);
-                    Gizmos.DrawWireCube(pos, distance);
-                    Gizmos.color = currentColor;
                 }
-            } 
+                _texture2D.Apply();
+                if (_textureMaterial == null)
+                {
+                    _textureMaterial = new Material(Shader.Find("Universal Render Pipeline/2D/Sprite-Lit-Default"));
+                    Color c = Color.white;
+                    c.a = 78.0f / 255.0f;
+                    _textureMaterial.color = c; 
+                }
+                _textureMaterial.mainTexture = _texture2D;
+            }
         }
-        
+
+        public void DrawMap()
+        {
+            _textureMatrix = Matrix4x4.TRS(transform.position + Vector3.up * .2f, Quaternion.Euler(90, 0, 0),
+                new Vector3(mapData.sizeX * distance.x, mapData.sizeY * distance.z, 1));
+            Graphics.DrawMesh(mesh, _textureMatrix, _textureMaterial, 0);
+        }
+#endif
         #endregion
+        
     }
 }

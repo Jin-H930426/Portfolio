@@ -51,7 +51,9 @@ namespace JH.Portfolio.Firebase
                     Debug.LogError($"Could not resolve all Firebase dependencies: {dependencyStatus}");
                 }
             });
+            
         }
+        
         /// <summary>
         /// Clear firebase authorization
         /// </summary>

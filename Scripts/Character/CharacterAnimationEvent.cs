@@ -9,48 +9,48 @@ namespace JH.Portfolio.Character
         
         public void OnFootL(int speed)
         {
-            Debug.Log($"OnFootL : {speed}");
+            // Debug.Log($"OnFootL : {speed}");
         }
         public void OnFootR(int speed)
         {
-            Debug.Log($"OnFootR : {speed}");
+            // Debug.Log($"OnFootR : {speed}");
         }
         
         public void OnAttack()
         {
-            Debug.Log("OnAttack");
+            // Debug.Log("OnAttack");
         }
         public void OnAttackEnd()
         {
-            Debug.Log("OnAttackEnd");
+            // Debug.Log("OnAttackEnd");
         }
         
         public void OnJump(int speed)
         {
-            Debug.Log("OnJump");
+            // Debug.Log("OnJump");
         }
         public void OnJumpEnd()
         {
-            Debug.Log("OnJumpEnd");
+            // Debug.Log("OnJumpEnd");
         }
         
         public void OnSkill(string skillName)
         {
-            Debug.Log("OnSkill");
+            // Debug.Log("OnSkill");
         }
         
         public void OnDamage(Vector3 normal)
         {
-            Debug.Log("OnDamage");
+            // Debug.Log("OnDamage");
         }   
         public void OnDamageEnd()
         {
-            Debug.Log("OnDamageEnd");
+            // Debug.Log("OnDamageEnd");
         }
         
         public void OnDeath()
         {
-            Debug.Log("OnDeath");
+            // Debug.Log("OnDeath");
         }
     }
 }

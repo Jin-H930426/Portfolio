@@ -126,7 +126,7 @@ namespace JH.Portfolio.InputSystem
                     inputValue |= 1;
                 inputValue <<= 1;
             }
-            return inputValue;
+            return inputValue >> 1;
         }
         public override int GetHotKeyCount()
         {

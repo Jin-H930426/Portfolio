@@ -87,7 +87,8 @@ namespace JH.Portfolio.Controller
         /// </summary>
         private void InitializationAnimator()
         {
-            _animator.SetFloat("Speed_f", 0f);
+            _animator.SetFloat("Horizontal_f", 0);
+            _animator.SetFloat("Vertical_f", 0);
             _animator.SetBool("Defense_b", false);
             _isSprint = false;
             _isDefense = false;

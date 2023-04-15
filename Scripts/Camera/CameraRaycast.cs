@@ -16,8 +16,9 @@ namespace JH.Portfolio.Camera
         public float RaycastDistance => _cameraStateMachine.CameraDirection.magnitude;
         
         private RaycastHit _hit;
-        
-        private bool _isEnter = false;
+
+        private bool _isEnter { get; set; } = false;
+
         [Header("Raycast Events"),Space]
         public UnityEvent<RaycastHit> onEnterRaycastHit;
         public UnityEvent onExitRaycastHit;
@@ -35,20 +36,21 @@ namespace JH.Portfolio.Camera
             if (!_cameraStateMachine) return;
             if (_cameraStateMachine.CameraPriority == 0) _cameraStateMachine.CalculationPosition(0);
             bool newState = Physics.Raycast(CameraRay, out _hit, RaycastDistance, raycastMask); 
-            if (!_isEnter &&  newState)
+            if (!_isEnter &&  newState) // hit enter
             {
                 Debug.DrawRay(Vector3.positiveInfinity, CameraDirection * RaycastDistance, Color.green, 1);
                 onEnterRaycastHit?.Invoke(_hit);
             }
-            else if (newState)
-            {
-                Debug.DrawRay(Vector3.positiveInfinity, CameraDirection * RaycastDistance, Color.green, 1);
-            }
-            else
+            else if (_isEnter && !newState) // hit exit
             {
                 Debug.DrawRay(Vector3.positiveInfinity, CameraDirection * RaycastDistance, Color.red, 1);
                 onExitRaycastHit?.Invoke();
             }
+            else if (newState) // hit stay
+            {
+                Debug.DrawRay(Vector3.positiveInfinity, CameraDirection * RaycastDistance, Color.green, 1);
+            }
+            _isEnter = newState;
         }
     }
 }
