@@ -13,10 +13,14 @@ namespace JH.Portfolio.Camera
         private const int VERTICALCAMERAMODE = (int)CameraMode.TheFirstPersonView | (int)CameraMode.FreeView;
 
         [Header("Camera information")]
+        [SerializeField]
+        private string cameraBrainName = "MainCamera";
         // Camera mode
         [SerializeField]
         CameraMode _cameraMode = CameraMode.ThirdPersonView;
-
+        /// <summary>
+        /// Camera lens for setting camera's field of view
+        /// </summary>
         public CameraLens cameraLens = CameraLens.Default;
 
         // Priority for setting camera
@@ -26,12 +30,22 @@ namespace JH.Portfolio.Camera
         // Reference to target
         [field: SerializeField]
         public Transform followTarget { get; set; } = null;
-
         // Reference to view direction
         [field: SerializeField] public Transform lookAtTarget { get; set; } = null;
         public Vector3 CameraPosition { get; private set; }
         public Vector3 CameraDirection { get; private set; }
         public Quaternion CameraRotation { get; private set; }
+
+        public string CameraBrainName
+        {
+            get => cameraBrainName;
+            set
+            {
+                cameraBrainName = value;
+                ClearMainCameraEvent();
+                InitalizeMainCameraEvent();
+            }
+        } 
 
         [Header("Offset of camera")]
         // Offset of camera
@@ -56,8 +70,6 @@ namespace JH.Portfolio.Camera
 
         private void OnEnable()
         {
-            if (MainCameraObject.Instance == null) return;
-
             if (followTarget == null)
             {
                 followTarget = transform;
@@ -65,27 +77,34 @@ namespace JH.Portfolio.Camera
 
             InitalizeMainCameraEvent();
         }
-        private void Start()
-        {
-            InitalizeMainCameraEvent();
-        }
+ 
         private void OnDisable()
         {
             ClearMainCameraEvent();
         }
-
+        // initialize camera event
         void InitalizeMainCameraEvent()
         {
-            MainCameraObject.Instance.OnChangeCameraEvent += CameraMovement;
+            if (CameraBrain.GetCameraBrain(cameraBrainName) is not CameraBrain brain) return;
+            brain.OnChangeCameraEvent += CameraMovement;
         }
+        // clear camera event
         void ClearMainCameraEvent()
         {
             // Null check
-            if (MainCameraObject.Instance == null) return;
-            MainCameraObject.Instance.OnChangeCameraEvent -= CameraMovement;
+            if (CameraBrain.GetCameraBrain(cameraBrainName) is not CameraBrain brain) return;
+            brain.OnChangeCameraEvent -= CameraMovement;
         }
 
-
+        /// <summary>
+        /// Calculate camera position, rotation and projection
+        /// </summary>
+        /// <param name="horizontal">input horizontal</param>
+        /// <param name="vertical">input vertical</param>
+        /// <param name="position">current position</param>
+        /// <param name="rotation">current rotation</param>
+        /// <param name="priority">current priority of machines</param>
+        /// <param name="lens">current projection</param>
         public void CameraMovement(float horizontal, float vertical, ref Vector3 position, ref Quaternion rotation,
             ref float priority, ref CameraLens lens)
         {

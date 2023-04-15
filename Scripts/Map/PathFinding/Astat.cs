@@ -11,10 +11,13 @@ namespace JH.Portfolio.Map.Astar
         HashSet<T> _hashSet;
         int _currentItemCount;
         public int Count => _currentItemCount;
-        
-        public Heap(int maxHeapSize)
+        /// <summary>
+        /// heap is making for priority queue
+        /// </summary>
+        /// <param name="heapSize">create HeapSize</param>
+        public Heap(int heapSize)
         {
-            _items = new T[maxHeapSize];
+            _items = new T[heapSize];
             _hashSet = new HashSet<T>();
         }
         public void Clear()
@@ -22,7 +25,11 @@ namespace JH.Portfolio.Map.Astar
             _hashSet.Clear();
             _currentItemCount = 0;
         }
-        
+        /// <summary>
+        /// push item to heap
+        /// </summary>
+        /// <param name="item">Addition item</param>
+        /// <returns>result of addition</returns>
         public bool Push(T item)
         {
             if (!_hashSet.Add(item)) return false;
@@ -57,6 +64,10 @@ namespace JH.Portfolio.Map.Astar
                 parentIndex = (item.HeapIndex - 1) / 2;
             }
         }
+        /// <summary>
+        /// pop first item
+        /// </summary>
+        /// <returns>first heap item</returns>
         public T Pop()
         {
             T firstItem = _items[0];
@@ -67,6 +78,12 @@ namespace JH.Portfolio.Map.Astar
             SortDown(_items[0]);
             return firstItem;
         }
+        /// <summary>
+        /// if you want to pop item,
+        /// you should call this method
+        /// </summary>
+        /// <param name="item">item of release</param>
+        /// <returns></returns> 
         void SortDown(T item)
         {
             while (true)
@@ -102,16 +119,28 @@ namespace JH.Portfolio.Map.Astar
                 }
             }
         }
-        
+        /// <summary>
+        /// update item
+        /// </summary>
+        /// <param name="item"></param>
         public void UpdateItem(T item)
         {
             SortUp(item);
         }
+        /// <summary>
+        /// Check if item exist in heap
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public bool Contains(T item)
         {
             return _hashSet.Contains(item);
         }
-        
+        /// <summary>
+        /// Swap heap iteam
+        /// </summary>
+        /// <param name="itemA"></param>
+        /// <param name="itemB"></param>
         void Swap(T itemA, T itemB)
         {
             _items[itemA.HeapIndex] = itemB;
@@ -176,8 +205,8 @@ namespace JH.Portfolio.Map.Astar
         }
         
         // operator ==, !=
-        public static bool operator ==(AstarNode a, AstarNode b) => a.x == b.x && a.y == b.y;
-        public static bool operator !=(AstarNode a, AstarNode b) => a.x != b.x || a.y != b.y;
+        public static bool operator ==(AstarNode a, AstarNode b) =>  a.x == b.x && a.y == b.y;
+        public static bool operator !=(AstarNode a, AstarNode b) =>  a.x != b.x || a.y != b.y;
         
         // operate <. >, <=, >=
         public static bool operator <(AstarNode a, AstarNode b) => a.fCost < b.fCost;

@@ -14,7 +14,7 @@ namespace JH.Portfolio.Camera
     {
         bool isInScene = false;
         private bool isViewSelectionCamera = false;
-        private MainCameraObject _mainCameraObject;
+        private CameraBrain _cameraBrain;
         
         private SerializedProperty _weightProperty;
         private SerializedProperty _cameraStateMachines;
@@ -31,7 +31,7 @@ namespace JH.Portfolio.Camera
             isInScene = JHUtility.IsInScene(mixer.gameObject);
             if (!isInScene) return;
             
-            _mainCameraObject = FindObjectOfType<MainCameraObject>();
+            _cameraBrain = FindObjectOfType<CameraBrain>();
         }
         public override void OnInspectorGUI()
         {
@@ -40,7 +40,7 @@ namespace JH.Portfolio.Camera
 
             if (!isInScene) return;
             
-            _mainCameraObject.SetPositionAndRotationAtEditor();
+            _cameraBrain.SetPositionAndRotationAtEditor();
         }
         void DrawStateMachineWeight()
         {

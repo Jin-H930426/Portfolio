@@ -99,6 +99,7 @@ namespace JH
 
         void DrawElement(Rect rect, in SerializedProperty property)
         {
+            if (property == null) return;
             // Check value type is array, list, struct, class etc...
             if (property.hasVisibleChildren)
             {
@@ -134,6 +135,7 @@ namespace JH
             var element = list.serializedProperty.GetArrayElementAtIndex(index);
             var value = element.FindPropertyRelative("value");
             var key = element.FindPropertyRelative("key");
+            if (value == null) return 0;
             value.isExpanded = true;
             key.isExpanded = true;
             var h = Mathf.Max(

@@ -1,9 +1,6 @@
-﻿using System;
-using Unity.Mathematics;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEditor;
-using UnityEngine.SceneManagement;
-using Matrix4x4 = System.Numerics.Matrix4x4;
 
 namespace JH.Portfolio.Map
 {
@@ -11,13 +8,9 @@ namespace JH.Portfolio.Map
     public class MapInspector : Editor
     {
         private GUIStyle boolText;
-        public Vector2 currentScrollPos = Vector2.zero;
+        private Vector2 currentScrollPos = Vector2.zero;
 
-        private Texture2D _texture2D = null;
-        private Mesh _mesh = null;
-        private Material _material = null;
-        float4x4 _matrix = new float4x4();
-        private bool isVisible = true;
+        private Map map = null;
 
         public void OnEnable()
         {
@@ -27,15 +20,11 @@ namespace JH.Portfolio.Map
                 fontStyle = FontStyle.Bold,
                 normal = new GUIStyleState() { textColor = Color.white }
             };
-            if (_texture2D == null)
-            {
-                SetDrawGrid();
-            }
         }
         public override void OnInspectorGUI()
         {
+            map = target as Map;
             var sc = serializedObject.FindProperty("m_Script");
-            var map = target as Map;
             var mapName = serializedObject.FindProperty("mapName");
             var tileCosts = serializedObject.FindProperty("tileCosts");
             var filterLenght = serializedObject.FindProperty("filterLenght");
@@ -92,7 +81,7 @@ namespace JH.Portfolio.Map
         {
             // header
             EditorGUILayout.LabelField("Map Setting Property", boolText);
-            // Map의 크기를 설정하는 변수 입력 부분
+            // set min, max value area
             EditorGUILayout.BeginHorizontal();
             {
                 EditorGUILayout.LabelField("Size X / Y");
@@ -103,19 +92,19 @@ namespace JH.Portfolio.Map
                 EditorGUILayout.PropertyField(sizeY, GUIContent.none);
 
             } EditorGUILayout.EndHorizontal();
-            // Map의 필터링 길이를 설정하는 변수 입력 부분
+            // input filter lenght
             EditorGUILayout.PropertyField(filterLenght);
-            // Map의 타일 비용을 설정하는 변수 입력 부분
+            // input tile cost
             EditorGUILayout.PropertyField(tileCosts);
-            // Map의 초기화 및 클리어 함수 동작 부분
+            // set button
             EditorGUILayout.BeginHorizontal();
             {
-                if (GUILayout.Button("init"))
+                if (GUILayout.Button("Bake"))
                 {
-                    map.Init();
+                    map.BakeMap();
                 }
 
-                if (GUILayout.Button("clear"))
+                if (GUILayout.Button("Clear"))
                 {
                     map.ClearMap();
                 }
@@ -123,7 +112,7 @@ namespace JH.Portfolio.Map
         }
         void DrawDistanceField(ref SerializedProperty distance)
         {
-            // Map의 타일간 거리를 설정하는 변수 입력 부분
+            // calculate distance
             EditorGUILayout.PropertyField(distance);
         }
         void DrawMap(ref SerializedProperty tiles, ref SerializedProperty visible, Map map ,int sizeX, int sizeY)
@@ -138,27 +127,27 @@ namespace JH.Portfolio.Map
                 GUILayout.Width(contentWidth)
             };
             
-            // tiles의 배열 크기를 받아온다
+            // get tiles array size
             var arraySize = tiles.arraySize;
             visible.boolValue = EditorGUILayout.ToggleLeft("visiable map status", visible.boolValue, boolText);
             if (arraySize == 0 || sizeX * sizeY != arraySize || !visible.boolValue) return;
             
-            // 현재 스크롤 위치를 받아와 출력할 tiles의 시작 position을 계산한다
+            // get scroll position and initialize scroll view width and height
             var scrollX = Mathf.FloorToInt(currentScrollPos.x / contentWidth);
             var scrollY = Mathf.FloorToInt(currentScrollPos.y / contentHeight);
-            // 출력될 tiles의 최대 position를 계산한다.
+            // calculate max scroll position
             var maxScrollX = Mathf.Min(scrollX + Mathf.CeilToInt(width / contentWidth) + 1, sizeX);
             var maxScrollY = Mathf.Min(scrollY + Mathf.CeilToInt(height / contentHeight) + 1, sizeY);
             // get scroll position and initialize scroll view width and height
             currentScrollPos = EditorGUILayout.BeginScrollView(currentScrollPos, GUILayout.Width(width), GUILayout.Height(height));
             {
-                // Tiles를 출력할 Scroll 영역을 만든다
-                // 각 타일의 크기는 contentWeight, contentHeight이다.
-                // 타일의 크기와 개수를 이용해 영역의 크기를 초기화 한다.
+                // create scroll view area
+                // get area size for tile count and size
+                // set tile size and tile count
                 EditorGUILayout.BeginVertical(GUILayout.Width(sizeX * contentWidth), GUILayout.Height(sizeY * contentHeight));
                 {
                     EditorGUILayout.BeginHorizontal();
-                    // 계산한 위치를 기준으로 tiles를 출력한다.
+                    // display tiles
                     for (int i = scrollY; i < maxScrollY; i++)
                     {
                             for (int j = scrollX; j < maxScrollX; j++)
@@ -181,6 +170,7 @@ namespace JH.Portfolio.Map
                 EditorGUILayout.EndVertical();
             }
             EditorGUILayout.EndScrollView();
+            
         }
         #endregion
 
@@ -202,41 +192,10 @@ namespace JH.Portfolio.Map
             GUI.enabled = true;
         }
 
-        void SetDrawGrid()
-        {
-            var mesh = serializedObject.FindProperty("mesh");
-            var texture2D = serializedObject.FindProperty("_texture2D");
-            var textureMaterial = serializedObject.FindProperty("_textureMaterial");
-            var textureMatrix = serializedObject.FindProperty("_textureMatrix");
-            
-            _mesh = mesh.objectReferenceValue as Mesh;
-            _texture2D = texture2D.objectReferenceValue as Texture2D;
-            _material = textureMaterial.objectReferenceValue as Material;
-            
-            var copyM = textureMatrix.Copy();
-            int index = 0;
-            while (copyM.NextVisible(true))
-            {
-                if (copyM.propertyType == SerializedPropertyType.Float)
-                {
-                    var x = index % 4;
-                    var y = index / 4;
-                    _matrix[x][y] = copyM.floatValue;
-                    index++;
-                }
-            } 
-        }
-
         private void OnSceneGUI()
         {
-            if (_mesh == null || _material == null || _texture2D == null)
-            {
-                SetDrawGrid();
-                return;
-            }
-            Graphics.DrawMesh(_mesh, _matrix, _material, 0 );
+            map?.DrawMap();
         }
-
         #endregion
     }
 }

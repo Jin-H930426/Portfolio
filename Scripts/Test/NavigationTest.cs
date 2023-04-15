@@ -54,7 +54,7 @@ namespace JH.Portfolio.Test
         IEnumerator MovePath()
         {
             using (var movement = _mapObject.CalculationMovement(transform.position, transform.rotation,
-                       TimeManager.DeltaTime, moveSpeed, turnSpeed))
+                       Time.fixedDeltaTime, moveSpeed, turnSpeed))
             {
                 while (movement.MoveNext() && !onFindPath)
                 {

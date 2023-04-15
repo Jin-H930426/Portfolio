@@ -105,7 +105,12 @@ namespace JH.Portfolio.Map
         
         float gradientPerpendicular;
         bool approachSide;
-        
+        /// <summary>
+        /// for smooth move path
+        /// line is boundray of smooth move path
+        /// </summary>
+        /// <param name="pointOnLine"></param>
+        /// <param name="pointPerpendicularToLine"></param>
         public Line(float2 pointOnLine, float2 pointPerpendicularToLine)
         {
             var dx = pointOnLine.x - pointPerpendicularToLine.x;
@@ -127,11 +132,20 @@ namespace JH.Portfolio.Map
             return (point.x - pointOnLine1.x) * (pointOnLine2.y - pointOnLine1.y) > 
                    (point.y - pointOnLine1.y) * (pointOnLine2.x - pointOnLine1.x);
         }
+        /// <summary>
+        /// Check if point is on the same side of line
+        /// </summary>
+        /// <param name="point"></param>
+        /// <returns></returns>
         public bool HasCrossedLine(float2 point)
         {
             return GetSide(point) != approachSide;
         }
-        
+        /// <summary>
+        /// Get distance from point to line
+        /// </summary>
+        /// <param name="point">check point</param>
+        /// <returns>distance point to intersect</returns>
         public float DistanceFromPoint(float2 point)
         {
             var interceptPerpendicularY = point.y - gradientPerpendicular * point.x;
@@ -157,35 +171,43 @@ namespace JH.Portfolio.Map
     [System.Serializable]
     public class Path
     {
-        public readonly float3[] lookPoints;
-        public readonly Line[] turnBoundaries;
-        public readonly int finishLineIndex;
-        public readonly int slowDownIndex;
-
+        // Path array
+        public float3[] lookPoints;
+        // boundary array
+        public Line[] turnBoundaries;
+        public int finishLineIndex;
+        public int slowDownIndex;
+        // operation []
         public float this[float t] => 0;
-        
-        public Path(float3[] waypoints, float3 startPos, float turnDst, float stoppingDst)
+        /// <summary>
+        /// Path is a list of waypoints with smooth move path
+        /// </summary>
+        /// <param name="waypoints">path Array</param>
+        /// <param name="startPos">start position</param>
+        /// <param name="turnDst">distance of line point to turn point</param>
+        /// <param name="stoppingDst">distance of target point to last position </param>
+        public Path(float3[] pathArray, float3 startPos, float turnDst, float stoppingDst)
         {
             // Path array
-            lookPoints = waypoints;
+            lookPoints = pathArray;
             // boundary array
             turnBoundaries = new Line[lookPoints.Length];
             // finish line index
             finishLineIndex = turnBoundaries.Length - 1;
             // get previous point for calculating boundary
             // first line is from start position to first waypoint
-            Vector2 previousPoint = ConvertVector(startPos);
+            float2 previousPoint = ConvertVector(startPos);
             for (int i = 0; i < lookPoints.Length; i++)
             {
                 // get current point
-                Vector2 currentPoint = ConvertVector(lookPoints[i]);
-                Vector2 dirToCurrentPoint = (currentPoint - previousPoint).normalized;
-                var dst = Vector2.Distance(currentPoint, previousPoint);
+                float2 currentPoint = ConvertVector(lookPoints[i]);
+                float2 dirToCurrentPoint = math.normalize(currentPoint - previousPoint);
+                var dst = math.distance(currentPoint, previousPoint);
                 var minTurnDst = math.min(dst, turnDst);
-                Vector2 turnBoundaryPoint = (i == finishLineIndex) ? 
+                float2 turnBoundaryPoint = (i == finishLineIndex) ? 
                     currentPoint : currentPoint - dirToCurrentPoint * minTurnDst;
                 
-                turnBoundaries[i] = new Line(turnBoundaryPoint, previousPoint - dirToCurrentPoint * turnDst);
+                turnBoundaries[i] = new Line(turnBoundaryPoint, previousPoint - dirToCurrentPoint * minTurnDst);
                 // set current point as previous point for next iteration
                 previousPoint = turnBoundaryPoint;
             }
@@ -193,7 +215,7 @@ namespace JH.Portfolio.Map
             float dstFromEndPoint = 0;
             for (int i = lookPoints.Length - 1; i > 0; i--)
             {
-                dstFromEndPoint += Vector3.Distance(lookPoints[i], lookPoints[i - 1]);
+                dstFromEndPoint += math.distance(lookPoints[i], lookPoints[i - 1]);
                 if (dstFromEndPoint > stoppingDst)
                 {
                     slowDownIndex = i;

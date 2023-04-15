@@ -11,7 +11,7 @@ namespace JH.Portfolio.Camera
     public class CameraStateMachineInspector : Editor
     {
         private bool _isInScene = false;
-        MainCameraObject _mainCameraObject;
+        CameraBrain _cameraBrain;
         
         private void OnEnable()
         {
@@ -19,7 +19,7 @@ namespace JH.Portfolio.Camera
             
             if (!_isInScene) return;
             
-            _mainCameraObject = FindObjectOfType<MainCameraObject>();
+            _cameraBrain = FindObjectOfType<CameraBrain>();
             SetCamera();
         }
 
@@ -53,7 +53,7 @@ namespace JH.Portfolio.Camera
             // Calculate camera position and rotation
             machine.CameraMovement(0, 0, ref position, ref rotation, ref priority, ref cameraLens);
             // Set camera position and rotation
-            _mainCameraObject.SetCameraImediatelyAtEditor(position, rotation, machine.cameraLens );
+            _cameraBrain.SetCameraImediatelyAtEditor(position, rotation, machine.cameraLens );
             
             // Load machine's priority from saved value
             machine.CameraPriority = savePriority;

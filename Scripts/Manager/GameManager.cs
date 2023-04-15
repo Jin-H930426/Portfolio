@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace JH.Portfolio.Manager
 {
-    [DefaultExecutionOrder(10)]
+    [DefaultExecutionOrder(-100)]
     public class GameManager : MonoBehaviour
     {
         // Reference GameManager component for Singleton
@@ -22,8 +22,8 @@ namespace JH.Portfolio.Manager
         [ReadOnly, SerializeField] private FirebaseManager _firebaseManager;
         #endregion
         #region Property
-        public static TimeManager TimeManager => Instance._timeManager;
-        public static InputManager InputManager => Instance?._inputManager;
+        // public static TimeManager TimeManager => Instance._timeManager;
+        public static InputManager InputManager => Instance._inputManager;
         public static ResourceManager ResourceManager => Instance._resourceManager;
         public static FirebaseManager FirebaseManager => Instance._firebaseManager;
         
@@ -47,7 +47,7 @@ namespace JH.Portfolio.Manager
                 return;
             }
 
-            Application.targetFrameRate = TargetFrameRate * 4;
+            // Application.targetFrameRate = TargetFrameRate * 4;
             // Platform Check
             #region Platform Check
 #if PLATFORM_ANDROID || PLATFORM_IOS
@@ -60,15 +60,22 @@ namespace JH.Portfolio.Manager
             #endregion 
             _firebaseManager = new FirebaseManager();
             _resourceManager = new ResourceManager();
-            _timeManager = new TimeManager();
+            _timeManager = TimeManager.Instance;
             _inputManager = new InputManager(InputType);
+
+            StartCoroutine(UpdateCoroutine());
         }
         // game manager update
-        private void Update()
+
+        IEnumerator UpdateCoroutine()
         {
-            var deltaTime = Time.unscaledDeltaTime;
-            _timeManager.Update(deltaTime);
-            _inputManager.Update(deltaTime);
+            while (true)
+            {
+                yield return new WaitForEndOfFrame();
+                var deltaTime = Time.unscaledDeltaTime;
+                _timeManager.Update(deltaTime);
+                _inputManager.Update(deltaTime);
+            } 
         }
         // game manager fixed update
         private void FixedUpdate()

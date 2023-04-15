@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using Debug = JH.Portfolio.Debug;
 
 namespace JH
 {
@@ -15,7 +17,7 @@ namespace JH
         }
         [SerializeField] private List<KeyValuePair> keyValuePairs = new();
         [SerializeField] private TKey additionKey;
-
+        
         public SerializedDictionary() : base()
         {
             

@@ -1,16 +1,21 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
 namespace JH.Portfolio.Camera
 {
     using Manager;
-    using Camera;
+    [DefaultExecutionOrder(-1)]
     [RequireComponent(typeof(UnityEngine.Camera))]
-    public class MainCameraObject : MonoBehaviour
+    public class CameraBrain : MonoBehaviour
     {
-        public static MainCameraObject Instance { get; private set; }
+        // Camera brain dictionary for find camera brain
+        static Dictionary<string, CameraBrain> cameraBrains;
+        // Camera brain name for Add to dictionary
+        public string cameraBrainName = "MainCamera";
         UnityEngine.Camera _camera;
+        // Camera handler for change camera from machines
         public delegate void ChangeCameraHandler(float horizontal, float vertical,ref Vector3 position, ref Quaternion rotation, ref float priority, ref CameraLens lens); 
         public event ChangeCameraHandler OnChangeCameraEvent;
         // Input values
@@ -19,25 +24,19 @@ namespace JH.Portfolio.Camera
         
         private void Awake()
         {
-            if (Instance != null)
+            if (cameraBrains == null) cameraBrains = new Dictionary<string, CameraBrain>();
+            if (cameraBrains.ContainsKey(cameraBrainName))
             {
-                Debug.LogWarning($"Destroy {name} Object, because MainCameraObject is already exist : {Instance.name}");
+                Debug.LogWarning($"Destroy {name} Object, because MainCameraObject is already exist : {cameraBrainName}");
                 Destroy(gameObject);
                 return;
             }
             
-            Instance = this;
+            cameraBrains.Add(cameraBrainName, this);
             _camera = GetComponent<UnityEngine.Camera>();
             DontDestroyOnLoad(gameObject);
         }
         private void OnEnable()
-        {
-            // Null check for initialize
-            if (GameManager.InputManager == null) return;
-            
-            InitializeInput();
-        }
-        private void Start()
         {
             InitializeInput();
         }
@@ -48,6 +47,18 @@ namespace JH.Portfolio.Camera
         private void OnDestroy()
         {
             OnChangeCameraEvent = null;
+        }
+        
+        /// <summary>
+        /// Find camera brain from dictionary
+        /// </summary>
+        /// <param name="cameraBrainName">for finding key</param>
+        /// <returns></returns>
+        public static CameraBrain GetCameraBrain(string cameraBrainName)
+        {
+            if (cameraBrains == null) return null;
+            if (!cameraBrains.ContainsKey(cameraBrainName)) return null;
+            return cameraBrains[cameraBrainName];
         }
         // Add input event
         private void InitializeInput()
@@ -67,7 +78,9 @@ namespace JH.Portfolio.Camera
         {
             SetPositionAndRotation();
         }
-        // Set camera position and rotation
+        /// <summary>
+        /// Set camera position and rotation
+        /// </summary>
         public void SetPositionAndRotation()
         {
             UnityEngine.Profiling.Profiler.BeginSample("MainCameraObject.SetPositionAndRotation");
@@ -87,7 +100,12 @@ namespace JH.Portfolio.Camera
             _vertical = 0;
             UnityEngine.Profiling.Profiler.EndSample();
         }
-        // set imediatly camera position.
+        /// <summary>
+        /// Set camera position and rotation immediately
+        /// </summary>
+        /// <param name="position">setting position</param>
+        /// <param name="rotation">setting rotation</param>
+        /// <param name="lens">setting lens value</param>
         public void SetCameraImediately(Vector3 position, Quaternion rotation, CameraLens lens)
         {
             _camera.fieldOfView = lens.fieldOfView;
@@ -96,10 +114,13 @@ namespace JH.Portfolio.Camera
             
             transform.SetPositionAndRotation(position, rotation);
         }
-        // add input value
+        /// <summary>
+        /// Add input values
+        /// </summary>
+        /// <param name="positionInput"></param>
+        /// <param name="rotationInput"></param>
         private void OnCameraMovement(Vector3 positionInput, Vector3 rotationInput)
         {
-            UnityEngine.Profiling.Profiler.BeginSample("MainCameraObject.OnCameraMovement");
             if (!enabled)
             {
                 return;
@@ -107,11 +128,13 @@ namespace JH.Portfolio.Camera
             
             _horizontal += rotationInput.x;
             _vertical += rotationInput.y;
-            UnityEngine.Profiling.Profiler.EndSample();
         }
-
+        
         
         #if UNITY_EDITOR
+        /// <summary>
+        /// Set camera position and rotation in editor
+        /// </summary>
         public void SetPositionAndRotationAtEditor()
         {
             if (Application.isPlaying) return;
@@ -133,6 +156,12 @@ namespace JH.Portfolio.Camera
             camera.nearClipPlane = cameraLens.ClippingPlane.x;
             camera.farClipPlane = cameraLens.ClippingPlane.y;
         }
+        /// <summary>
+        /// Set camera position and rotation immediately in editor
+        /// </summary>
+        /// <param name="position">setting position</param>
+        /// <param name="rotation">setting rotation</param>
+        /// <param name="lens">setting lens value</param>
         public void SetCameraImediatelyAtEditor(Vector3 position, Quaternion rotation, CameraLens lens)
         {
             var camera = GetComponent<UnityEngine.Camera>();

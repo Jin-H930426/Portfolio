@@ -24,7 +24,7 @@ namespace JH.Portfolio.Map
         
         private void Start()
         {
-            _map = Map.GetOnMap(transform.position);
+            _map = Map.FindMapWith(transform.position);
         }
 
         public void CalculatePath(Vector3 endPos)
@@ -43,21 +43,18 @@ namespace JH.Portfolio.Map
         public IEnumerator<(float3 pos, quaternion rot)> CalculationMovement(float3 currentPos, 
             quaternion currentRot, float deltaTime, float movementSpeed ,float turnSpeed)
         {  
+            if(_path == null || _path.turnBoundaries == null) yield break;
+            
             bool followingPath = true;
             int pathIndex = 0;
             
             float speedPercent = 1;
-            
-            while (followingPath)
+            while (followingPath && pathIndex < _path.turnBoundaries.Length)
             {
                 float2 pos2D = new float2(currentPos.x, currentPos.z);
                 if (_path.turnBoundaries == null) break;
-                if(_path.turnBoundaries.Length <= pathIndex)
-                {
-                    Debug.Log($"Path Index Out of Range: {pathIndex} / {_path.turnBoundaries.Length}");
-                    break;
-                }
-                while (_path.turnBoundaries[pathIndex].HasCrossedLine(pos2D))
+                
+                while (pathIndex < _path.turnBoundaries.Length && _path.turnBoundaries[pathIndex].HasCrossedLine(pos2D))
                 {
                     if (pathIndex == _path.finishLineIndex)
                     {

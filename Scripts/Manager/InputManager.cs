@@ -17,8 +17,10 @@ namespace JH.Portfolio.Manager
             Joystick
         }
         // Define input event handler
+        [System.Serializable]
         public class InputEvent
         {
+            public ulong bitMask = 1;
             private bool _currentPressState = false;
             private Action _onPressedEvent;  
             public event Action OnPressedEvent
@@ -39,6 +41,11 @@ namespace JH.Portfolio.Manager
                 remove => _onReleasedEvent -= value;
             }
 
+            public void InvokeInputEvent(ulong inputBit)
+            {
+                var pressState = (inputBit & bitMask) != 0;
+                InvokeInputEvent(pressState);
+            }
             public void InvokeInputEvent(bool pressState)
             {
                 // pressed check
@@ -71,6 +78,7 @@ namespace JH.Portfolio.Manager
         }
         public class InputEvent<T>
         {
+            public ulong bitMask = 1;
             private bool _currentPressState = false;
             private Action<T> _onPressedEvent;  
             public event Action<T> OnPressedEvent
@@ -90,7 +98,12 @@ namespace JH.Portfolio.Manager
                 add => _onReleasedEvent += value;
                 remove => _onReleasedEvent -= value;
             }
-
+            
+            public void InvokeInputEvent(ulong bit, T value)
+            {
+                var pressState = (bit & bitMask) != 0;
+                InvokeInputEvent(pressState, value);
+            }
             public void InvokeInputEvent(bool pressState, T value)
             {
                 // pressed check
@@ -123,6 +136,7 @@ namespace JH.Portfolio.Manager
         }
         public class InputEvent<T1, T2>
         {
+            public ulong bitMask = 1;
             private bool _currentPressState = false;
             private Action<T1, T2> _onPressedEvent;  
             public event Action<T1, T2> OnPressedEvent
@@ -143,6 +157,11 @@ namespace JH.Portfolio.Manager
                 remove => _onReleasedEvent -= value;
             }
             
+            public void InvokeInputEvent(ulong bit, T1 value1, T2 value2)
+            {
+                var pressState = (bit & bitMask) != 0;
+                InvokeInputEvent(pressState, value1, value2);
+            }
             public void InvokeInputEvent(bool pressState, T1 value1, T2 value2)
             {
                 // pressed check
@@ -227,10 +246,11 @@ namespace JH.Portfolio.Manager
             }
             
             // initialize hot key events
-            OnHotKeyInputEvents = new InputEvent[_input.GetHotKeyCount()];            
+            OnHotKeyInputEvents = new InputEvent[_input.GetHotKeyCount()];   
+            ulong bitMask = (ulong)1 << (OnHotKeyInputEvents.Length);
             for (int i = 0; i < OnHotKeyInputEvents.Length; i++)
             {
-                OnHotKeyInputEvents[i] = new InputEvent();
+                OnHotKeyInputEvents[i] = new InputEvent() { bitMask =  bitMask>>1 };
             }
         }
         /// <summary>
@@ -252,13 +272,15 @@ namespace JH.Portfolio.Manager
             OnJumpInputEvent?.InvokeInputEvent(_input.GetJumpInput());
             OnCrouchInputEvent?.InvokeInputEvent(_input.GetCrouchInput());
             OnSprintInputEvent?.InvokeInputEvent(_input.GetSprintInput());
+            UnityEngine.Profiling.Profiler.BeginSample("InputManager.Update.HotKey");
             // 단축키 이벤트 처리
             int hotkeycount = _input.GetHotKeyCount();
             ulong hotkeyinput = _input.GetHotKeyInput();
             for (int i = 0; i < hotkeycount; i++)
             {
-                OnHotKeyInputEvents[i]?.InvokeInputEvent((hotkeyinput & ((ulong)1 << i)) != 0);
+                OnHotKeyInputEvents[i]?.InvokeInputEvent(hotkeyinput);
             }
+            UnityEngine.Profiling.Profiler.EndSample();
             UnityEngine.Profiling.Profiler.EndSample();
         }
         
