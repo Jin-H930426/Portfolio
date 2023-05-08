@@ -1,0 +1,4254 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9092279976476643705
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/New_Cloth_11
+  m_EditorClassIdentifier: 
+  itemID: 33546
+  itemName: New_Cloth_11
+  itemIcon: {fileID: 2800000, guid: ebfacd3201632214dbca89e46fc158c3, type: 3}
+  itemDescription: New_Cloth_11
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -4637655676411158975, guid: ebfacd3201632214dbca89e46fc158c3, type: 3}
+  - {fileID: 4038240812463133292, guid: ebfacd3201632214dbca89e46fc158c3, type: 3}
+  - {fileID: 7972047035149555109, guid: ebfacd3201632214dbca89e46fc158c3, type: 3}
+--- !u!114 &-8963415520838489665
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/New_Helmet_01
+  m_EditorClassIdentifier: 
+  itemID: 34154
+  itemName: New_Helmet_01
+  itemIcon: {fileID: 2800000, guid: 21aed0b89cedda44ab3b515db6a97bcc, type: 3}
+  itemDescription: New_Helmet_01
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 21aed0b89cedda44ab3b515db6a97bcc, type: 3}
+--- !u!114 &-8910093601595173339
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Pant/New_Pant_06
+  m_EditorClassIdentifier: 
+  itemID: 33402
+  itemName: New_Pant_06
+  itemIcon: {fileID: 2800000, guid: 02acb7e802a0ccf4ba9f4c22b75e2bce, type: 3}
+  itemDescription: New_Pant_06
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 0000000000000000
+  sprites:
+  - {fileID: -3490681349583411707, guid: 02acb7e802a0ccf4ba9f4c22b75e2bce, type: 3}
+  - {fileID: 4718681636040477543, guid: 02acb7e802a0ccf4ba9f4c22b75e2bce, type: 3}
+--- !u!114 &-8837532472470394662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_12
+  m_EditorClassIdentifier: 
+  itemID: 34146
+  itemName: New_Weapon_12
+  itemIcon: {fileID: 2800000, guid: 0a36c9f9a15f2534088e47a53f116968, type: 3}
+  itemDescription: New_Weapon_12
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 0a36c9f9a15f2534088e47a53f116968, type: 3}
+--- !u!114 &-8806920142144193075
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/WoodShield4
+  m_EditorClassIdentifier: 
+  itemID: 34284
+  itemName: WoodShield4
+  itemIcon: {fileID: 2800000, guid: 98b42a0f6ac97184e8baf4390aada17d, type: 3}
+  itemDescription: WoodShield4
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 98b42a0f6ac97184e8baf4390aada17d, type: 3}
+--- !u!114 &-8706061028777538276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/Cloth_1
+  m_EditorClassIdentifier: 
+  itemID: 33890
+  itemName: Cloth_1
+  itemIcon: {fileID: 2800000, guid: f3777162e2f76904ab6fb59c00944a9e, type: 3}
+  itemDescription: Cloth_1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -1051182729592144375, guid: f3777162e2f76904ab6fb59c00944a9e, type: 3}
+  - {fileID: -5314646427713862164, guid: f3777162e2f76904ab6fb59c00944a9e, type: 3}
+  - {fileID: 918163296319358687, guid: f3777162e2f76904ab6fb59c00944a9e, type: 3}
+--- !u!114 &-8677593695008942605
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_17
+  m_EditorClassIdentifier: 
+  itemID: 33354
+  itemName: New_Hair_17
+  itemIcon: {fileID: 2800000, guid: 02e65185ec7809742b5c1be7833ce5a4, type: 3}
+  itemDescription: New_Hair_17
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 02e65185ec7809742b5c1be7833ce5a4, type: 3}
+--- !u!114 &-8641763944219902799
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/Helmet_3
+  m_EditorClassIdentifier: 
+  itemID: 33282
+  itemName: Helmet_3
+  itemIcon: {fileID: 2800000, guid: 0e7871ef11d59be4d9c2f6fdff31b14a, type: 3}
+  itemDescription: Helmet_3
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 0e7871ef11d59be4d9c2f6fdff31b14a, type: 3}
+--- !u!114 &-8525601113249675957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e6c13b3ea13418a9c3981da75d70674, type: 3}
+  m_Name: Back
+  m_EditorClassIdentifier: 
+  partsItemDataList:
+  - {fileID: -7116631832342926926}
+  - {fileID: -5977851976743917100}
+  - {fileID: 7115103276467766743}
+  - {fileID: -4207821953297528585}
+  - {fileID: -7547249207980192338}
+  - {fileID: -1891251107503772426}
+  - {fileID: 6831630406871493475}
+--- !u!114 &-8200752228369011979
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/WoodShield2
+  m_EditorClassIdentifier: 
+  itemID: 34142
+  itemName: WoodShield2
+  itemIcon: {fileID: 2800000, guid: 638e9c8fc4854404e9bc906bec85554d, type: 3}
+  itemDescription: WoodShield2
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 638e9c8fc4854404e9bc906bec85554d, type: 3}
+--- !u!114 &-8015916101102799317
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/New_Cloth_07
+  m_EditorClassIdentifier: 
+  itemID: 33692
+  itemName: New_Cloth_07
+  itemIcon: {fileID: 2800000, guid: 9a449d3dd151f6e4582d4e3e15d3b2b6, type: 3}
+  itemDescription: New_Cloth_07
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: 6421436092777573019, guid: 9a449d3dd151f6e4582d4e3e15d3b2b6, type: 3}
+  - {fileID: 7226222182911894486, guid: 9a449d3dd151f6e4582d4e3e15d3b2b6, type: 3}
+  - {fileID: -2147142697739865190, guid: 9a449d3dd151f6e4582d4e3e15d3b2b6, type: 3}
+--- !u!114 &-7988809695312264333
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_06
+  m_EditorClassIdentifier: 
+  itemID: 34188
+  itemName: New_Weapon_06
+  itemIcon: {fileID: 2800000, guid: ec8f85574a1bce943942e0546760aa5b, type: 3}
+  itemDescription: New_Weapon_06
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: ec8f85574a1bce943942e0546760aa5b, type: 3}
+--- !u!114 &-7905046373446778700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_19
+  m_EditorClassIdentifier: 
+  itemID: 33736
+  itemName: New_Weapon_19
+  itemIcon: {fileID: 2800000, guid: 1d314c1806e09f842b215748a56136a9, type: 3}
+  itemDescription: New_Weapon_19
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 1d314c1806e09f842b215748a56136a9, type: 3}
+--- !u!114 &-7662291022290316971
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/Helmet_4
+  m_EditorClassIdentifier: 
+  itemID: 33874
+  itemName: Helmet_4
+  itemIcon: {fileID: 2800000, guid: 7cfefff423a03e04ba71588c30b48717, type: 3}
+  itemDescription: Helmet_4
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 7cfefff423a03e04ba71588c30b48717, type: 3}
+--- !u!114 &-7601067857688752724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Pant/Foot_1
+  m_EditorClassIdentifier: 
+  itemID: 34004
+  itemName: Foot_1
+  itemIcon: {fileID: 2800000, guid: aa5abb63eac8a9c40b91bfa9dd4c83b7, type: 3}
+  itemDescription: Foot_1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 0000000000000000
+  sprites:
+  - {fileID: 8616813021583795274, guid: aa5abb63eac8a9c40b91bfa9dd4c83b7, type: 3}
+  - {fileID: 6436355157659965594, guid: aa5abb63eac8a9c40b91bfa9dd4c83b7, type: 3}
+--- !u!114 &-7596851612100213280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Pant/New_Pant_12
+  m_EditorClassIdentifier: 
+  itemID: 33026
+  itemName: New_Pant_12
+  itemIcon: {fileID: 2800000, guid: 2318e166d0e3ab248a91e0194a09f6c6, type: 3}
+  itemDescription: New_Pant_12
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 0000000000000000
+  sprites:
+  - {fileID: -3140455820982803383, guid: 2318e166d0e3ab248a91e0194a09f6c6, type: 3}
+  - {fileID: 7313079964742260036, guid: 2318e166d0e3ab248a91e0194a09f6c6, type: 3}
+--- !u!114 &-7573640804938613600
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/Sword_6
+  m_EditorClassIdentifier: 
+  itemID: 34100
+  itemName: Sword_6
+  itemIcon: {fileID: 2800000, guid: 453f72d616fe69f44ba21a54f953a947, type: 3}
+  itemDescription: Sword_6
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 453f72d616fe69f44ba21a54f953a947, type: 3}
+--- !u!114 &-7547249207980192338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Back/Soon_Back1
+  m_EditorClassIdentifier: 
+  itemID: 33466
+  itemName: Soon_Back1
+  itemIcon: {fileID: 2800000, guid: be4c5bb63cef94346a7422ea9abdce61, type: 3}
+  itemDescription: Soon_Back1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: be4c5bb63cef94346a7422ea9abdce61, type: 3}
+--- !u!114 &-7540172168404464123
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Pant/Foot_4
+  m_EditorClassIdentifier: 
+  itemID: 33962
+  itemName: Foot_4
+  itemIcon: {fileID: 2800000, guid: 46b94e08bc61caa46a6b56efad78cd19, type: 3}
+  itemDescription: Foot_4
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 0000000000000000
+  sprites:
+  - {fileID: 2227563860517246555, guid: 46b94e08bc61caa46a6b56efad78cd19, type: 3}
+  - {fileID: 142443694952996111, guid: 46b94e08bc61caa46a6b56efad78cd19, type: 3}
+--- !u!114 &-7481731794268874435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e6c13b3ea13418a9c3981da75d70674, type: 3}
+  m_Name: Cloth
+  m_EditorClassIdentifier: 
+  partsItemDataList:
+  - {fileID: -8706061028777538276}
+  - {fileID: -4497267710342886943}
+  - {fileID: -6376166921391154638}
+  - {fileID: -4357301776966978001}
+  - {fileID: 6290866976542673807}
+  - {fileID: -1899104989054901072}
+  - {fileID: -4295746414872437599}
+  - {fileID: 830020661597865174}
+  - {fileID: 5592567737346189130}
+  - {fileID: 8813125878105556532}
+  - {fileID: -2281277418756302593}
+  - {fileID: 3482950697137997663}
+  - {fileID: -6650214596396481461}
+  - {fileID: 8827151001282860570}
+  - {fileID: 1152709600900455400}
+  - {fileID: -3510810641618042569}
+  - {fileID: -267483233856703831}
+  - {fileID: -6793126749103024830}
+  - {fileID: -3945928926140261363}
+  - {fileID: -8015916101102799317}
+  - {fileID: 9048616352958561209}
+  - {fileID: -459704635768048130}
+  - {fileID: 7864113376381245977}
+  - {fileID: -9092279976476643705}
+  - {fileID: -5345591739313791219}
+--- !u!114 &-7439019570531808696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_09
+  m_EditorClassIdentifier: 
+  itemID: 33938
+  itemName: New_Hair_09
+  itemIcon: {fileID: 2800000, guid: a8117ba51b47336419627efd2e843eb7, type: 3}
+  itemDescription: New_Hair_09
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: a8117ba51b47336419627efd2e843eb7, type: 3}
+--- !u!114 &-7322745981274271008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Pant/New_Pant_03
+  m_EditorClassIdentifier: 
+  itemID: 33968
+  itemName: New_Pant_03
+  itemIcon: {fileID: 2800000, guid: 8e6c0d17be00ceb4cac799a852f60c24, type: 3}
+  itemDescription: New_Pant_03
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 0000000000000000
+  sprites:
+  - {fileID: 7509469182213787861, guid: 8e6c0d17be00ceb4cac799a852f60c24, type: 3}
+  - {fileID: 1300228907016722774, guid: 8e6c0d17be00ceb4cac799a852f60c24, type: 3}
+--- !u!114 &-7303123661834480662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_04
+  m_EditorClassIdentifier: 
+  itemID: 33624
+  itemName: New_Weapon_04
+  itemIcon: {fileID: 2800000, guid: 2bf1dc6ffa410544ead66d9e870b3355, type: 3}
+  itemDescription: New_Weapon_04
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 2bf1dc6ffa410544ead66d9e870b3355, type: 3}
+--- !u!114 &-7244533137514788446
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_20
+  m_EditorClassIdentifier: 
+  itemID: 33906
+  itemName: New_Weapon_20
+  itemIcon: {fileID: 2800000, guid: e690b058f828b174bbaec6f6559490ae, type: 3}
+  itemDescription: New_Weapon_20
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: e690b058f828b174bbaec6f6559490ae, type: 3}
+--- !u!114 &-7207383877874057402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/Sword_5
+  m_EditorClassIdentifier: 
+  itemID: 33802
+  itemName: Sword_5
+  itemIcon: {fileID: 2800000, guid: 02586fa058cf3ea4fbb9f9b2c02923a5, type: 3}
+  itemDescription: Sword_5
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 02586fa058cf3ea4fbb9f9b2c02923a5, type: 3}
+--- !u!114 &-7118063338911975699
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/New_Helmet_08
+  m_EditorClassIdentifier: 
+  itemID: 34162
+  itemName: New_Helmet_08
+  itemIcon: {fileID: 2800000, guid: 68c97097291acca40a59448dc1c72212, type: 3}
+  itemDescription: New_Helmet_08
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 68c97097291acca40a59448dc1c72212, type: 3}
+--- !u!114 &-7116631832342926926
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Back/Back_1
+  m_EditorClassIdentifier: 
+  itemID: 33100
+  itemName: Back_1
+  itemIcon: {fileID: 2800000, guid: dea3674d69e30824391236c196760053, type: 3}
+  itemDescription: Back_1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: dea3674d69e30824391236c196760053, type: 3}
+--- !u!114 &-6992771725811254097
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/Normal_Helmet2
+  m_EditorClassIdentifier: 
+  itemID: 32912
+  itemName: Normal_Helmet2
+  itemIcon: {fileID: 2800000, guid: f401a92b5d7aec34c8bd831a00dec19b, type: 3}
+  itemDescription: Normal_Helmet2
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: f401a92b5d7aec34c8bd831a00dec19b, type: 3}
+--- !u!114 &-6985779042641262512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/Armor_6
+  m_EditorClassIdentifier: 
+  itemID: 34046
+  itemName: Armor_6
+  itemIcon: {fileID: 2800000, guid: d01370e4752708142a8aa96284acbb2a, type: 3}
+  itemDescription: Armor_6
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 2921928543939359008, guid: d01370e4752708142a8aa96284acbb2a, type: 3}
+--- !u!114 &-6873072915306506983
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Shield_01
+  m_EditorClassIdentifier: 
+  itemID: 33614
+  itemName: New_Shield_01
+  itemIcon: {fileID: 2800000, guid: bd96d7ced4b14de40956129290e50cff, type: 3}
+  itemDescription: New_Shield_01
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: bd96d7ced4b14de40956129290e50cff, type: 3}
+--- !u!114 &-6862564418869895406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Shield_02
+  m_EditorClassIdentifier: 
+  itemID: 33770
+  itemName: New_Shield_02
+  itemIcon: {fileID: 2800000, guid: fbb1904dacb99da49bcfc7e1587a39f3, type: 3}
+  itemDescription: New_Shield_02
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: fbb1904dacb99da49bcfc7e1587a39f3, type: 3}
+--- !u!114 &-6827758873912786075
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Normal_Hair9
+  m_EditorClassIdentifier: 
+  itemID: 33902
+  itemName: Normal_Hair9
+  itemIcon: {fileID: 2800000, guid: abfce66f667416d47b809c941e02766a, type: 3}
+  itemDescription: Normal_Hair9
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: abfce66f667416d47b809c941e02766a, type: 3}
+--- !u!114 &-6793126749103024830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/New_Cloth_05
+  m_EditorClassIdentifier: 
+  itemID: 33018
+  itemName: New_Cloth_05
+  itemIcon: {fileID: 2800000, guid: 66b052cdf9126bc4c8085291e9740408, type: 3}
+  itemDescription: New_Cloth_05
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: 3018618961690428772, guid: 66b052cdf9126bc4c8085291e9740408, type: 3}
+  - {fileID: -4371727071997471992, guid: 66b052cdf9126bc4c8085291e9740408, type: 3}
+  - {fileID: 2263474349454975077, guid: 66b052cdf9126bc4c8085291e9740408, type: 3}
+--- !u!114 &-6650214596396481461
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/Normal_Cloth1
+  m_EditorClassIdentifier: 
+  itemID: 33394
+  itemName: Normal_Cloth1
+  itemIcon: {fileID: 2800000, guid: 6a6681ef7b6dbe44fa2a9726f084c211, type: 3}
+  itemDescription: Normal_Cloth1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -6277864862234470961, guid: 6a6681ef7b6dbe44fa2a9726f084c211, type: 3}
+  - {fileID: 4168471578896831415, guid: 6a6681ef7b6dbe44fa2a9726f084c211, type: 3}
+  - {fileID: 5317998160545211047, guid: 6a6681ef7b6dbe44fa2a9726f084c211, type: 3}
+--- !u!114 &-6622397527486106105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e6c13b3ea13418a9c3981da75d70674, type: 3}
+  m_Name: Helmet
+  m_EditorClassIdentifier: 
+  partsItemDataList:
+  - {fileID: 3622560156582233821}
+  - {fileID: -3258617816734589744}
+  - {fileID: -8641763944219902799}
+  - {fileID: -7662291022290316971}
+  - {fileID: 2547329468655136829}
+  - {fileID: 6461658385383187121}
+  - {fileID: 604089704463099362}
+  - {fileID: -1506492903199972073}
+  - {fileID: 8723233954714994595}
+  - {fileID: 2132205023274510065}
+  - {fileID: -6992771725811254097}
+  - {fileID: -5253413580707046937}
+  - {fileID: -8963415520838489665}
+  - {fileID: -5234792894660293340}
+  - {fileID: -3678933456648767363}
+  - {fileID: -3074455091253152669}
+  - {fileID: -1372962037025107672}
+  - {fileID: 1893714225394663330}
+  - {fileID: -5806540347618324201}
+  - {fileID: -7118063338911975699}
+  - {fileID: -5241276376595975123}
+  - {fileID: 2687949342658363998}
+--- !u!114 &-6500641951587494049
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/AxeNormal1
+  m_EditorClassIdentifier: 
+  itemID: 33236
+  itemName: AxeNormal1
+  itemIcon: {fileID: 2800000, guid: a9b10a5f2f96d8e44b6e585c160f4db1, type: 3}
+  itemDescription: AxeNormal1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: a9b10a5f2f96d8e44b6e585c160f4db1, type: 3}
+--- !u!114 &-6448281381961301852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_07
+  m_EditorClassIdentifier: 
+  itemID: 33700
+  itemName: New_Weapon_07
+  itemIcon: {fileID: 2800000, guid: 9438b0d20bec562419697a42aef139c5, type: 3}
+  itemDescription: New_Weapon_07
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 9438b0d20bec562419697a42aef139c5, type: 3}
+--- !u!114 &-6376166921391154638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/Cloth_3
+  m_EditorClassIdentifier: 
+  itemID: 34264
+  itemName: Cloth_3
+  itemIcon: {fileID: 2800000, guid: 2fd8ac6149a09e945a478da34b3c97ea, type: 3}
+  itemDescription: Cloth_3
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -3618802667364733500, guid: 2fd8ac6149a09e945a478da34b3c97ea, type: 3}
+  - {fileID: -8202439237598021607, guid: 2fd8ac6149a09e945a478da34b3c97ea, type: 3}
+  - {fileID: -8675011627427599730, guid: 2fd8ac6149a09e945a478da34b3c97ea, type: 3}
+--- !u!114 &-6369613310710288648
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_weapon_02
+  m_EditorClassIdentifier: 
+  itemID: 33158
+  itemName: New_weapon_02
+  itemIcon: {fileID: 2800000, guid: 8726f6b7e348dd349b3b4a30f47c4e55, type: 3}
+  itemDescription: New_weapon_02
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 8726f6b7e348dd349b3b4a30f47c4e55, type: 3}
+--- !u!114 &-6337771194793760937
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/Armor_2
+  m_EditorClassIdentifier: 
+  itemID: 33722
+  itemName: Armor_2
+  itemIcon: {fileID: 2800000, guid: 3c1383226c4ae594dacb54055f6300de, type: 3}
+  itemDescription: Armor_2
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: 7505278090536262311, guid: 3c1383226c4ae594dacb54055f6300de, type: 3}
+  - {fileID: 2525852049797594121, guid: 3c1383226c4ae594dacb54055f6300de, type: 3}
+  - {fileID: -2016631381429734677, guid: 3c1383226c4ae594dacb54055f6300de, type: 3}
+--- !u!114 &-6334193614464365472
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Pant/New_Pant_05
+  m_EditorClassIdentifier: 
+  itemID: 33750
+  itemName: New_Pant_05
+  itemIcon: {fileID: 2800000, guid: 9972f2d3e22cc0d479edfe173bbb05bc, type: 3}
+  itemDescription: New_Pant_05
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 0000000000000000
+  sprites:
+  - {fileID: 1163637350275628661, guid: 9972f2d3e22cc0d479edfe173bbb05bc, type: 3}
+  - {fileID: 1018423890234701556, guid: 9972f2d3e22cc0d479edfe173bbb05bc, type: 3}
+--- !u!114 &-6255457089492190957
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Pant/New_Pant_10
+  m_EditorClassIdentifier: 
+  itemID: 33140
+  itemName: New_Pant_10
+  itemIcon: {fileID: 2800000, guid: aee3fc14df0eca94da67c7f1592142a6, type: 3}
+  itemDescription: New_Pant_10
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 0000000000000000
+  sprites:
+  - {fileID: 6733594908915214068, guid: aee3fc14df0eca94da67c7f1592142a6, type: 3}
+  - {fileID: 3805336920832468827, guid: aee3fc14df0eca94da67c7f1592142a6, type: 3}
+--- !u!114 &-5977851976743917100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Back/Back_2
+  m_EditorClassIdentifier: 
+  itemID: 33610
+  itemName: Back_2
+  itemIcon: {fileID: 2800000, guid: 2262707ee49a9da45b460fd80a713a91, type: 3}
+  itemDescription: Back_2
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 2262707ee49a9da45b460fd80a713a91, type: 3}
+--- !u!114 &-5922308813926422806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/New_Armor_05
+  m_EditorClassIdentifier: 
+  itemID: 34256
+  itemName: New_Armor_05
+  itemIcon: {fileID: 2800000, guid: b5cb1a8db57755b43833ee4b61b4fec1, type: 3}
+  itemDescription: New_Armor_05
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: 3972871922154001853, guid: b5cb1a8db57755b43833ee4b61b4fec1, type: 3}
+  - {fileID: 8522194497926649313, guid: b5cb1a8db57755b43833ee4b61b4fec1, type: 3}
+  - {fileID: 5530570116592791311, guid: b5cb1a8db57755b43833ee4b61b4fec1, type: 3}
+--- !u!114 &-5891724324463349854
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_01
+  m_EditorClassIdentifier: 
+  itemID: 33214
+  itemName: New_Weapon_01
+  itemIcon: {fileID: 2800000, guid: 4b93daf63bd89ea4fbd6360fe1db851e, type: 3}
+  itemDescription: New_Weapon_01
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 4b93daf63bd89ea4fbd6360fe1db851e, type: 3}
+--- !u!114 &-5844695849082060377
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Normal_Hair4
+  m_EditorClassIdentifier: 
+  itemID: 32942
+  itemName: Normal_Hair4
+  itemIcon: {fileID: 2800000, guid: f535e2fd3d6ae754690d81a13dcfb1f3, type: 3}
+  itemDescription: Normal_Hair4
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: f535e2fd3d6ae754690d81a13dcfb1f3, type: 3}
+--- !u!114 &-5806540347618324201
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/New_Helmet_07
+  m_EditorClassIdentifier: 
+  itemID: 34112
+  itemName: New_Helmet_07
+  itemIcon: {fileID: 2800000, guid: 56d473e9cceb68049952ba6b4df501fc, type: 3}
+  itemDescription: New_Helmet_07
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 56d473e9cceb68049952ba6b4df501fc, type: 3}
+--- !u!114 &-5696654077896735670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Pant/New_Pant_08
+  m_EditorClassIdentifier: 
+  itemID: 34058
+  itemName: New_Pant_08
+  itemIcon: {fileID: 2800000, guid: b400820f05947084d9c55d1fa0aa0353, type: 3}
+  itemDescription: New_Pant_08
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 0000000000000000
+  sprites:
+  - {fileID: 7352201148904788605, guid: b400820f05947084d9c55d1fa0aa0353, type: 3}
+  - {fileID: 4139686232721902399, guid: b400820f05947084d9c55d1fa0aa0353, type: 3}
+--- !u!114 &-5678595560065046059
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: FaceHair/FaceHair_3
+  m_EditorClassIdentifier: 
+  itemID: 33206
+  itemName: FaceHair_3
+  itemIcon: {fileID: 2800000, guid: eda1870c971048b4695979ce9cfc110c, type: 3}
+  itemDescription: FaceHair_3
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: eda1870c971048b4695979ce9cfc110c, type: 3}
+--- !u!114 &-5439742853866924341
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Normal_Hair12
+  m_EditorClassIdentifier: 
+  itemID: 34180
+  itemName: Normal_Hair12
+  itemIcon: {fileID: 2800000, guid: 2a9f83b8c089b444eb25d38a03402863, type: 3}
+  itemDescription: Normal_Hair12
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 2a9f83b8c089b444eb25d38a03402863, type: 3}
+--- !u!114 &-5408790449813340830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_01
+  m_EditorClassIdentifier: 
+  itemID: 33646
+  itemName: New_Hair_01
+  itemIcon: {fileID: 2800000, guid: 16b8c5f89c0f5e644bb9c6ebc4891b4d, type: 3}
+  itemDescription: New_Hair_01
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 16b8c5f89c0f5e644bb9c6ebc4891b4d, type: 3}
+--- !u!114 &-5345591739313791219
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/New_Cloth_12
+  m_EditorClassIdentifier: 
+  itemID: 33374
+  itemName: New_Cloth_12
+  itemIcon: {fileID: 2800000, guid: 54f09330369b0db4d8bd84b923aeede6, type: 3}
+  itemDescription: New_Cloth_12
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: 2417682793121042855, guid: 54f09330369b0db4d8bd84b923aeede6, type: 3}
+  - {fileID: 601630182038751158, guid: 54f09330369b0db4d8bd84b923aeede6, type: 3}
+  - {fileID: 1595887472439937909, guid: 54f09330369b0db4d8bd84b923aeede6, type: 3}
+--- !u!114 &-5253413580707046937
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/Normal_Helmet3
+  m_EditorClassIdentifier: 
+  itemID: 33086
+  itemName: Normal_Helmet3
+  itemIcon: {fileID: 2800000, guid: 9d85521cbec3bc149b87628dd80dd98a, type: 3}
+  itemDescription: Normal_Helmet3
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 9d85521cbec3bc149b87628dd80dd98a, type: 3}
+--- !u!114 &-5244755662030604545
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/New_Armor_10
+  m_EditorClassIdentifier: 
+  itemID: 33522
+  itemName: New_Armor_10
+  itemIcon: {fileID: 2800000, guid: 9f072df15dad1fb4fa0170b22bfe706f, type: 3}
+  itemDescription: New_Armor_10
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -7835900117207316200, guid: 9f072df15dad1fb4fa0170b22bfe706f, type: 3}
+  - {fileID: 1073284565128868512, guid: 9f072df15dad1fb4fa0170b22bfe706f, type: 3}
+  - {fileID: 1034684213189236624, guid: 9f072df15dad1fb4fa0170b22bfe706f, type: 3}
+--- !u!114 &-5241276376595975123
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/New_Helmet_09
+  m_EditorClassIdentifier: 
+  itemID: 32878
+  itemName: New_Helmet_09
+  itemIcon: {fileID: 2800000, guid: 7135721b927d59348a65e14f63422211, type: 3}
+  itemDescription: New_Helmet_09
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 7135721b927d59348a65e14f63422211, type: 3}
+--- !u!114 &-5234792894660293340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/New_Helmet_02
+  m_EditorClassIdentifier: 
+  itemID: 32892
+  itemName: New_Helmet_02
+  itemIcon: {fileID: 2800000, guid: 1ae99f0d3fafb9441b8d24689a428735, type: 3}
+  itemDescription: New_Helmet_02
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 1ae99f0d3fafb9441b8d24689a428735, type: 3}
+--- !u!114 &-5161954133570886966
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_16
+  m_EditorClassIdentifier: 
+  itemID: 34064
+  itemName: New_Weapon_16
+  itemIcon: {fileID: 2800000, guid: 5b24d224fc865be4fb84c51a57bc336c, type: 3}
+  itemDescription: New_Weapon_16
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 5b24d224fc865be4fb84c51a57bc336c, type: 3}
+--- !u!114 &-5149769056020629827
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_17
+  m_EditorClassIdentifier: 
+  itemID: 33634
+  itemName: New_Weapon_17
+  itemIcon: {fileID: 2800000, guid: 161f662148244bd4790c44e298548378, type: 3}
+  itemDescription: New_Weapon_17
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 161f662148244bd4790c44e298548378, type: 3}
+--- !u!114 &-5043386852729812352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/Armor_5
+  m_EditorClassIdentifier: 
+  itemID: 32962
+  itemName: Armor_5
+  itemIcon: {fileID: 2800000, guid: d54609346eb0b8248b3308000e3ed953, type: 3}
+  itemDescription: Armor_5
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 749604792542930979, guid: d54609346eb0b8248b3308000e3ed953, type: 3}
+--- !u!114 &-4708487761681884556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_09
+  m_EditorClassIdentifier: 
+  itemID: 33000
+  itemName: New_Weapon_09
+  itemIcon: {fileID: 2800000, guid: b48fb4978af8f2b4088e3e8e72aa2384, type: 3}
+  itemDescription: New_Weapon_09
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: b48fb4978af8f2b4088e3e8e72aa2384, type: 3}
+--- !u!114 &-4549056597395999272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/Bow_1
+  m_EditorClassIdentifier: 
+  itemID: 34226
+  itemName: Bow_1
+  itemIcon: {fileID: 2800000, guid: 88ac18f32bbd68c4aae2718d912f41e3, type: 3}
+  itemDescription: Bow_1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 88ac18f32bbd68c4aae2718d912f41e3, type: 3}
+--- !u!114 &-4531086817420793150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_18
+  m_EditorClassIdentifier: 
+  itemID: 34116
+  itemName: New_Weapon_18
+  itemIcon: {fileID: 2800000, guid: 2b3b0163a2245d44cbfae2da2f3a5742, type: 3}
+  itemDescription: New_Weapon_18
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 2b3b0163a2245d44cbfae2da2f3a5742, type: 3}
+--- !u!114 &-4507216553896973501
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_02
+  m_EditorClassIdentifier: 
+  itemID: 33202
+  itemName: New_Hair_02
+  itemIcon: {fileID: 2800000, guid: 64bfe571ce497ae4c9c7ca1e604f0911, type: 3}
+  itemDescription: New_Hair_02
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 64bfe571ce497ae4c9c7ca1e604f0911, type: 3}
+--- !u!114 &-4497267710342886943
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/Cloth_2
+  m_EditorClassIdentifier: 
+  itemID: 32966
+  itemName: Cloth_2
+  itemIcon: {fileID: 2800000, guid: 80aac136da980a548858893478d3a9c8, type: 3}
+  itemDescription: Cloth_2
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: 6828881972621389015, guid: 80aac136da980a548858893478d3a9c8, type: 3}
+  - {fileID: -2432274809877799677, guid: 80aac136da980a548858893478d3a9c8, type: 3}
+  - {fileID: 5498782995666421484, guid: 80aac136da980a548858893478d3a9c8, type: 3}
+--- !u!114 &-4426786755433458492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/AxeSmall1
+  m_EditorClassIdentifier: 
+  itemID: 33240
+  itemName: AxeSmall1
+  itemIcon: {fileID: 2800000, guid: abd8fadbd8b4d354a875463cfecd6907, type: 3}
+  itemDescription: AxeSmall1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: abd8fadbd8b4d354a875463cfecd6907, type: 3}
+--- !u!114 &-4388701194790377436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_12
+  m_EditorClassIdentifier: 
+  itemID: 33358
+  itemName: New_Hair_12
+  itemIcon: {fileID: 2800000, guid: bb1b221c064eed94f94cb7187ac1d425, type: 3}
+  itemDescription: New_Hair_12
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: bb1b221c064eed94f94cb7187ac1d425, type: 3}
+--- !u!114 &-4357301776966978001
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/Cloth_4
+  m_EditorClassIdentifier: 
+  itemID: 33146
+  itemName: Cloth_4
+  itemIcon: {fileID: 2800000, guid: bddf951be2752dd41ab05a47478305d5, type: 3}
+  itemDescription: Cloth_4
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -5138849381010601345, guid: bddf951be2752dd41ab05a47478305d5, type: 3}
+  - {fileID: -9059333892809613461, guid: bddf951be2752dd41ab05a47478305d5, type: 3}
+  - {fileID: 5974945691945990517, guid: bddf951be2752dd41ab05a47478305d5, type: 3}
+--- !u!114 &-4295746414872437599
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/Cloth_7
+  m_EditorClassIdentifier: 
+  itemID: 33228
+  itemName: Cloth_7
+  itemIcon: {fileID: 2800000, guid: 8231b0b79f6b8fb42a937e7b5345dce6, type: 3}
+  itemDescription: Cloth_7
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -6899643311455125392, guid: 8231b0b79f6b8fb42a937e7b5345dce6, type: 3}
+  - {fileID: -7096297032323124305, guid: 8231b0b79f6b8fb42a937e7b5345dce6, type: 3}
+  - {fileID: -8662432971830130642, guid: 8231b0b79f6b8fb42a937e7b5345dce6, type: 3}
+--- !u!114 &-4207821953297528585
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Back/BowBack_1
+  m_EditorClassIdentifier: 
+  itemID: 33184
+  itemName: BowBack_1
+  itemIcon: {fileID: 2800000, guid: 76f5f526fddffcb42b6129cc1f05f5d1, type: 3}
+  itemDescription: BowBack_1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 76f5f526fddffcb42b6129cc1f05f5d1, type: 3}
+--- !u!114 &-3945928926140261363
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/New_Cloth_06
+  m_EditorClassIdentifier: 
+  itemID: 33662
+  itemName: New_Cloth_06
+  itemIcon: {fileID: 2800000, guid: d7257ced464146547a5750a05733e4a0, type: 3}
+  itemDescription: New_Cloth_06
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -7736556782503057505, guid: d7257ced464146547a5750a05733e4a0, type: 3}
+  - {fileID: 1468843896871262044, guid: d7257ced464146547a5750a05733e4a0, type: 3}
+  - {fileID: 6707769398717036949, guid: d7257ced464146547a5750a05733e4a0, type: 3}
+--- !u!114 &-3878233686257336458
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: FaceHair/FaceHair_5
+  m_EditorClassIdentifier: 
+  itemID: 33154
+  itemName: FaceHair_5
+  itemIcon: {fileID: 2800000, guid: eed623c3b1cad9a438d1fadb84fecf60, type: 3}
+  itemDescription: FaceHair_5
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: eed623c3b1cad9a438d1fadb84fecf60, type: 3}
+--- !u!114 &-3806745526896126365
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_13
+  m_EditorClassIdentifier: 
+  itemID: 32904
+  itemName: New_Hair_13
+  itemIcon: {fileID: 2800000, guid: 3247183760a99ba43ad9a937fca4ee14, type: 3}
+  itemDescription: New_Hair_13
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 3247183760a99ba43ad9a937fca4ee14, type: 3}
+--- !u!114 &-3806240514433399897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e6c13b3ea13418a9c3981da75d70674, type: 3}
+  m_Name: Weapons
+  m_EditorClassIdentifier: 
+  partsItemDataList:
+  - {fileID: 1618671221353737452}
+  - {fileID: -4549056597395999272}
+  - {fileID: 1317317905348700682}
+  - {fileID: -3146890587090871807}
+  - {fileID: -2852585667403911859}
+  - {fileID: 997686961115169775}
+  - {fileID: 2435784819902770109}
+  - {fileID: 2893911592998770631}
+  - {fileID: 991785040063774381}
+  - {fileID: -7207383877874057402}
+  - {fileID: -7573640804938613600}
+  - {fileID: -3432225447927765306}
+  - {fileID: -37212736248159706}
+  - {fileID: -6500641951587494049}
+  - {fileID: -4426786755433458492}
+  - {fileID: 5156368680013964033}
+  - {fileID: -2873494940333766192}
+  - {fileID: -8200752228369011979}
+  - {fileID: 1063831545865056194}
+  - {fileID: -8806920142144193075}
+  - {fileID: -6873072915306506983}
+  - {fileID: -6862564418869895406}
+  - {fileID: 3511435043500784891}
+  - {fileID: -1872734894374811346}
+  - {fileID: -5891724324463349854}
+  - {fileID: -6369613310710288648}
+  - {fileID: 5625196206537103936}
+  - {fileID: -7303123661834480662}
+  - {fileID: -538331343314430081}
+  - {fileID: -7988809695312264333}
+  - {fileID: -6448281381961301852}
+  - {fileID: 177852553846053742}
+  - {fileID: -4708487761681884556}
+  - {fileID: 1347290602349419492}
+  - {fileID: 6966066761749253095}
+  - {fileID: -8837532472470394662}
+  - {fileID: 3457643205450994725}
+  - {fileID: -1152237705288305961}
+  - {fileID: 7240930359549320297}
+  - {fileID: -5161954133570886966}
+  - {fileID: -5149769056020629827}
+  - {fileID: -4531086817420793150}
+  - {fileID: -7905046373446778700}
+  - {fileID: -7244533137514788446}
+--- !u!114 &-3678933456648767363
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/New_Helmet_03
+  m_EditorClassIdentifier: 
+  itemID: 33218
+  itemName: New_Helmet_03
+  itemIcon: {fileID: 2800000, guid: 2342a3cae9b9a394fa122de24ea461f8, type: 3}
+  itemDescription: New_Helmet_03
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 2342a3cae9b9a394fa122de24ea461f8, type: 3}
+--- !u!114 &-3510810641618042569
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/New_Cloth_03
+  m_EditorClassIdentifier: 
+  itemID: 33444
+  itemName: New_Cloth_03
+  itemIcon: {fileID: 2800000, guid: 355469d9b33c9f946b2c58787d0c8ebc, type: 3}
+  itemDescription: New_Cloth_03
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -5059617106600631265, guid: 355469d9b33c9f946b2c58787d0c8ebc, type: 3}
+  - {fileID: -4433046098323040821, guid: 355469d9b33c9f946b2c58787d0c8ebc, type: 3}
+  - {fileID: -8220607459341252921, guid: 355469d9b33c9f946b2c58787d0c8ebc, type: 3}
+--- !u!114 &-3487280177090302315
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/New_Armor_04
+  m_EditorClassIdentifier: 
+  itemID: 33534
+  itemName: New_Armor_04
+  itemIcon: {fileID: 2800000, guid: bfc26a84631ded54da11384b091ab852, type: 3}
+  itemDescription: New_Armor_04
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 0000000000000000
+  sprites:
+  - {fileID: -8253554519187137626, guid: bfc26a84631ded54da11384b091ab852, type: 3}
+  - {fileID: 6087586346340565349, guid: bfc26a84631ded54da11384b091ab852, type: 3}
+--- !u!114 &-3432225447927765306
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/Ward_1
+  m_EditorClassIdentifier: 
+  itemID: 33916
+  itemName: Ward_1
+  itemIcon: {fileID: 2800000, guid: 74d09ad18bf393e42b79dc2a125d2cad, type: 3}
+  itemDescription: Ward_1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 74d09ad18bf393e42b79dc2a125d2cad, type: 3}
+--- !u!114 &-3258617816734589744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/Helmet_2
+  m_EditorClassIdentifier: 
+  itemID: 33846
+  itemName: Helmet_2
+  itemIcon: {fileID: 2800000, guid: bcfb1bc3b877b3247aba92a72d489e60, type: 3}
+  itemDescription: Helmet_2
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: bcfb1bc3b877b3247aba92a72d489e60, type: 3}
+--- !u!114 &-3216821903670716410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_11
+  m_EditorClassIdentifier: 
+  itemID: 32958
+  itemName: New_Hair_11
+  itemIcon: {fileID: 2800000, guid: fa5d4e94bb5c862488b56aa4c1735b69, type: 3}
+  itemDescription: New_Hair_11
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: fa5d4e94bb5c862488b56aa4c1735b69, type: 3}
+--- !u!114 &-3146890587090871807
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/Soon_Spear
+  m_EditorClassIdentifier: 
+  itemID: 33830
+  itemName: Soon_Spear
+  itemIcon: {fileID: 2800000, guid: 15f51910bdb1a164c96e58531168ab83, type: 3}
+  itemDescription: Soon_Spear
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 15f51910bdb1a164c96e58531168ab83, type: 3}
+--- !u!114 &-3074455091253152669
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/New_Helmet_04
+  m_EditorClassIdentifier: 
+  itemID: 33090
+  itemName: New_Helmet_04
+  itemIcon: {fileID: 2800000, guid: e99978ef7cd35e746891ba6a67abe391, type: 3}
+  itemDescription: New_Helmet_04
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: e99978ef7cd35e746891ba6a67abe391, type: 3}
+--- !u!114 &-2968924114166762461
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/New_Armor_12
+  m_EditorClassIdentifier: 
+  itemID: 33514
+  itemName: New_Armor_12
+  itemIcon: {fileID: 2800000, guid: 220fefc921d1932478674c2ca41e4fdd, type: 3}
+  itemDescription: New_Armor_12
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: -6724303171382856477, guid: 220fefc921d1932478674c2ca41e4fdd, type: 3}
+--- !u!114 &-2933441676160395957
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Normal_Hair8
+  m_EditorClassIdentifier: 
+  itemID: 33440
+  itemName: Normal_Hair8
+  itemIcon: {fileID: 2800000, guid: 0f71d5b561f3b5847bb154dafb64288b, type: 3}
+  itemDescription: Normal_Hair8
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 0f71d5b561f3b5847bb154dafb64288b, type: 3}
+--- !u!114 &-2873494940333766192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/WoodShield1
+  m_EditorClassIdentifier: 
+  itemID: 32924
+  itemName: WoodShield1
+  itemIcon: {fileID: 2800000, guid: 78fdd84790c41be45985c7cec40a75e8, type: 3}
+  itemDescription: WoodShield1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 78fdd84790c41be45985c7cec40a75e8, type: 3}
+--- !u!114 &-2852585667403911859
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/Spear_1
+  m_EditorClassIdentifier: 
+  itemID: 33774
+  itemName: Spear_1
+  itemIcon: {fileID: 2800000, guid: 5e1af1cc8efaad24b8147d84bd207466, type: 3}
+  itemDescription: Spear_1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 5e1af1cc8efaad24b8147d84bd207466, type: 3}
+--- !u!114 &-2673444065609676441
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/New_Armor_09
+  m_EditorClassIdentifier: 
+  itemID: 34120
+  itemName: New_Armor_09
+  itemIcon: {fileID: 2800000, guid: fc60af360718e0948afca1c42d585a07, type: 3}
+  itemDescription: New_Armor_09
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: 8876508137973978904, guid: fc60af360718e0948afca1c42d585a07, type: 3}
+  - {fileID: -2384050728755203925, guid: fc60af360718e0948afca1c42d585a07, type: 3}
+  - {fileID: 1280680924109167244, guid: fc60af360718e0948afca1c42d585a07, type: 3}
+--- !u!114 &-2588260922069881410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_19
+  m_EditorClassIdentifier: 
+  itemID: 33122
+  itemName: New_Hair_19
+  itemIcon: {fileID: 2800000, guid: 8855e455d5c07c143a9388e5f47eeb2b, type: 3}
+  itemDescription: New_Hair_19
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 8855e455d5c07c143a9388e5f47eeb2b, type: 3}
+--- !u!114 &-2281277418756302593
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/Cloth_11
+  m_EditorClassIdentifier: 
+  itemID: 34236
+  itemName: Cloth_11
+  itemIcon: {fileID: 2800000, guid: 3f32afa0ee199444d9aae3374bd54e1c, type: 3}
+  itemDescription: Cloth_11
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -386983977432367671, guid: 3f32afa0ee199444d9aae3374bd54e1c, type: 3}
+  - {fileID: -3501919001399007183, guid: 3f32afa0ee199444d9aae3374bd54e1c, type: 3}
+  - {fileID: 6712671587012831569, guid: 3f32afa0ee199444d9aae3374bd54e1c, type: 3}
+--- !u!114 &-2124462470432863750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Normal_Hair7
+  m_EditorClassIdentifier: 
+  itemID: 33858
+  itemName: Normal_Hair7
+  itemIcon: {fileID: 2800000, guid: da752d15c20889e489295d98cda538bc, type: 3}
+  itemDescription: Normal_Hair7
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: da752d15c20889e489295d98cda538bc, type: 3}
+--- !u!114 &-2098778815257818499
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/Armor_3
+  m_EditorClassIdentifier: 
+  itemID: 33044
+  itemName: Armor_3
+  itemIcon: {fileID: 2800000, guid: 587bf26a803d63c4e915a80bfa76993e, type: 3}
+  itemDescription: Armor_3
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: 1589403714872849932, guid: 587bf26a803d63c4e915a80bfa76993e, type: 3}
+  - {fileID: 4425119332354987815, guid: 587bf26a803d63c4e915a80bfa76993e, type: 3}
+  - {fileID: 889668667309676848, guid: 587bf26a803d63c4e915a80bfa76993e, type: 3}
+--- !u!114 &-1917637657722503589
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Normal_Hair11
+  m_EditorClassIdentifier: 
+  itemID: 33642
+  itemName: Normal_Hair11
+  itemIcon: {fileID: 2800000, guid: 918f2084e8c3c6a47907e1562b69895c, type: 3}
+  itemDescription: Normal_Hair11
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 918f2084e8c3c6a47907e1562b69895c, type: 3}
+--- !u!114 &-1916614590604984966
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Pant/New_Pant_11
+  m_EditorClassIdentifier: 
+  itemID: 34094
+  itemName: New_Pant_11
+  itemIcon: {fileID: 2800000, guid: 879d571e08f36a345b4a7494c2a8a7dc, type: 3}
+  itemDescription: New_Pant_11
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 0000000000000000
+  sprites:
+  - {fileID: -4207956258031686970, guid: 879d571e08f36a345b4a7494c2a8a7dc, type: 3}
+  - {fileID: -8972433390842509929, guid: 879d571e08f36a345b4a7494c2a8a7dc, type: 3}
+--- !u!114 &-1899104989054901072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/Cloth_6
+  m_EditorClassIdentifier: 
+  itemID: 33594
+  itemName: Cloth_6
+  itemIcon: {fileID: 2800000, guid: 00108d5674d26084c9794a7222233d9a, type: 3}
+  itemDescription: Cloth_6
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: 2949992012896409553, guid: 00108d5674d26084c9794a7222233d9a, type: 3}
+  - {fileID: 7891202649814613956, guid: 00108d5674d26084c9794a7222233d9a, type: 3}
+  - {fileID: 2371925709717891883, guid: 00108d5674d26084c9794a7222233d9a, type: 3}
+--- !u!114 &-1891251107503772426
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Back/New_Back_01
+  m_EditorClassIdentifier: 
+  itemID: 34206
+  itemName: New_Back_01
+  itemIcon: {fileID: 2800000, guid: 7c680c9addb93544bbc20f0b93b0d825, type: 3}
+  itemDescription: New_Back_01
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 7c680c9addb93544bbc20f0b93b0d825, type: 3}
+--- !u!114 &-1872734894374811346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Shield_04
+  m_EditorClassIdentifier: 
+  itemID: 34272
+  itemName: New_Shield_04
+  itemIcon: {fileID: 2800000, guid: 6a52672099153a440a00b97d80a66d4f, type: 3}
+  itemDescription: New_Shield_04
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 6a52672099153a440a00b97d80a66d4f, type: 3}
+--- !u!114 &-1608686050759065310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_07
+  m_EditorClassIdentifier: 
+  itemID: 32982
+  itemName: New_Hair_07
+  itemIcon: {fileID: 2800000, guid: 4b15b535415a6ce4b8d675ece233544e, type: 3}
+  itemDescription: New_Hair_07
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 4b15b535415a6ce4b8d675ece233544e, type: 3}
+--- !u!114 &-1506492903199972073
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/Helmet_8
+  m_EditorClassIdentifier: 
+  itemID: 32908
+  itemName: Helmet_8
+  itemIcon: {fileID: 2800000, guid: b0f9c6bd9968c6945a757bf3d606ba24, type: 3}
+  itemDescription: Helmet_8
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: b0f9c6bd9968c6945a757bf3d606ba24, type: 3}
+--- !u!114 &-1372962037025107672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/New_Helmet_05
+  m_EditorClassIdentifier: 
+  itemID: 34014
+  itemName: New_Helmet_05
+  itemIcon: {fileID: 2800000, guid: e8a977944a0bdde479d0f9766ec259d7, type: 3}
+  itemDescription: New_Helmet_05
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: e8a977944a0bdde479d0f9766ec259d7, type: 3}
+--- !u!114 &-1261293941712026890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_05
+  m_EditorClassIdentifier: 
+  itemID: 33480
+  itemName: New_Hair_05
+  itemIcon: {fileID: 2800000, guid: b4ab1f9deb2a26848a3a095101c826e7, type: 3}
+  itemDescription: New_Hair_05
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: b4ab1f9deb2a26848a3a095101c826e7, type: 3}
+--- !u!114 &-1152237705288305961
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_14
+  m_EditorClassIdentifier: 
+  itemID: 33324
+  itemName: New_Weapon_14
+  itemIcon: {fileID: 2800000, guid: 2ee81e6704d718549886095fe26f0dfa, type: 3}
+  itemDescription: New_Weapon_14
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 2ee81e6704d718549886095fe26f0dfa, type: 3}
+--- !u!114 &-1044346053362552016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Pant/Foot_2
+  m_EditorClassIdentifier: 
+  itemID: 32946
+  itemName: Foot_2
+  itemIcon: {fileID: 2800000, guid: 7c8824158be32a549bf182ceebc35a40, type: 3}
+  itemDescription: Foot_2
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 0000000000000000
+  sprites:
+  - {fileID: -6657482867516515422, guid: 7c8824158be32a549bf182ceebc35a40, type: 3}
+  - {fileID: -1701842369826841683, guid: 7c8824158be32a549bf182ceebc35a40, type: 3}
+--- !u!114 &-538331343314430081
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_05
+  m_EditorClassIdentifier: 
+  itemID: 34216
+  itemName: New_Weapon_05
+  itemIcon: {fileID: 2800000, guid: 3c50a9e9c5ef6f742a01cc7647055f84, type: 3}
+  itemDescription: New_Weapon_05
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 3c50a9e9c5ef6f742a01cc7647055f84, type: 3}
+--- !u!114 &-501256664720113245
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/Armor_4
+  m_EditorClassIdentifier: 
+  itemID: 33032
+  itemName: Armor_4
+  itemIcon: {fileID: 2800000, guid: 569a03b052b3bf24a9cbba01a3621d05, type: 3}
+  itemDescription: Armor_4
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -6702876299118751804, guid: 569a03b052b3bf24a9cbba01a3621d05, type: 3}
+  - {fileID: 8032732682986528544, guid: 569a03b052b3bf24a9cbba01a3621d05, type: 3}
+  - {fileID: -3380439360112706912, guid: 569a03b052b3bf24a9cbba01a3621d05, type: 3}
+--- !u!114 &-459704635768048130
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/New_Cloth_09
+  m_EditorClassIdentifier: 
+  itemID: 33274
+  itemName: New_Cloth_09
+  itemIcon: {fileID: 2800000, guid: 3c37b8a5a7dfbf74d95680503d961398, type: 3}
+  itemDescription: New_Cloth_09
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -8337890454457736744, guid: 3c37b8a5a7dfbf74d95680503d961398, type: 3}
+  - {fileID: 8502403439925346003, guid: 3c37b8a5a7dfbf74d95680503d961398, type: 3}
+  - {fileID: 1942513663190102962, guid: 3c37b8a5a7dfbf74d95680503d961398, type: 3}
+--- !u!114 &-267483233856703831
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/New_Cloth_04
+  m_EditorClassIdentifier: 
+  itemID: 34082
+  itemName: New_Cloth_04
+  itemIcon: {fileID: 2800000, guid: 29ba821be2e6e854cb25cf8b24721283, type: 3}
+  itemDescription: New_Cloth_04
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 3172806557743439903, guid: 29ba821be2e6e854cb25cf8b24721283, type: 3}
+--- !u!114 &-193579381290217391
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: FaceHair/FaceHair_1
+  m_EditorClassIdentifier: 
+  itemID: 34018
+  itemName: FaceHair_1
+  itemIcon: {fileID: 2800000, guid: 7c4f9c4e121043d469f4a0e779b40453, type: 3}
+  itemDescription: FaceHair_1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 7c4f9c4e121043d469f4a0e779b40453, type: 3}
+--- !u!114 &-149402893334948835
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Pant/Foot_3
+  m_EditorClassIdentifier: 
+  itemID: 33956
+  itemName: Foot_3
+  itemIcon: {fileID: 2800000, guid: 19e52343288807743951f5acad8af564, type: 3}
+  itemDescription: Foot_3
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 0000000000000000
+  sprites:
+  - {fileID: 2710371681560268619, guid: 19e52343288807743951f5acad8af564, type: 3}
+  - {fileID: 4488402338830534301, guid: 19e52343288807743951f5acad8af564, type: 3}
+--- !u!114 &-37212736248159706
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/AxeLong1
+  m_EditorClassIdentifier: 
+  itemID: 32596
+  itemName: AxeLong1
+  itemIcon: {fileID: 2800000, guid: e47266bcf5e1755489ee89c135a2e433, type: 3}
+  itemDescription: AxeLong1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: e47266bcf5e1755489ee89c135a2e433, type: 3}
+--- !u!114 &-28459524090279224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_16
+  m_EditorClassIdentifier: 
+  itemID: 32920
+  itemName: New_Hair_16
+  itemIcon: {fileID: 2800000, guid: f01912992ac7b204896c46aab3d5d739, type: 3}
+  itemDescription: New_Hair_16
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: f01912992ac7b204896c46aab3d5d739, type: 3}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7784dee9149433d92fba59bf744f5b3, type: 3}
+  m_Name: PartsItemManager
+  m_EditorClassIdentifier: 
+  partsItemDataList:
+    keyValuePairs:
+    - key: 0
+      value: {fileID: 509655298035681466}
+    - key: 1
+      value: {fileID: 548398049922010427}
+    - key: 2
+      value: {fileID: -7481731794268874435}
+    - key: 3
+      value: {fileID: 3054165004533462827}
+    - key: 4
+      value: {fileID: -6622397527486106105}
+    - key: 5
+      value: {fileID: 5835671175879501481}
+    - key: 6
+      value: {fileID: -3806240514433399897}
+    - key: 7
+      value: {fileID: -8525601113249675957}
+    additionKey: 0
+--- !u!114 &177852553846053742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_08
+  m_EditorClassIdentifier: 
+  itemID: 33946
+  itemName: New_Weapon_08
+  itemIcon: {fileID: 2800000, guid: 5d52c31eabfa32c46a3ef481f0a75582, type: 3}
+  itemDescription: New_Weapon_08
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 5d52c31eabfa32c46a3ef481f0a75582, type: 3}
+--- !u!114 &422426445096902551
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Normal_Hair10
+  m_EditorClassIdentifier: 
+  itemID: 33462
+  itemName: Normal_Hair10
+  itemIcon: {fileID: 2800000, guid: 26fde8eef67c7954aa73b5f6f3514a85, type: 3}
+  itemDescription: Normal_Hair10
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 26fde8eef67c7954aa73b5f6f3514a85, type: 3}
+--- !u!114 &509655298035681466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e6c13b3ea13418a9c3981da75d70674, type: 3}
+  m_Name: Hair
+  m_EditorClassIdentifier: 
+  partsItemDataList:
+  - {fileID: 5602310310785423564}
+  - {fileID: 4990268620155637106}
+  - {fileID: 7698131899573223166}
+  - {fileID: 3191860981600921231}
+  - {fileID: 6666904165520668087}
+  - {fileID: 2191003017148488744}
+  - {fileID: 7249510289840876266}
+  - {fileID: 7384731994206522955}
+  - {fileID: 5535069718744075064}
+  - {fileID: 1024320801829258583}
+  - {fileID: 5297104709419937749}
+  - {fileID: 3900131169187372109}
+  - {fileID: -5844695849082060377}
+  - {fileID: 7884001712641839604}
+  - {fileID: 7807549759281910334}
+  - {fileID: -2124462470432863750}
+  - {fileID: -2933441676160395957}
+  - {fileID: -6827758873912786075}
+  - {fileID: 422426445096902551}
+  - {fileID: -1917637657722503589}
+  - {fileID: -5439742853866924341}
+  - {fileID: 7402863483356197564}
+  - {fileID: -5408790449813340830}
+  - {fileID: -4507216553896973501}
+  - {fileID: 8473533565524332617}
+  - {fileID: 6953192146173973715}
+  - {fileID: -1261293941712026890}
+  - {fileID: 7176119173235833049}
+  - {fileID: -1608686050759065310}
+  - {fileID: 4344100073900624843}
+  - {fileID: -7439019570531808696}
+  - {fileID: 4156370227644960598}
+  - {fileID: -3216821903670716410}
+  - {fileID: -4388701194790377436}
+  - {fileID: -3806745526896126365}
+  - {fileID: 2992812024761153754}
+  - {fileID: 7688933976541444910}
+  - {fileID: -28459524090279224}
+  - {fileID: -8677593695008942605}
+  - {fileID: 1956349457740001325}
+  - {fileID: -2588260922069881410}
+  - {fileID: 584362021299942624}
+--- !u!114 &548398049922010427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e6c13b3ea13418a9c3981da75d70674, type: 3}
+  m_Name: FaceHair
+  m_EditorClassIdentifier: 
+  partsItemDataList:
+  - {fileID: -193579381290217391}
+  - {fileID: 3572005813796256968}
+  - {fileID: -5678595560065046059}
+  - {fileID: 807433380476980795}
+  - {fileID: -3878233686257336458}
+  - {fileID: 3448210766679512339}
+  - {fileID: 7292196907852390101}
+--- !u!114 &584362021299942624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_20
+  m_EditorClassIdentifier: 
+  itemID: 33568
+  itemName: New_Hair_20
+  itemIcon: {fileID: 2800000, guid: 3db80ed1c49545642ab89b5df39dbd02, type: 3}
+  itemDescription: New_Hair_20
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 3db80ed1c49545642ab89b5df39dbd02, type: 3}
+--- !u!114 &604089704463099362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/Helmet_7
+  m_EditorClassIdentifier: 
+  itemID: 33040
+  itemName: Helmet_7
+  itemIcon: {fileID: 2800000, guid: 76c74d06afe9bdf40aa79bc3de9150ee, type: 3}
+  itemDescription: Helmet_7
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 76c74d06afe9bdf40aa79bc3de9150ee, type: 3}
+--- !u!114 &681199832390099470
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/New_Armor_03
+  m_EditorClassIdentifier: 
+  itemID: 34042
+  itemName: New_Armor_03
+  itemIcon: {fileID: 2800000, guid: 6d75cdde91fcb484a855cc0d9fe6f925, type: 3}
+  itemDescription: New_Armor_03
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 6373656637912799218, guid: 6d75cdde91fcb484a855cc0d9fe6f925, type: 3}
+--- !u!114 &807433380476980795
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: FaceHair/FaceHair_4
+  m_EditorClassIdentifier: 
+  itemID: 33270
+  itemName: FaceHair_4
+  itemIcon: {fileID: 2800000, guid: 8ffda49947368aa428292c8f9832444c, type: 3}
+  itemDescription: FaceHair_4
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 8ffda49947368aa428292c8f9832444c, type: 3}
+--- !u!114 &830020661597865174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/Cloth_8
+  m_EditorClassIdentifier: 
+  itemID: 33114
+  itemName: Cloth_8
+  itemIcon: {fileID: 2800000, guid: bb98d0361fb0e9a47819f17749c224d0, type: 3}
+  itemDescription: Cloth_8
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -6287698273869241847, guid: bb98d0361fb0e9a47819f17749c224d0, type: 3}
+  - {fileID: 443023699765824805, guid: bb98d0361fb0e9a47819f17749c224d0, type: 3}
+  - {fileID: 4101217945439343506, guid: bb98d0361fb0e9a47819f17749c224d0, type: 3}
+--- !u!114 &991785040063774381
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/Sword_4
+  m_EditorClassIdentifier: 
+  itemID: 34000
+  itemName: Sword_4
+  itemIcon: {fileID: 2800000, guid: da6c6d88ad1d9094b8c73ade81c1c1fe, type: 3}
+  itemDescription: Sword_4
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: da6c6d88ad1d9094b8c73ade81c1c1fe, type: 3}
+--- !u!114 &997686961115169775
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/Sword_1
+  m_EditorClassIdentifier: 
+  itemID: 33602
+  itemName: Sword_1
+  itemIcon: {fileID: 2800000, guid: 7cd374fff9149034a997ef04e512abac, type: 3}
+  itemDescription: Sword_1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 7cd374fff9149034a997ef04e512abac, type: 3}
+--- !u!114 &1024320801829258583
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Normal_Hair1
+  m_EditorClassIdentifier: 
+  itemID: 33606
+  itemName: Normal_Hair1
+  itemIcon: {fileID: 2800000, guid: 87dbdc04a3d8dd841bbb73a92c76d072, type: 3}
+  itemDescription: Normal_Hair1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 87dbdc04a3d8dd841bbb73a92c76d072, type: 3}
+--- !u!114 &1063831545865056194
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/WoodShield3
+  m_EditorClassIdentifier: 
+  itemID: 33258
+  itemName: WoodShield3
+  itemIcon: {fileID: 2800000, guid: b381eb87b54cf5149babea1581161e54, type: 3}
+  itemDescription: WoodShield3
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: b381eb87b54cf5149babea1581161e54, type: 3}
+--- !u!114 &1152709600900455400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/New_Cloth_02
+  m_EditorClassIdentifier: 
+  itemID: 33262
+  itemName: New_Cloth_02
+  itemIcon: {fileID: 2800000, guid: ab29fca659efc904f8b83ad9634ed880, type: 3}
+  itemDescription: New_Cloth_02
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -7650184365866704765, guid: ab29fca659efc904f8b83ad9634ed880, type: 3}
+  - {fileID: 1941588151021849806, guid: ab29fca659efc904f8b83ad9634ed880, type: 3}
+  - {fileID: 3832911645102586382, guid: ab29fca659efc904f8b83ad9634ed880, type: 3}
+--- !u!114 &1317317905348700682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/Shield_1
+  m_EditorClassIdentifier: 
+  itemID: 34030
+  itemName: Shield_1
+  itemIcon: {fileID: 2800000, guid: fbd4db2dd332ed84eb231d40193564d1, type: 3}
+  itemDescription: Shield_1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: fbd4db2dd332ed84eb231d40193564d1, type: 3}
+--- !u!114 &1347290602349419492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_10
+  m_EditorClassIdentifier: 
+  itemID: 34184
+  itemName: New_Weapon_10
+  itemIcon: {fileID: 2800000, guid: 2777de3321c622044b24e697906482ce, type: 3}
+  itemDescription: New_Weapon_10
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 2777de3321c622044b24e697906482ce, type: 3}
+--- !u!114 &1618671221353737452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/Axe_1
+  m_EditorClassIdentifier: 
+  itemID: 33638
+  itemName: Axe_1
+  itemIcon: {fileID: 2800000, guid: f7b9abdfa455b3b42896c1733a5e1d59, type: 3}
+  itemDescription: Axe_1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: f7b9abdfa455b3b42896c1733a5e1d59, type: 3}
+--- !u!114 &1757644007556439548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/New_Armor_06
+  m_EditorClassIdentifier: 
+  itemID: 33670
+  itemName: New_Armor_06
+  itemIcon: {fileID: 2800000, guid: 6938014279cf6fe49acdf3370c375b30, type: 3}
+  itemDescription: New_Armor_06
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: 8681217020312184217, guid: 6938014279cf6fe49acdf3370c375b30, type: 3}
+  - {fileID: 8982820368506593384, guid: 6938014279cf6fe49acdf3370c375b30, type: 3}
+  - {fileID: 6580047532355526111, guid: 6938014279cf6fe49acdf3370c375b30, type: 3}
+--- !u!114 &1893714225394663330
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/New_Helmet_06
+  m_EditorClassIdentifier: 
+  itemID: 34158
+  itemName: New_Helmet_06
+  itemIcon: {fileID: 2800000, guid: f39efe1dfd246ab4690161d3ebb03961, type: 3}
+  itemDescription: New_Helmet_06
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: f39efe1dfd246ab4690161d3ebb03961, type: 3}
+--- !u!114 &1930685296658693156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/Normal_Armor1
+  m_EditorClassIdentifier: 
+  itemID: 33850
+  itemName: Normal_Armor1
+  itemIcon: {fileID: 2800000, guid: e2a62e5651add804d84983d848813932, type: 3}
+  itemDescription: Normal_Armor1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: 3363842552766674601, guid: e2a62e5651add804d84983d848813932, type: 3}
+  - {fileID: 7136363362834297291, guid: e2a62e5651add804d84983d848813932, type: 3}
+  - {fileID: -8979658097689788454, guid: e2a62e5651add804d84983d848813932, type: 3}
+--- !u!114 &1956349457740001325
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_18
+  m_EditorClassIdentifier: 
+  itemID: 33530
+  itemName: New_Hair_18
+  itemIcon: {fileID: 2800000, guid: 5db62373c3bc68e4f8e715e28692446b, type: 3}
+  itemDescription: New_Hair_18
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 5db62373c3bc68e4f8e715e28692446b, type: 3}
+--- !u!114 &2132205023274510065
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/Normal_Helmet1
+  m_EditorClassIdentifier: 
+  itemID: 33350
+  itemName: Normal_Helmet1
+  itemIcon: {fileID: 2800000, guid: 6c7b799178bbb834eb8402f66f6b4c99, type: 3}
+  itemDescription: Normal_Helmet1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 6c7b799178bbb834eb8402f66f6b4c99, type: 3}
+--- !u!114 &2191003017148488744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Hair_6
+  m_EditorClassIdentifier: 
+  itemID: 34010
+  itemName: Hair_6
+  itemIcon: {fileID: 2800000, guid: 8b7ca1e3b53f57841b1dd999f89804b9, type: 3}
+  itemDescription: Hair_6
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 8b7ca1e3b53f57841b1dd999f89804b9, type: 3}
+--- !u!114 &2435784819902770109
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/Sword_2
+  m_EditorClassIdentifier: 
+  itemID: 33342
+  itemName: Sword_2
+  itemIcon: {fileID: 2800000, guid: 9a573d611f4049d4ea85d25ec6d1495c, type: 3}
+  itemDescription: Sword_2
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 9a573d611f4049d4ea85d25ec6d1495c, type: 3}
+--- !u!114 &2547329468655136829
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/Helmet_5
+  m_EditorClassIdentifier: 
+  itemID: 33740
+  itemName: Helmet_5
+  itemIcon: {fileID: 2800000, guid: e096ad4afec951c4095ab5379628c496, type: 3}
+  itemDescription: Helmet_5
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: e096ad4afec951c4095ab5379628c496, type: 3}
+--- !u!114 &2687949342658363998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/New_Helmet_10
+  m_EditorClassIdentifier: 
+  itemID: 34038
+  itemName: New_Helmet_10
+  itemIcon: {fileID: 2800000, guid: 01551a0c69405e44490f53baf55d73fd, type: 3}
+  itemDescription: New_Helmet_10
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 01551a0c69405e44490f53baf55d73fd, type: 3}
+--- !u!114 &2893911592998770631
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/Sword_3
+  m_EditorClassIdentifier: 
+  itemID: 32974
+  itemName: Sword_3
+  itemIcon: {fileID: 2800000, guid: 5917e5c971b647647a656562e064c86c, type: 3}
+  itemDescription: Sword_3
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 5917e5c971b647647a656562e064c86c, type: 3}
+--- !u!114 &2897427765083721316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/New_Armor_08
+  m_EditorClassIdentifier: 
+  itemID: 33162
+  itemName: New_Armor_08
+  itemIcon: {fileID: 2800000, guid: dada519ace19ed545a6e63b0c6a12bb9, type: 3}
+  itemDescription: New_Armor_08
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: 676671511496910333, guid: dada519ace19ed545a6e63b0c6a12bb9, type: 3}
+  - {fileID: 46321824140090289, guid: dada519ace19ed545a6e63b0c6a12bb9, type: 3}
+  - {fileID: 8510608192026770805, guid: dada519ace19ed545a6e63b0c6a12bb9, type: 3}
+--- !u!114 &2992812024761153754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_14
+  m_EditorClassIdentifier: 
+  itemID: 34202
+  itemName: New_Hair_14
+  itemIcon: {fileID: 2800000, guid: c14d6dfb09a588f4796f831bb2fd14d4, type: 3}
+  itemDescription: New_Hair_14
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: c14d6dfb09a588f4796f831bb2fd14d4, type: 3}
+--- !u!114 &3054165004533462827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e6c13b3ea13418a9c3981da75d70674, type: 3}
+  m_Name: Pant
+  m_EditorClassIdentifier: 
+  partsItemDataList:
+  - {fileID: -7601067857688752724}
+  - {fileID: -1044346053362552016}
+  - {fileID: -149402893334948835}
+  - {fileID: -7540172168404464123}
+  - {fileID: 7707854652246538555}
+  - {fileID: 3099292267840735134}
+  - {fileID: -7322745981274271008}
+  - {fileID: 5719327005178571109}
+  - {fileID: -6334193614464365472}
+  - {fileID: -8910093601595173339}
+  - {fileID: 7421747150534787468}
+  - {fileID: -5696654077896735670}
+  - {fileID: 6700470684568994217}
+  - {fileID: -6255457089492190957}
+  - {fileID: -1916614590604984966}
+  - {fileID: -7596851612100213280}
+--- !u!114 &3099292267840735134
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Pant/New_Pant_02
+  m_EditorClassIdentifier: 
+  itemID: 33052
+  itemName: New_Pant_02
+  itemIcon: {fileID: 2800000, guid: 0104f41953bb732499716d0a15e1094c, type: 3}
+  itemDescription: New_Pant_02
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 0000000000000000
+  sprites:
+  - {fileID: -997006319698520551, guid: 0104f41953bb732499716d0a15e1094c, type: 3}
+  - {fileID: -4521406155954140245, guid: 0104f41953bb732499716d0a15e1094c, type: 3}
+--- !u!114 &3191860981600921231
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Hair_4
+  m_EditorClassIdentifier: 
+  itemID: 33898
+  itemName: Hair_4
+  itemIcon: {fileID: 2800000, guid: 49c91a67ac9ae1d4c86991d977f235e8, type: 3}
+  itemDescription: Hair_4
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 49c91a67ac9ae1d4c86991d977f235e8, type: 3}
+--- !u!114 &3448210766679512339
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: FaceHair/Normal_Mustache1
+  m_EditorClassIdentifier: 
+  itemID: 34280
+  itemName: Normal_Mustache1
+  itemIcon: {fileID: 2800000, guid: cb2458ea7d26b40469439d1d6a5c0813, type: 3}
+  itemDescription: Normal_Mustache1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: cb2458ea7d26b40469439d1d6a5c0813, type: 3}
+--- !u!114 &3457643205450994725
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_13
+  m_EditorClassIdentifier: 
+  itemID: 32900
+  itemName: New_Weapon_13
+  itemIcon: {fileID: 2800000, guid: ba865c762106c3e49948a5fd4899f05c, type: 3}
+  itemDescription: New_Weapon_13
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: ba865c762106c3e49948a5fd4899f05c, type: 3}
+--- !u!114 &3482950697137997663
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/Cloth_12
+  m_EditorClassIdentifier: 
+  itemID: 33794
+  itemName: Cloth_12
+  itemIcon: {fileID: 2800000, guid: 57ee90694b5b6004a9010a0db4df0bc3, type: 3}
+  itemDescription: Cloth_12
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: 7896191252196906362, guid: 57ee90694b5b6004a9010a0db4df0bc3, type: 3}
+  - {fileID: 142190170752318335, guid: 57ee90694b5b6004a9010a0db4df0bc3, type: 3}
+  - {fileID: -9035144544001989217, guid: 57ee90694b5b6004a9010a0db4df0bc3, type: 3}
+--- !u!114 &3511435043500784891
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Shield_03
+  m_EditorClassIdentifier: 
+  itemID: 33470
+  itemName: New_Shield_03
+  itemIcon: {fileID: 2800000, guid: d1b6b4ee86da1ea439a5f683fae19c92, type: 3}
+  itemDescription: New_Shield_03
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: d1b6b4ee86da1ea439a5f683fae19c92, type: 3}
+--- !u!114 &3572005813796256968
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: FaceHair/FaceHair_2
+  m_EditorClassIdentifier: 
+  itemID: 33210
+  itemName: FaceHair_2
+  itemIcon: {fileID: 2800000, guid: 27fd2be5fcda12247b7689babdc45ae9, type: 3}
+  itemDescription: FaceHair_2
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 27fd2be5fcda12247b7689babdc45ae9, type: 3}
+--- !u!114 &3622560156582233821
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/Helmet_1
+  m_EditorClassIdentifier: 
+  itemID: 34198
+  itemName: Helmet_1
+  itemIcon: {fileID: 2800000, guid: ca448466a61f5184594a2f29dac4cb06, type: 3}
+  itemDescription: Helmet_1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: ca448466a61f5184594a2f29dac4cb06, type: 3}
+--- !u!114 &3900131169187372109
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Normal_Hair3
+  m_EditorClassIdentifier: 
+  itemID: 32916
+  itemName: Normal_Hair3
+  itemIcon: {fileID: 2800000, guid: eb5d0beb3d641664b94eaa056c7b0baf, type: 3}
+  itemDescription: Normal_Hair3
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: eb5d0beb3d641664b94eaa056c7b0baf, type: 3}
+--- !u!114 &4156370227644960598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_10
+  m_EditorClassIdentifier: 
+  itemID: 33718
+  itemName: New_Hair_10
+  itemIcon: {fileID: 2800000, guid: da7d018ba88561246867ccd191ee9135, type: 3}
+  itemDescription: New_Hair_10
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: da7d018ba88561246867ccd191ee9135, type: 3}
+--- !u!114 &4344100073900624843
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_08
+  m_EditorClassIdentifier: 
+  itemID: 33328
+  itemName: New_Hair_08
+  itemIcon: {fileID: 2800000, guid: e9308468ef87f434288aee54bf9601c9, type: 3}
+  itemDescription: New_Hair_08
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: e9308468ef87f434288aee54bf9601c9, type: 3}
+--- !u!114 &4824116955423056919
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/Armor_1
+  m_EditorClassIdentifier: 
+  itemID: 33684
+  itemName: Armor_1
+  itemIcon: {fileID: 2800000, guid: c7caa67cfd03ff5408a17d656f3736b8, type: 3}
+  itemDescription: Armor_1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -3992137426342128158, guid: c7caa67cfd03ff5408a17d656f3736b8, type: 3}
+  - {fileID: -1120026500337400717, guid: c7caa67cfd03ff5408a17d656f3736b8, type: 3}
+  - {fileID: -1554369935797715747, guid: c7caa67cfd03ff5408a17d656f3736b8, type: 3}
+--- !u!114 &4990268620155637106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Hair_2
+  m_EditorClassIdentifier: 
+  itemID: 33834
+  itemName: Hair_2
+  itemIcon: {fileID: 2800000, guid: 139d189945cba80438e3f11dd7d73b79, type: 3}
+  itemDescription: Hair_2
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 139d189945cba80438e3f11dd7d73b79, type: 3}
+--- !u!114 &5156368680013964033
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/SteelShield1
+  m_EditorClassIdentifier: 
+  itemID: 33136
+  itemName: SteelShield1
+  itemIcon: {fileID: 2800000, guid: bfdc0bef39f153345963403c2ee4f529, type: 3}
+  itemDescription: SteelShield1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: bfdc0bef39f153345963403c2ee4f529, type: 3}
+--- !u!114 &5297104709419937749
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Normal_Hair2
+  m_EditorClassIdentifier: 
+  itemID: 33572
+  itemName: Normal_Hair2
+  itemIcon: {fileID: 2800000, guid: eae114affd721f0449523af72e45b56e, type: 3}
+  itemDescription: Normal_Hair2
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: eae114affd721f0449523af72e45b56e, type: 3}
+--- !u!114 &5535069718744075064
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Hair_9
+  m_EditorClassIdentifier: 
+  itemID: 33132
+  itemName: Hair_9
+  itemIcon: {fileID: 2800000, guid: 807b38a50ed37074d96c2b2c55292b75, type: 3}
+  itemDescription: Hair_9
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 807b38a50ed37074d96c2b2c55292b75, type: 3}
+--- !u!114 &5592567737346189130
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/Cloth_9
+  m_EditorClassIdentifier: 
+  itemID: 32888
+  itemName: Cloth_9
+  itemIcon: {fileID: 2800000, guid: 3caa52f0c4a163c4ea3570ed36364828, type: 3}
+  itemDescription: Cloth_9
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: -6632709640309470192, guid: 3caa52f0c4a163c4ea3570ed36364828, type: 3}
+--- !u!114 &5602310310785423564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Hair_1
+  m_EditorClassIdentifier: 
+  itemID: 33786
+  itemName: Hair_1
+  itemIcon: {fileID: 2800000, guid: 9549844e77ead6b448f076aa6754349a, type: 3}
+  itemDescription: Hair_1
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 9549844e77ead6b448f076aa6754349a, type: 3}
+--- !u!114 &5625196206537103936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_03
+  m_EditorClassIdentifier: 
+  itemID: 34150
+  itemName: New_Weapon_03
+  itemIcon: {fileID: 2800000, guid: 91da330be1830a342ba465abadad1fe4, type: 3}
+  itemDescription: New_Weapon_03
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 91da330be1830a342ba465abadad1fe4, type: 3}
+--- !u!114 &5719327005178571109
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Pant/New_Pant_04
+  m_EditorClassIdentifier: 
+  itemID: 33474
+  itemName: New_Pant_04
+  itemIcon: {fileID: 2800000, guid: 9bc8af06fe77e834bb7120ccea24e82c, type: 3}
+  itemDescription: New_Pant_04
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 0000000000000000
+  sprites:
+  - {fileID: 7194678473495877024, guid: 9bc8af06fe77e834bb7120ccea24e82c, type: 3}
+  - {fileID: -6802735470812833022, guid: 9bc8af06fe77e834bb7120ccea24e82c, type: 3}
+--- !u!114 &5835671175879501481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e6c13b3ea13418a9c3981da75d70674, type: 3}
+  m_Name: Armor
+  m_EditorClassIdentifier: 
+  partsItemDataList:
+  - {fileID: 4824116955423056919}
+  - {fileID: -6337771194793760937}
+  - {fileID: -2098778815257818499}
+  - {fileID: -501256664720113245}
+  - {fileID: -5043386852729812352}
+  - {fileID: -6985779042641262512}
+  - {fileID: 6214087143901872461}
+  - {fileID: 8360838257258594697}
+  - {fileID: 1930685296658693156}
+  - {fileID: 6386126801956116479}
+  - {fileID: 7554048216070293686}
+  - {fileID: 681199832390099470}
+  - {fileID: -3487280177090302315}
+  - {fileID: -5922308813926422806}
+  - {fileID: 1757644007556439548}
+  - {fileID: 6046459173651089435}
+  - {fileID: 2897427765083721316}
+  - {fileID: -2673444065609676441}
+  - {fileID: -5244755662030604545}
+  - {fileID: -2968924114166762461}
+--- !u!114 &6046459173651089435
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/New_Armor_07
+  m_EditorClassIdentifier: 
+  itemID: 33778
+  itemName: New_Armor_07
+  itemIcon: {fileID: 2800000, guid: 71314269795e6694dae581c7c3f12449, type: 3}
+  itemDescription: New_Armor_07
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: 3193519689285016258, guid: 71314269795e6694dae581c7c3f12449, type: 3}
+  - {fileID: -4645457131700515434, guid: 71314269795e6694dae581c7c3f12449, type: 3}
+  - {fileID: 7551784250672351729, guid: 71314269795e6694dae581c7c3f12449, type: 3}
+--- !u!114 &6214087143901872461
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/Armor_7
+  m_EditorClassIdentifier: 
+  itemID: 34276
+  itemName: Armor_7
+  itemIcon: {fileID: 2800000, guid: 8741df35b663c194fa85e10858e295cd, type: 3}
+  itemDescription: Armor_7
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: -314589219302796148, guid: 8741df35b663c194fa85e10858e295cd, type: 3}
+--- !u!114 &6290866976542673807
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/Cloth_5
+  m_EditorClassIdentifier: 
+  itemID: 34050
+  itemName: Cloth_5
+  itemIcon: {fileID: 2800000, guid: e8612a072043ecf47b8f683c52c019f3, type: 3}
+  itemDescription: Cloth_5
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -401103313191006133, guid: e8612a072043ecf47b8f683c52c019f3, type: 3}
+  - {fileID: 471798231154425545, guid: e8612a072043ecf47b8f683c52c019f3, type: 3}
+  - {fileID: -3794662817809912853, guid: e8612a072043ecf47b8f683c52c019f3, type: 3}
+--- !u!114 &6386126801956116479
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/New_Armor_01
+  m_EditorClassIdentifier: 
+  itemID: 33058
+  itemName: New_Armor_01
+  itemIcon: {fileID: 2800000, guid: f73eba31618492341ba5805db8d0ed49, type: 3}
+  itemDescription: New_Armor_01
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: 2063926097333013154, guid: f73eba31618492341ba5805db8d0ed49, type: 3}
+  - {fileID: -925700855234654727, guid: f73eba31618492341ba5805db8d0ed49, type: 3}
+  - {fileID: -5301234822971782531, guid: f73eba31618492341ba5805db8d0ed49, type: 3}
+--- !u!114 &6461658385383187121
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/Helmet_6
+  m_EditorClassIdentifier: 
+  itemID: 33838
+  itemName: Helmet_6
+  itemIcon: {fileID: 2800000, guid: 80afe597d785b4f4ea737e923a321b23, type: 3}
+  itemDescription: Helmet_6
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 80afe597d785b4f4ea737e923a321b23, type: 3}
+--- !u!114 &6666904165520668087
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Hair_5
+  m_EditorClassIdentifier: 
+  itemID: 33990
+  itemName: Hair_5
+  itemIcon: {fileID: 2800000, guid: f80920e100dada24f9c0813cb2b0fba0, type: 3}
+  itemDescription: Hair_5
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: f80920e100dada24f9c0813cb2b0fba0, type: 3}
+--- !u!114 &6700470684568994217
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Pant/New_Pant_09
+  m_EditorClassIdentifier: 
+  itemID: 33382
+  itemName: New_Pant_09
+  itemIcon: {fileID: 2800000, guid: 07dfe65e19085a84cb523733c03f24af, type: 3}
+  itemDescription: New_Pant_09
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 0000000000000000
+  sprites:
+  - {fileID: 358118918717250961, guid: 07dfe65e19085a84cb523733c03f24af, type: 3}
+  - {fileID: -2629876435329591000, guid: 07dfe65e19085a84cb523733c03f24af, type: 3}
+--- !u!114 &6831630406871493475
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Back/New_Back_02
+  m_EditorClassIdentifier: 
+  itemID: 33942
+  itemName: New_Back_02
+  itemIcon: {fileID: 2800000, guid: 036f45816bfab4b45acc2e53059ba727, type: 3}
+  itemDescription: New_Back_02
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 036f45816bfab4b45acc2e53059ba727, type: 3}
+--- !u!114 &6953192146173973715
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_04
+  m_EditorClassIdentifier: 
+  itemID: 34034
+  itemName: New_Hair_04
+  itemIcon: {fileID: 2800000, guid: 806f37a0d622c98408d8f1e29a375d7c, type: 3}
+  itemDescription: New_Hair_04
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 806f37a0d622c98408d8f1e29a375d7c, type: 3}
+--- !u!114 &6966066761749253095
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_11
+  m_EditorClassIdentifier: 
+  itemID: 33110
+  itemName: New_Weapon_11
+  itemIcon: {fileID: 2800000, guid: 405ad0c7ab46a8448aeeec66c5f5993a, type: 3}
+  itemDescription: New_Weapon_11
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 405ad0c7ab46a8448aeeec66c5f5993a, type: 3}
+--- !u!114 &7115103276467766743
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Back/Back_3
+  m_EditorClassIdentifier: 
+  itemID: 33518
+  itemName: Back_3
+  itemIcon: {fileID: 2800000, guid: f8666b9f3a96fda4cad770d988398f60, type: 3}
+  itemDescription: Back_3
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: f8666b9f3a96fda4cad770d988398f60, type: 3}
+--- !u!114 &7176119173235833049
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_06
+  m_EditorClassIdentifier: 
+  itemID: 32928
+  itemName: New_Hair_06
+  itemIcon: {fileID: 2800000, guid: e924d0094ee851f46bc69795a9ee53c4, type: 3}
+  itemDescription: New_Hair_06
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: e924d0094ee851f46bc69795a9ee53c4, type: 3}
+--- !u!114 &7240930359549320297
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Weapons/New_Weapon_15
+  m_EditorClassIdentifier: 
+  itemID: 33338
+  itemName: New_Weapon_15
+  itemIcon: {fileID: 2800000, guid: 6930453f40f02d14895d7e6a1208c57b, type: 3}
+  itemDescription: New_Weapon_15
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 6930453f40f02d14895d7e6a1208c57b, type: 3}
+--- !u!114 &7249510289840876266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Hair_7
+  m_EditorClassIdentifier: 
+  itemID: 33842
+  itemName: Hair_7
+  itemIcon: {fileID: 2800000, guid: ad89240ace244f94387be6643695f3bd, type: 3}
+  itemDescription: Hair_7
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: ad89240ace244f94387be6643695f3bd, type: 3}
+--- !u!114 &7292196907852390101
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: FaceHair/Normal_Mustache2
+  m_EditorClassIdentifier: 
+  itemID: 33452
+  itemName: Normal_Mustache2
+  itemIcon: {fileID: 2800000, guid: 1281bac20aa5a7a429c660c7195c64d1, type: 3}
+  itemDescription: Normal_Mustache2
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 1281bac20aa5a7a429c660c7195c64d1, type: 3}
+--- !u!114 &7384731994206522955
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Hair_8
+  m_EditorClassIdentifier: 
+  itemID: 33584
+  itemName: Hair_8
+  itemIcon: {fileID: 2800000, guid: b1e0e05151f75874aa1f1012ae5d02a8, type: 3}
+  itemDescription: Hair_8
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: b1e0e05151f75874aa1f1012ae5d02a8, type: 3}
+--- !u!114 &7402863483356197564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Normal_Hair13
+  m_EditorClassIdentifier: 
+  itemID: 32978
+  itemName: Normal_Hair13
+  itemIcon: {fileID: 2800000, guid: 2c6e336b4a09e054eb5b6b18a2d499ae, type: 3}
+  itemDescription: Normal_Hair13
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 2c6e336b4a09e054eb5b6b18a2d499ae, type: 3}
+--- !u!114 &7421747150534787468
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Pant/New_Pant_07
+  m_EditorClassIdentifier: 
+  itemID: 32952
+  itemName: New_Pant_07
+  itemIcon: {fileID: 2800000, guid: 12a59495f682b1c4eafbbcccc6d1e145, type: 3}
+  itemDescription: New_Pant_07
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 0000000000000000
+  sprites:
+  - {fileID: -1315093970748110446, guid: 12a59495f682b1c4eafbbcccc6d1e145, type: 3}
+  - {fileID: -3579204128877024699, guid: 12a59495f682b1c4eafbbcccc6d1e145, type: 3}
+--- !u!114 &7554048216070293686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/New_Armor_02
+  m_EditorClassIdentifier: 
+  itemID: 34086
+  itemName: New_Armor_02
+  itemIcon: {fileID: 2800000, guid: 7a5be70b390b86645ba8fd9c4add822b, type: 3}
+  itemDescription: New_Armor_02
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -8707472796148539467, guid: 7a5be70b390b86645ba8fd9c4add822b, type: 3}
+  - {fileID: -3826454378112862306, guid: 7a5be70b390b86645ba8fd9c4add822b, type: 3}
+  - {fileID: 2863081914708520366, guid: 7a5be70b390b86645ba8fd9c4add822b, type: 3}
+--- !u!114 &7688933976541444910
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_15
+  m_EditorClassIdentifier: 
+  itemID: 33974
+  itemName: New_Hair_15
+  itemIcon: {fileID: 2800000, guid: df4707c54d71f5243be5ce1fd56cfa7d, type: 3}
+  itemDescription: New_Hair_15
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: df4707c54d71f5243be5ce1fd56cfa7d, type: 3}
+--- !u!114 &7698131899573223166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Hair_3
+  m_EditorClassIdentifier: 
+  itemID: 33320
+  itemName: Hair_3
+  itemIcon: {fileID: 2800000, guid: c33050a2a964cb84b926c64962f4e266, type: 3}
+  itemDescription: Hair_3
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: c33050a2a964cb84b926c64962f4e266, type: 3}
+--- !u!114 &7707854652246538555
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Pant/New_Pant_01
+  m_EditorClassIdentifier: 
+  itemID: 33932
+  itemName: New_Pant_01
+  itemIcon: {fileID: 2800000, guid: e8eb903717bdfa0448c389a74ff4f036, type: 3}
+  itemDescription: New_Pant_01
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 0000000000000000
+  sprites:
+  - {fileID: -62334307996113135, guid: e8eb903717bdfa0448c389a74ff4f036, type: 3}
+  - {fileID: -5346438201911016785, guid: e8eb903717bdfa0448c389a74ff4f036, type: 3}
+--- !u!114 &7807549759281910334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Normal_Hair6
+  m_EditorClassIdentifier: 
+  itemID: 33346
+  itemName: Normal_Hair6
+  itemIcon: {fileID: 2800000, guid: c4bf12d3e66cd8b4db06d1a2d7e3af3c, type: 3}
+  itemDescription: Normal_Hair6
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: c4bf12d3e66cd8b4db06d1a2d7e3af3c, type: 3}
+--- !u!114 &7864113376381245977
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/New_Cloth_10
+  m_EditorClassIdentifier: 
+  itemID: 33188
+  itemName: New_Cloth_10
+  itemIcon: {fileID: 2800000, guid: 70f409dccdfcc7640ad31260b6118b20, type: 3}
+  itemDescription: New_Cloth_10
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: 4207501386822081471, guid: 70f409dccdfcc7640ad31260b6118b20, type: 3}
+  - {fileID: -5800836446433278925, guid: 70f409dccdfcc7640ad31260b6118b20, type: 3}
+  - {fileID: 3763680570071632466, guid: 70f409dccdfcc7640ad31260b6118b20, type: 3}
+--- !u!114 &7884001712641839604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/Normal_Hair5
+  m_EditorClassIdentifier: 
+  itemID: 32932
+  itemName: Normal_Hair5
+  itemIcon: {fileID: 2800000, guid: 2d3111d3d8c13b14a8aa8ee3492bc6b3, type: 3}
+  itemDescription: Normal_Hair5
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 2d3111d3d8c13b14a8aa8ee3492bc6b3, type: 3}
+--- !u!114 &8360838257258594697
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Armor/Armor_8
+  m_EditorClassIdentifier: 
+  itemID: 33504
+  itemName: Armor_8
+  itemIcon: {fileID: 2800000, guid: af1a6fdb20eacb244a705c81a9496b02, type: 3}
+  itemDescription: Armor_8
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -6505695957970812123, guid: af1a6fdb20eacb244a705c81a9496b02, type: 3}
+  - {fileID: 3257737980328237110, guid: af1a6fdb20eacb244a705c81a9496b02, type: 3}
+  - {fileID: -5502725330888511627, guid: af1a6fdb20eacb244a705c81a9496b02, type: 3}
+--- !u!114 &8473533565524332617
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Hair/New_Hair_03
+  m_EditorClassIdentifier: 
+  itemID: 32896
+  itemName: New_Hair_03
+  itemIcon: {fileID: 2800000, guid: f85e3767ee871824eb6afacb2d186f27, type: 3}
+  itemDescription: New_Hair_03
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: f85e3767ee871824eb6afacb2d186f27, type: 3}
+--- !u!114 &8723233954714994595
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Helmet/Helmet_9
+  m_EditorClassIdentifier: 
+  itemID: 33790
+  itemName: Helmet_9
+  itemIcon: {fileID: 2800000, guid: 6a0f93ab59914014b83ba1f79ff44b62, type: 3}
+  itemDescription: Helmet_9
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 00000000
+  sprites:
+  - {fileID: 21300000, guid: 6a0f93ab59914014b83ba1f79ff44b62, type: 3}
+--- !u!114 &8813125878105556532
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/Cloth_10
+  m_EditorClassIdentifier: 
+  itemID: 33560
+  itemName: Cloth_10
+  itemIcon: {fileID: 2800000, guid: 9d583ec4bbd0bcc4084c54ed71010404, type: 3}
+  itemDescription: Cloth_10
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: 9071153741043795472, guid: 9d583ec4bbd0bcc4084c54ed71010404, type: 3}
+  - {fileID: -3137994370387717294, guid: 9d583ec4bbd0bcc4084c54ed71010404, type: 3}
+  - {fileID: -4607344544876785824, guid: 9d583ec4bbd0bcc4084c54ed71010404, type: 3}
+--- !u!114 &8827151001282860570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/New_Cloth_01
+  m_EditorClassIdentifier: 
+  itemID: 33806
+  itemName: New_Cloth_01
+  itemIcon: {fileID: 2800000, guid: 30a2c0c483a9e9c4e870f30894b2c9a7, type: 3}
+  itemDescription: New_Cloth_01
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: -2733704329670916693, guid: 30a2c0c483a9e9c4e870f30894b2c9a7, type: 3}
+  - {fileID: -3283878981979326925, guid: 30a2c0c483a9e9c4e870f30894b2c9a7, type: 3}
+  - {fileID: -1496476315439836622, guid: 30a2c0c483a9e9c4e870f30894b2c9a7, type: 3}
+--- !u!114 &9048616352958561209
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2807536c068433d98e65129b9a8c922, type: 3}
+  m_Name: Cloth/New_Cloth_08
+  m_EditorClassIdentifier: 
+  itemID: 34104
+  itemName: New_Cloth_08
+  itemIcon: {fileID: 2800000, guid: 81ed4b0d14f9db449a8db03dc480208d, type: 3}
+  itemDescription: New_Cloth_08
+  itemPrice: 100
+  itemMaxCount: 1
+  pivots: 000000000000000000000000
+  sprites:
+  - {fileID: 8352707068772722909, guid: 81ed4b0d14f9db449a8db03dc480208d, type: 3}
+  - {fileID: 3994166490129663576, guid: 81ed4b0d14f9db449a8db03dc480208d, type: 3}
+  - {fileID: 5580356496309759987, guid: 81ed4b0d14f9db449a8db03dc480208d, type: 3}
